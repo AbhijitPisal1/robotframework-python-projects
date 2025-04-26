@@ -1,0 +1,144 @@
+
+```` Bug/Defect Lifecycle Overview ````
+
+===============================================================================================================
+@Definition :
+The bug / defect lifecycle, is the progression of a bug from its initial discovery to its resolution and closure.
+===============================================================================================================
+@Stages:
+Open/New:   The bug is reported and awaiting review. -> Tools used Centralized tracking and organization of bugs.
+Assigned:   The bug is assigned to a developer for fixing. -> Clarifies ownership and accountability.
+In Progress:The developer is actively working on the bug.-> Indicates active progress towards resolution.
+Resolved:   The bug has been fixed and is ready for testing.-> Allows for review and verification of the solution.
+Verify:     The fix is being tested to confirm resolution.-> Ensures quality assurance before the bug is closed.
+Reopened:   The bug is reopened if unresolved or recurs.-> Facilitates continuous improvement through iterative testing.
+Closed:     The bug is confirmed as resolved and closed.-> Provides a clear indication of completed tasks in tracking system.
+Won't Fix:  The decision is made not to address the bug.-> Helps prioritize by eliminating non-critical issues from consideration.
+Deferred:   The bug will be addressed in a future release.-> Enables focus on high-priority tasks and resource management.
+Invalid:    Indicates the issue is not a valid defect or is a duplicate.-> Reduces clutter in the tracking system and focuses efforts on legitimate issues.
+===============================================================================================================
+@Tools Used :
+    JIRA: Extensive tracking and reporting capabilities, excellent for agile project management.
+    Bugzilla: Open-source tool focused on bug tracking, known for its straightforward interface.
+    MantisBT: Another open-source tool with a user-friendly interface, ideal for small to medium teams.
+    Trello: A more visual tool for tracking bugs using boards and cards, suitable for smaller projects.
+    Redmine: Integrates project management and bug tracking with customizable workflows.
+===============================================================================================================
+@Benefits:
+    Centralized Tracking: All bugs and their statuses are kept in one location.
+    Improved Collaboration: Teams can work more effectively by having clear visibility of tasks.
+    Enhanced Reporting: Detailed insights into bug trends and team performance can be generated.
+    Streamlined Process: Provides a systematic approach to managing bugs, improving efficiency in resolution.
+===============================================================================================================
+@Categorization of defects :
+    Severity (High - Medium - Low impact to system performance/security)
+    Priority (High - Medium - Low urgency)
+    Reproducibility (Reproducible, Intermittent, Non-Reproducible, or Cannot Reproduce)
+    Root Cause (Coding Error, Design Flaw, Configuration Issue, or User Error, etc.)
+    Bug Type (Functional Bugs, Performance Issues, Usability Problems, Security Vulnerabilities, Compatibility Errors, etc.)
+    Areas of Impact
+    Frequency of Occurrence
+==============================================================================================================
+Q) Explain the concept of defect logging and its importance in STLC ?
+Ans.)
+@ Definition:
+    - systematic documentation of defects found in the software application.
+    - typically includes information such as defect ID, description, severity, steps to reproduce, screenshots, environment details, and status.
+@ Importance of Defect Logging in STLC:
+    - provides a clear and standardized way to communicate issues between testers and developers.
+    - Detailed defect reports help developers understand the problem, which guides them in debugging and fixing the issue.
+    - By logging defects with different severity levels (e.g., critical, high, medium, low), teams can prioritize their work.
+    - Critical issues can be addressed immediately, while less impactful issues can be resolved later.
+    - A log of defects allows for tracking the status of each defect (new, in progress, resolved, closed).
+    - creates accountability among team members, as it is clear who is responsible for resolving which defects.
+    - Help identify patterns or recurring issues, enabling teams to take corrective actions to improve the overall quality of the product.
+    - Defect logs serve as historical documentation for understanding past issues and avoiding similar problems in subsequent projects.
+    - Insights gained from defect logs can inform future testing strategies and plans.
+    - Knowing where defects frequently occur allows for targeted testing efforts to mitigate risk in critical areas.
+===============================================================================================================
+Q) Explain the Deferred State in Defect cycle.
+Ans.)
+@ Definition: Deferred state indicates that a defect is acknowledged but not prioritized for immediate resolution.
+@ Reasons for Deferral: Low priority, resource constraints, business decisions, low impact, pending investigation.
+@ Process: Document reasons, review in future sprints, communicate with stakeholders.
+@ Lifecycle: Remains deferred until criteria change, then may move to "Open" or "In Progress."
+@ Impact: Can focus team on critical issues but may lead to technical debt if too many defects are deferred.
+===============================================================================================================
+Q) Define Hotfix & Patches
+Ans.)
+Hotfix: A hotfix is a specific, emergency update applied to software to address a critical issue or bug that needs immediate attention, often without a full release cycle.
+Patch: A patch is a broader term for updates that fix bugs, improve performance, or enhance security within software, usually packaged as part of a regular update cycle.
+
+@ Key Differences:
+    Deployment: Hotfixes are deployed swiftly in response to critical issues, while patches are scheduled updates.
+    Scope: Hotfixes typically address a specific problem; patches may include multiple fixes and enhancements.
+===============================================================================================================
+Q) What is Defect Age ?
+Ans.)
+@ Definition: Defect age refers to the total time elapsed since a defect was first reported until it is resolved or closed.
+@ Calculation: It is calculated by subtracting the defect discovery date from the defect resolution date.
+@ Purpose: Helps in assessing the efficiency of the defect resolution process and identifying delays.
+@ Importance: Tracking defect age allows teams to improve response times, prioritize bug fixes, and enhance overall software quality.
+@ Impact on Metrics: A high defect age may indicate issues in the development process, resource allocation, or prioritization of tasks.
+===============================================================================================================
+Q) Define Latent Defect, Masked Defect, Defect Clustering, Defect Cascading ?
+Ans.)
+Latent Defect:  A latent defect is a flaw in the software that exists but has not yet been discovered or identified. It may remain hidden until specific conditions or inputs expose it.
+Masked Defect:  A masked defect is an issue that is hidden or obscured by another defect or by specific conditions in the software, preventing it from being detected during testing.
+Defect Clustering:  Defect clustering refers to the phenomenon where a large number of defects are found within a specific module or area of the software, indicating it may have inherent complexities or weaknesses.
+Defect Cascading:   Defect cascading occurs when one defect leads to the manifestation of additional defects in the software, often resulting in a chain effect that complicates the overall defect resolution process.
+===============================================================================================================
+Q) Define Defect Rejection Ratio and Defect Leakage Ratio
+Ans.)
+Defect Rejection Ratio:
+    The defect rejection ratio measures the percentage of reported defects that are rejected by the development team after evaluation.
+    Defect Rejection Ratio = (Total Number of Reported Defects/Number of Rejected Defects )×100
+Defect Leakage Ratio:
+    The defect leakage ratio indicates the percentage of defects that are detected after the software has been released to production, which should have been identified during the testing phase.
+    Defect Leakage Ratio = (Defects Found in Production/(Total Defects Found (in Production + Testing)))×100
+These ratios help assess the effectiveness of the testing process and overall software quality.
+===============================================================================================================
+Q) Define Bug Release and Bug Leakage
+Ans.)
+Bug Release:
+    Bug release refers to the deployment of a software version that contains known bugs or defects.
+    This means the bugs have been acknowledged, but the decision was made to release the software despite their presence, often due to business deadlines or prioritization.
+Bug Leakage:
+    Bug leakage refers to defects that are not detected during the testing phase and are discovered by end users after the software has been released.
+    This indicates a failure in the testing process to identify critical issues before the product launch.
+===============================================================================================================
+Q) How to approach Test Planning for a defect.
+Ans.)
+    - To approach test planning for a defect, start by understanding the defect through its description and reproduction steps.
+    - Identify the affected areas and define clear test objectives, like verifying the fix and ensuring no new issues arise.
+    - Develop detailed test cases covering verification, relevant scenarios, and regression tests.
+    - Choose between manual or automated testing, then schedule testing timelines and assign responsibilities to team members.
+    - After reviewing the plan with stakeholders, execute the tests, document results, and report findings.
+   Finally, perform retesting and regression tests, and formally close the defect once validated.
+===============================================================================================================
+Q) Explain the Difference in Bug-Error-Defect-Failure
+Ans.)
+Bug:    A bug is a generic term used to describe any flaw or issue in the software that may cause it to produce incorrect or unexpected results. It is often used interchangeably with defect.
+Error:  An error refers to a human mistake made during software development, coding, or testing that can lead to defects. It is the actual incorrect action or oversight made by a developer or tester.
+Defect:    A defect is a discrepancy between the expected behavior and the actual behavior of the software. It arises when the software does not meet its requirements or specifications due to errors made during development.
+Failure:    A failure occurs when the software doesn't perform its intended function or operation in a production environment. It is the manifestation of a defect when the software is executed.
+===============================================================================================================
+Q) Explain the procedure for creating a Defect Report
+Ans.)
+Defect Report
+    A defect report (or bug report) is a document that provides detailed information about a defect found in a software application.
+    - Formal record for tracking defects throughout the software development lifecycle, facilitating communication between teams, prioritizing fixes, and ensuring quality in the final product.
+    - Used to track, manage, and communicate details about the defect to the development and testing teams.
+    - Key components of a defect report are Title, Defect ID, Description, Steps to Reproduce, Expected Result, Actual Result, Severity, Priority, Environment, Attachments, Status, Assigned To, Date Reported, Notes/Comments etc.
+===============================================================================================================
+Q) What is the difference between an exception and an error?
+Ans.)
+Exception:
+    An exception is an event that occurs during the execution of a program that disrupts the normal flow of instructions.
+    Exceptions are typically anticipated and can be handled using error-handling mechanisms such as try-catch blocks.
+    They represent conditions that a program can potentially recover from (e.g., file not found, invalid input).
+Error:
+    An error is a serious issue that arises from the environment in which the program is executed or from the program's logic that usually cannot be handled or recovered.
+    Errors often indicate fundamental problems (e.g., memory overflow, syntax errors) that may cause the program to terminate unexpectedly.
+    Errors are generally not meant to be caught or handled by the program.
+===============================================================================================================

@@ -1,0 +1,62 @@
+
+```` HTTP API Status Codes Reference Sheet ````
+
+====================================================================================================
+Q) What is an API status code and what are its benefits
+Ans.)
+    - An API status code is a three-digit number sent from the server in response to a request made to an API.
+    - These codes are a standard part of the HTTP protocol
+    - Used to indicate whether the request was successful, encountered an error, or requires further action.
+    - Provide immediate feedback about the outcome of their API requests aids in troubleshooting
+    - Saves time in debugging and helps ensure application runs smoothly.
+====================================================================================================
+Q) What are different types of status codes ?
+Ans.) -- 5 Types of HTTP Status Codes
+
+1xx - Informational Responses:-> Indicate that the request was received and understood. However, no action is required at this stage -> Communicates transfer protocol-level information.
+100 Continue: The server has received the request headers, and the client should proceed to send the request body.
+101 Switch : The requester has asked the server to switch protocols and the server has agreed.
+103 Early hints : Return some response headers before final message
+
+2xx - Successful Responses :-> The request was successfully received, understood, and accepted.
+200 OK: The request was successful, and the server returned the requested resource.
+201 Created: The request has been fulfilled, and a new resource was created as a result.
+202 Accepted: The request has been accepted for processing, but the processing is not complete.
+204 NO content : Server processed requested successfully but no content is returned.
+
+3xx - Redirection Messages :-> Indicates that the client must take some additional action in order to complete their request.
+301 Moved Permanently: The requested resource has been permanently moved to a new URL.
+302 Found: The resource you requested is temporarily located at a different URL.
+304 Not Modified: The requested resource has not been modified since the last request.
+
+4xx - Client Error Responses :-> Indicate that the client’s request contains incorrect syntax or cannot be fulfilled.
+400 Bad Request: The server cannot process the request due to a client error incorrect request.
+401 Unauthorized: Authentication is required, and it has failed or has not yet been provided.
+403 Forbidden: The server understands the request but refuses to authorize it.  i.e., the user does not have the necessary permissions for the resource
+404 Not Found: The server cannot find the requested resource.
+405 Method Not Allowed : The request HTTP method has been disabled and cannot be used for that resource
+
+5xx - Server Error Responses :-> Signify that the server failed to fulfill a valid request.
+
+500 Internal Server Error: The server encountered an unexpected condition that prevented it from fulfilling the request.
+501  Not Implemented: The HTTP method is not supported by the server and cannot be handled.
+502 Bad Gateway: The server, acting as a gateway or proxy, received an invalid response from the upstream server.
+503 Service Unavailable: The server is currently unable to handle the request due to temporary overload or maintenance.
+==================================================
+Q) Explain how to Troubleshoot API Status Codes
+Ans.)
+Client-Side Errors (4xx)
+    400 Bad Request: Correct the request data or structure and resend.
+    401 Unauthorized: Ensure the correct authentication details are provided.
+    404 Not Found: Double-check the endpoint URL or the resource identifier by checking user permissions or access rights.
+
+Server-Side Errors (5xx)
+    500 Internal Server Error: Check the server logs to determine the root cause
+    502 Bad Gateway: Consider retrying after a brief wait time.
+    503 Service Unavailable: This often means the server is overloaded. Consider retrying the request after some time.
+
+2xx Success Codes
+    200 OK: Proceed with the response data as your request was successful.
+    201 Created: If a resource was created, you might want to follow up by retrieving or confirming the creation.
+    204 No Content: A 204 indicates that the request was successful, but there's no content to return. No further action is necessary.
+==================================================

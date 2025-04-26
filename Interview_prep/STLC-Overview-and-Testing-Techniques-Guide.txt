@@ -1,0 +1,164 @@
+
+```` Key Concepts and Practices in Software Testing Life Cycle (STLC) ````
+
+================================================================================
+--- Core STLC Concepts ---
+
+================================================================================
+@Definition :
+    The Software Testing Life Cycle (STLC) consists of several stages that ensure software quality through systematic testing processes. Each stage plays a vital role in achieving effective testing outcomes.
+
+@Stages :
+    1. Requirement Analysis : Activities & Importance: Review requirement documents to identify testable aspects and clarify any ambiguities. A clear understanding of the requirements ensures comprehensive test coverage and that all necessary functionalities are addressed.
+    2. Test Planning : Activities & Importance: Develop a test plan that outlines the scope, approach, resources, and timelines. A welldefined test plan provides a roadmap for the testing process, aligning goals and expectations across stakeholders to ensure clear communication and efficient execution.
+    3. Test Case Design : Activities & Importance: Write detailed test cases and prepare automated test scripts. Wellstructured test cases ensure thorough test coverage and streamline execution. This step is crucial for maintaining consistency and ensuring all functional areas are validated.
+    4. Test Environment Setup : Activities & Importance: Set up the necessary test environments and configure testing tools. A properly configured environment ensures that tests are executed under accurate conditions, leading to reliable results.
+    5. Test Execution : Activities & Importance: Execute test cases, document results, and report defects. Direct execution of tests helps identify issues early and validates the functionality of the software, ensuring that the product meets the requirements.
+    6. Defect Reporting : Activities & Importance: Log and categorize defects found during testing. Proper defect documentation is essential for tracking issues, resolving them efficiently, and ensuring communication between developers and testers to improve product quality.
+    7. Test Closure / Reporting : Activities & Importance: Review testing activities and prepare closure reports. Analyzing the outcomes of the testing phase and documenting lessons learned provides valuable insights that can improve future testing strategies and overall project outcomes.
+    8. Retesting and Regression Testing : Activities & Importance: Retest resolved defects and conduct regression testing to ensure that no new issues have been introduced. This ensures the stability of the software after changes and confirms that existing functionality remains unaffected.
+
+@Role of an automation tester  
+    An automation tester develops scripts, maintains frameworks, and integrates tests into CI/CD pipelines. They support early detection of defects, ensure repeatable testing, and improve overall test efficiency.
+================================================================================
+
+--- Testing Techniques & Strategies ---
+
+================================================================================
+Q. What is verification and validation in testing?  
+    Verification checks if the product is being built correctly by reviewing documents, designs, and processes.  
+    Validation ensures the final product works as expected for the user by executing tests on the actual software.
+================================================================================
+Q. What is boundary value analysis (BVA)?  
+    BVA is a technique that tests at the edge of input ranges where errors are most likely.  
+    It includes values just below, at, and just above the boundaries to ensure the system handles edge cases correctly.
+================================================================================
+Q. What is equivalence partitioning?  
+    It divides input data into valid and invalid partitions where each group is expected to behave the same.  
+Testing one value from each group is considered sufficient to represent that entire partition.
+================================================================================
+Q. What is exploratory testing?  
+    Exploratory testing combines learning, test design, and execution simultaneously.  
+    It relies on the tester's experience and creativity to find unexpected issues.
+================================================================================
+Q. What is error guessing?  
+    Error guessing is a technique where testers anticipate potential defects based on past experience.  
+    It involves creating test cases around common or historically problematic areas in the application.
+================================================================================
+Q. What is the difference between blackbox and whitebox testing?  
+    Blackbox testing checks application functionality without knowing its internal code.  
+    Whitebox testing is based on code structure and logic, ensuring internal components behave correctly.
+================================================================================
+
+--- Test Management & Planning ---
+
+================================================================================
+Q. What is a test plan?  
+A test plan outlines the scope, objectives, resources, schedule, and approach for testing.  
+It serves as a guide for the testing team and helps ensure testing aligns with business goals.
+================================================================================
+Q. What is RTM (Requirement Traceability Matrix)?  
+    RTM maps requirements to corresponding test cases to ensure complete test coverage.  
+    It helps track changes and ensures that no requirement is left untested.
+================================================================================
+Q. What is a test closure report?  
+    It summarizes all testing activities, results, defects, and quality metrics at the end of the testing cycle.  
+    The report provides insights, lessons learned, and recommendations for future projects.
+================================================================================
+Q. What reports are used in testing?  
+    Common reports include Test Summary, Bug Reports, Execution Reports, Coverage Reports, and RTM.  
+    These documents help track testing progress, defect status, and overall product quality.
+================================================================================
+
+--- Defects & Prioritization ---
+
+================================================================================
+Q. How do you prioritize test cases?  
+    Test cases are prioritized based on risk, requirement criticality, severity, and business needs.  
+    Higher priority is given to test cases affecting critical features or areas prone to failure.
+================================================================================
+Q. Define severity and priority.  
+    Severity reflects the impact of a defect on the application’s functionality.  
+    Priority indicates how soon the defect should be fixed from a business perspective.
+================================================================================
+Q. What is a showstopper defect?  
+    A showstopper defect is a critical issue that blocks further testing or usage of the application.  
+    Testing is suspended until the defect is resolved, as it hinders core functionality.
+================================================================================
+
+--- Types of Testing ---
+
+================================================================================
+Q. What is smoke vs sanity testing?  
+    Smoke testing verifies major functionalities to confirm a build’s stability for further testing.  
+    Sanity testing focuses on verifying specific functionalities or bug fixes after minor changes.
+================================================================================
+Q. What is regression testing?  
+    It ensures that recent code changes haven’t negatively impacted existing features.  
+    Regression tests are repeated for every build to maintain application stability.
+================================================================================
+Q. What is retesting?  
+    Retesting involves executing failed test cases after defects are fixed to confirm they are resolved.  
+    It is done on the same environment using the same inputs to ensure accuracy.
+================================================================================
+Q. What is integration testing?  
+    Integration testing validates the interaction between integrated modules.  
+    It checks for interface issues and data flow correctness between connected components.
+================================================================================
+Q. What is topdown vs bottomup testing?  
+    Topdown testing begins with higher modules using stubs for lower ones.  
+    Bottomup testing starts from lower modules, using drivers for upperlevel components.
+================================================================================
+Q. What is big bang testing?  
+    In big bang testing, all components are integrated at once and tested collectively.  
+    It can be risky as defects are harder to isolate and may impact multiple areas.
+================================================================================
+
+--- Special Testing Types ---
+
+================================================================================
+Q. What is A/B testing?  
+    A/B testing compares two versions of a product to evaluate which one performs better with users.  
+    It helps optimize UI/UX or feature effectiveness based on realworld feedback.
+================================================================================
+Q. What is concurrency testing?  
+    Concurrency testing verifies the application can handle multiple operations simultaneously.  
+    It checks for issues like deadlocks, race conditions, or performance degradation.
+================================================================================
+Q. What is interface testing?  
+    It tests the data flow and interaction between client, server, and database components.  
+    The goal is to ensure correct communication and data handling across layers.
+================================================================================
+Q. What is monkey, gorilla, and adhoc testing?  
+     Monkey Testing: Random testing without predefined inputs or logic.  
+     Gorilla Testing: Repeatedly testing one functionality heavily to check its robustness.  
+     Adhoc Testing: Unstructured testing to explore and find defects intuitively.
+================================================================================
+
+--- Advanced Concepts ---
+
+================================================================================
+Q. What is shiftleft testing?  
+    Shiftleft testing means involving testing activities earlier in the development process.  
+    It leads to early bug detection, better collaboration, and reduced cost of fixes.
+================================================================================
+Q. What are challenges in STLC?  
+    Challenges include unclear requirements, communication gaps, resource constraints, and tool compatibility issues.  
+    They can affect test coverage, execution speed, and overall product quality.
+================================================================================
+Q. How do you integrate automation in STLC?  
+    Select repetitive and highrisk test cases, then automate them using suitable tools and frameworks.  
+    Integrate tests into CI/CD for continuous execution and faster feedback.
+================================================================================
+Q. How do you handle flaky tests?  
+    Analyze flaky tests for timing, environment, or data issues and stabilize them using waits or test isolation.  
+    Regular reviews and root cause analysis help maintain test reliability.
+================================================================================
+Q. What is error seeding?  
+    Error seeding involves deliberately inserting known defects into the system.  
+    It helps measure the effectiveness of the testing process and testers’ ability to detect bugs.
+================================================================================
+Q. What is risk mitigation in testing?  
+    Risk mitigation identifies potential risks and applies controls to reduce their impact.  
+    This ensures testing efforts are focused and resources are efficiently utilized.
+================================================================================

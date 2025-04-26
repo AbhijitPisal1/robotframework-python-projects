@@ -1,0 +1,182 @@
+### Documentation ###
+This file contains information about different scenarios and methods of working with calendar. Reference for this file is : https://www.scaler.com/topics/selenium-tutorial/how-to-handle-date-picker-in-selenium/
+
+Overview
+    To work with date pickers in Selenium, you need to follow these steps: find the date field, clear it, open the date picker, and choose the date.
+
+A) Locating Date Picker Elements
+
+A.1. Finding the Date Input Field:
+    Use Selenium’s findelement method to find the date input field by its unique ID, class name, or XPath.
+  Example:
+    date_input = driver.find_element_by_id("date-input")
+A.2. Opening the Date Picker:
+    If clicking the input field opens the date picker, use Selenium's click method to simulate this.
+  Example:
+     date_input.click()
+A.3. Locating the Date Picker Calendar:
+    To find the calendar displaying the dates, use the findelement method with the right locator.
+  Example:
+    calendar = driver.find_element_by_class_name("datepicker-calendar")
+A.4. Locating Specific Date Elements:
+    Use the findelement method to find the specific date on the calendar.
+  Example:
+    date_element = driver.find_element_by_xpath("//div[@class='date'][text()='25']")
+
+B) Interacting with Date Picker
+
+B.1) Clicking on the date picker input field
+    B.1.1. Locate the Date Picker Input Field:
+        Use findelement to locate the date input field on the webpage.
+      Example:
+        date_input = driver.find_element_by_id("datepicker")
+    B.1.2. Click on the Input Field:
+        Use click method to open the date picker.
+      Example:
+        date_input.click()
+    B.1.3. Handle Date Selection:
+        Once the date picker is open, select a date by clicking or typing it.
+B.2) Opening and closing the date picker widget
+    B.2.1. Opening the Date Picker Widget:
+        Simulate a click on the date input field to open the picker.
+      Example:
+        date_input = driver.find_element_by_id("date-input")
+        date_input.click()
+    B.2.2. Closing the Date Picker Widget:
+        Some pickers close automatically; others do not. You may need to click another element to close it.
+        b.2.2.A) Automatically closing date picker:
+            Just click the desired date.
+          Example:
+            date_element = driver.find_element_by_xpath("//div[@class='date'][text()='25']")
+            date_element.click()
+        b.2.2.B) Manually closing date picker:
+            Click an element outside the date picker to close it.
+          Example:
+            outside_element = driver.find_element_by_id("outside-element")
+            outside_element.click()
+    NOTE: Replace "outside-element" with the right identifier.
+
+C) Selecting Dates
+
+c.1) Entering dates manually in the input field
+    You can manually enter dates in the date picker.
+    c.1.1. Locate the Date Input Field:
+        Use findelement to find the input field.
+      Example:
+        date_input = driver.find_element_by_id("date-input")
+    c.1.2. Clear Existing Date Value (Optional):
+        Use clear() to remove any old values.
+      Example:
+        date_input.clear()
+    c.1.3. Enter the Desired Date:
+        Use sendkeys to input the date in the expected format.
+      Example:
+        date_input.send_keys("07/07/2023")  # Assuming the date format is MM/DD/YYYY
+
+        You can also input the date step-by-step.
+      Example:
+        date_input.send_keys("07")
+        date_input.send_keys("/")
+        date_input.send_keys("07")
+        date_input.send_keys("/")
+        date_input.send_keys("2023")
+    c.1.4. Submit or Trigger Date Selection:
+        After entering the date, submit the form or trigger the selection with a button click.
+c.2) Interacting with the date picker widget to select dates
+    c.2.1) Opening the Date Picker Widget:
+        Locate the date input field and click to open the picker.
+    c.2.2) Locating and Selecting the Desired Date:
+        Find and select the date once the picker is open.
+        c.2.2.a) Selecting Dates through Click:
+            If you can click to select dates, find the date element and click on it.
+           Example:
+            date_element = driver.find_element_by_xpath("//div[@class='date'][text()='25']")
+            date_element.click()
+        c.2.2.b) Selecting Dates through Input:
+            If the date must be entered in a specific format, you can use sendkeys.
+          Example:
+            date_input = driver.find_element_by_id("date-input")
+            date_input.clear()  # Clear any existing date value
+            date_input.send_keys("2023-07-25")  # Enter the desired date in the appropriate format
+            NOTE: Replace "date-input" with the correct identifier.
+
+D) Handling Different Date Formats
+
+D.1) Identifying the Expected Date Format:
+    You need to know the expected date format, which you can find in documentation or HTML code.
+D.2) Converting Dates to the Expected Format:
+    Use Python's datetime module to convert dates to the expected format.
+
+E) Dealing with Calendar Navigation
+    You may need to use arrows to navigate months or years. Find these elements and use click() to move.
+
+F) Handling Date Restrictions and Validation
+
+F.1) Understanding Date Restrictions:
+    Understand the rules about selectable dates from the application’s documentation.
+F.2) Checking Date Restrictions:
+    Before selecting a date, check if it’s valid based on the restrictions.
+  Example:
+    date_input = driver.find_element_by_id("date-input")
+    # Retrieve the minimum and maximum date values
+    min_date = date_input.get_attribute("min")
+    max_date = date_input.get_attribute("max")
+
+    Convert the strings to datetime objects for comparison:
+    desired_date = datetime.datetime.strptime("2023-07-25", "%Y-%m-%d")
+    min_date_obj = datetime.datetime.strptime(min_date, "%Y-%m-%d")
+    max_date_obj = datetime.datetime.strptime(max_date, "%Y-%m-%d")
+
+    Check if the date is in range:
+    if desired_date >= min_date_obj and desired_date <= max_date_obj:
+        Proceed with selecting the date.
+    else:
+        Handle the error.
+
+F.3) Handling Date Validation Messages:
+    If there are error messages for invalid dates, check for these and handle them.
+  Example:
+    validation_element = driver.find_element_by_id("date-validation")
+    validation_message = validation_element.text
+
+    If $validation\message$ is "Invalid date", handle the error.
+    NOTE: Replace "date-validation" with the correct identifier.
+
+G) Handling Dynamic Date Pickers
+
+g.1) Identifying and handling dynamically generated date picker elements
+    You need to identify and adapt to dynamic date picker elements in Selenium.
+g.2) Identifying Dynamic Elements:
+    Find unique identifiers for dynamically generated elements by inspecting HTML.
+g.3) Using Dynamic Locators:
+    Use unique attributes with dynamic locators to interact with elements.
+  Example:
+    date_elements = driver.find_elements_by_xpath("//div[contains(@class, 'dynamic-date-picker-element')]")
+  NOTE: Replace "dynamic-date-picker-element" with the relevant class.
+
+g.4) Iterating Through Dynamic Elements:
+    You may need to loop through elements to perform actions on each one.
+
+H) Dealing with date pickers that have dynamic attributes or IDs
+    Dynamic attributes or IDs can be tricky, but there are strategies to manage this.
+
+h.1) Using Relative XPath:
+    Use relative XPath expressions to navigate based on known elements.
+  Example:
+    date_input = driver.find_element_by_id("date-input")
+    # Traverse to the date picker elements using relative XPath
+    prev_button = date_input.find_element_by_xpath("./preceding-sibling::button[@class='prev']")
+    next_button = date_input.find_element_by_xpath("./following-sibling::button[@class='next']")
+
+h.2) Using CSS Selectors:
+    CSS selectors can also help in locating elements based on relationships.
+  Example:
+    date_input = driver.find_element_by_id("date-input")
+    # Traverse to the date picker elements using CSS selectors
+    prev_button = date_input.find_element_by_css_selector("button.prev")
+    next_button = date_input.find_element_by_css_selector("button.next")
+
+h.3) Generating Dynamic Locators:
+    You can generate locators on-the-fly using variables based on dynamic attributes.
+
+

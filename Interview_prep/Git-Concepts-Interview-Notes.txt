@@ -1,0 +1,253 @@
+
+```` Key Git Concepts for Interview Preparation ````
+
+============================================================================================================
+Q) What is Git?
+Ans) Git is a distributed version control system (DVCS) that is used to track changes in source code during software development. It permits multiple developers to work on a project together without interrupting each other's changes. Git is especially popular for its speed, and ability to manage both small and large projects capably.
+============================================================================================================
+Q) What is a repository in Git?
+Ans) A Git repository (or repo) is like a file structure that stores all the files for a project. It continues track changes made to these files over time, helping teams work together evenly. Git can control both local repositories (on your own machine) and remote repositories (usually hosted on platforms like GitHub, GitLab, or Bitbucket), allowing teamwork and backup.
+============================================================================================================
+Q) What role does version control play in test automation?
+Ans)
+    Tracking Changes: It allows teams to track changes made to test scripts over time, enabling easy identification of when and why a test might have failed.
+    Collaboration: Multiple team members can work on the same automation project without overlapping changes, facilitating collaboration.
+    Rollback Capabilities: If a new script fails or causes issues, teams can quickly revert to a previous stable version.
+    Branching Strategies: Teams can create branches for new features or changes, allowing parallel development without affecting the main codebase.
+    Audit Trails: It provides an audit trail for accountability and compliance in testing processes, vital in regulated industries.
+============================================================================================================
+Q) What is the difference between Git and GitHub?
+Ans)
+Git
+-   Git is a version control system used to track changes in files over time
+-   It runs locally on your computer
+-   Git can be used offline, as it operates locally on your machine.
+GitHub
+-   GitHub is a platform where Git repositories can be stored and shared
+-   It is a cloud-based service
+-   GitHub requires an internet connection because it is hosted on the web
+============================================================================================================
+Q) What is a version control system (VCS)?
+Ans) A version control system (VCS) records the work of developers coordinating on projects. It keeps the history of code changes, permitting developers to add new code, fix bugs, and run tests securely. If required, they can restore a past working version, verifying project security.
+============================================================================================================
+Q) Explain the Git workflow.
+Ans) The basic Git workflow involves creating branches, making changes, committing those changes, and then merging those changes back into the main branch.
+============================================================================================================
+Q) What is origin in Git?
+Ans) In Git, "origin" states to the default name offered to the remote repository from which local repository was cloned. It is used as a reference to control fetches, pulls, and pushes.
+============================================================================================================
+Q) What is the purpose of the .gitignore file?
+Ans) The '.gitignore' file tells Git which files and folders to ignore when tracking changes. It is used to avoid attaching unneeded files (like logs, temporary files, or compiled code) to your repository. This saves repository clean and targeted on important files only.
+============================================================================================================
+Q) What is the git push command?
+Ans) The 'git push' command is used to share local repository changes to a remote repository. It changes the remote repository with the recent commits from the fixed local branch.
+============================================================================================================
+Q) What is the git pull command?
+Ans) The 'git pull' command updates the current local branch with changes from a remote repository and combining it with a local repository.
+============================================================================================================
+Q) What does git clone do?
+Ans) The 'git clone' forms a copy of a remote repository upon your local machine. It downloads all files, branches, and history, enabling you to start working on the project or contribute to it. With git clone -b , you can download and work on an individual branch of a repository.
+============================================================================================================
+Q) What are the advantages of using GIT?
+Ans) Using Git provides multiple advantages:
+•   It assists teamwork by supporting multiple developers to work on the same project together.
+•   Each developer has a local copy of the repository, improving performance and enabling offline work.
+•   Free and widely supported.
+•   Git supports work on various types of projects.
+•   Each repository has only one Git directory.
+============================================================================================================
+Q) What is the difference between git init and git clone?
+Ans) 'git init' develops a new, empty Git repository in the present directory, while 'git clone' copies an existing remote repository, containing all files and history, to a local directory.
+============================================================================================================
+Q) How do you fix a merge conflict?
+Ans) Fix merge conflicts by editing the conflicted files to choose which changes to keep, then staging and committing those changes.
+============================================================================================================
+Q) What is a branch in Git?
+Ans ) A branch in Git is a separate line of development, allowing you to work on different features or fixes independently.
+============================================================================================================
+Q) How does Git work?
+Ans) Git works by taking snapshots of a project's files. Unlike other version control systems, Git records the entire contents of each file and its changes every time a commit is made. This makes operations like branching, merging, and reverting changes more efficient.
+============================================================================================================
+Q) How do you create a new branch and switch to it?
+Ans) Use `git checkout -b <branch-name>` to create and switch to a new branch.
+============================================================================================================
+Q) What is a commit in Git?
+Ans) A commit represents a specific moment's capture of your repository, documenting the modifications made to your project.
+============================================================================================================
+Q) What is git add?
+Ans) The 'git add' command marks changes in your project for the next commit. It tells Git which files to involve in the later update, making them ready to be saved in the repository. This is the early step in recording changes in the Git repository.
+============================================================================================================
+Q) What is git status?
+Ans) The 'git status' command shows the recent status of your Git repository. It tells you which files have changed, which ones are ready to be committed, and which ones are new and unobserved. This benefits you monitor your work's growth and see what changes want to be set up or committed.
+============================================================================================================
+Q) What is a commit in Git?
+Ans) A commit in Git denotes a snapshot of changes made to files in a repository. It grabs all the changes you have made to files—like additions, or deletions of files at a particular moment. Each commit has a unique message explaining what was done. This helps you track your project's history, undo changes if requisite, and work with others on the same project.
+============================================================================================================
+Q) What is the purpose of the git clean command?
+Ans) The 'git clean' command is used to erase ignored files from the working directory of Git repository. Its motive is to clean up the workspace by deleting files that are not being saved by Git, checking a clean state with only observed files present.
+============================================================================================================
+Q) What is a ‘conflict’ in git?
+Ans) Git usually manages merges automatically, but conflicts occur when two branches edit the same line or when one branch deletes a file that another edits.
+============================================================================================================
+Q) What is the meaning of “Index” in GIT?
+Ans) In Git, the "Index" (also called as the "Staging Area") is a place where alterations are temporarily store before committing them to the repository. It permits you to select and prepare specific alterations from your working directory before properly saving them as part of the project's history.
+============================================================================================================
+Q) How do you change the last commit in git?
+Ans) To change the preceding commit in Git, use 'git commit --amend' after making changes, stage them with 'git add' , and save with the editor.
+============================================================================================================
+Q) What is `git checkout`?
+Ans) 'git checkout' helps you switch between branches or return files to a previous state in Git. Now, it is suggested to use 'git switch' for changing branches and 'git restore' to return files. These commands are more intent on their particular tasks for better clearness and capability.
+============================================================================================================
+Q) How do you switch branches in Git?
+Ans) To switch branches in Git, use 'git checkout ' to move to a present branch. On the other hand, use git switch in newer Git versions for the same objective. This permits you to work on different versions or features of your project stored in separate branches.
+============================================================================================================
+Q) What is the difference between git fetch and git pull?
+Ans)
+'git fetch' fetches updates from a remote repository but does not combine them into your local repository. It fetches all the new data from the remote repository that you don’t have yet, but it stores it in a separate area, permitting you to review the changes before merging them into your working directory.
+'git pull' fetches the updates from the remote repository and instantly strives to merge them into your current branch. It is basically a union of 'git fetch' followed by 'git merge' .
+============================================================================================================
+Q) Explain Git rebase and when do you use it?
+Ans) Git rebase is a process to combine alterations from one branch into another. It forms a linear history, avoiding merge commits. Use it to clean up commit history, keep a project history sequential, and make feature branches up to date before uniting.
+============================================================================================================
+Q) How will you create a git repository?
+Ans)
+•   Download Git on your system if you have not already.
+•   Create a project folder in the location where you want your repository.
+•   Open Terminal or Command Prompt and guide to your project folder.
+•   Run 'git init' in the project folder. This will create a '.git' folder, showing your repository is set.
+============================================================================================================
+Q) What are the differences between the commands git remote and git clone?
+Ans)
+'git clone' : Downloads a full copy of a remote repository to your local computer, involving all files and history.
+'git remote' : Controls connections to remote repositories. It sets up links to remote repositories but doesn't download any files.
+============================================================================================================
+Q) What are the benefits of using a pull request in a project?
+Ans) Teams can together work on distinct parts of the system and later combine their changes using pull requests. This way boosts team capability.
+============================================================================================================
+Q) What are the advantages of Git over SVN?
+Ans)
+•   Git permits developers to work offline and autonomously, However SVN needs a steady network connection to commit changes.
+•   Git is broadly rapid for most operations, containing branching, merging, and committing, due to its distributed nature and efficient data handling.
+•   Git supports various development workflows, such as feature branching, pull requests, and decentralized collaboration, which is adaptable to different team sizes and project needs.
+============================================================================================================
+Q) How do you list all the remote connections for a repository?
+Ans) Use `git remote -v` to list all remote connections.
+============================================================================================================
+Q) How do you delete a branch locally and remotely?
+Ans) Locally: `git branch -d <branch-name>`, remotely: `git push <remote-name> --delete <branch-name>`.
+============================================================================================================
+Q) How do you list all the branches that are merged into the current branch?
+Ans) Use `git branch --merged` to list branches merged into the current branch.
+============================================================================================================
+Q). What is `git log` and how do you use it?
+Ans) `git log` displays the commit history. You can use various options to format the output, such as `--oneline`, `--graph`, etc.
+============================================================================================================
+Q) How do you find a specific commit by message?
+Ans) Use `git log --grep="commit message"` to search the commit history for a specific message.
+============================================================================================================
+Q) What is `git branch -d` and how do you use it?
+Ans) `git branch -d <branch-name>` deletes a local branch, if it has been fully merged in its upstream branch.
+============================================================================================================
+Q) How do you see the changes made by a specific commit?
+Ans) Use `git show <commit-hash>` to display the changes made in a commit.
+============================================================================================================
+Q) How do you rename a local Git branch?
+Ans) Use `git branch -m <old-name> <new-name>` to rename a local branch.
+============================================================================================================
+Q) What is the purpose of `git checkout -- <file>`?
+Ans) It is used to discard changes in the working directory for the specified file.
+============================================================================================================
+Q) How do you create a tag in Git?
+Ans) Use `git tag <tag-name>` to create a lightweight tag, or `git tag -a <tag-name> -m "message"` for an annotated tag.
+============================================================================================================
+Q) How do you compare two commits?
+Ans) Use `git diff <commit1> <commit2>` to see the differences between two commits.
+============================================================================================================
+Q) How do you handle a merge conflict in Git?
+Ans) Resolve the conflict manually in the affected files, mark them as resolved with `git add`, and then complete the merge with `git commit`.
+============================================================================================================
+Q) What is git stash?
+Ans) Git stash is Git command used to temporarily store changes in your working directory that are not yet ready to be committed. It permits developers to conserve modifications without committing them to the repository.
+The `git stash` command temporarily stores your working directory's modifications, allowing you to switch branches without discarding your current progress.
+============================================================================================================
+Q) How do you revert a commit that has already been pushed and made public?
+Ans) To revert a commit that has been pushed and made public, follow these steps:
+•   Checkout the Branch: Switch to the branch where you want to revert the commit.
+git checkout <branch-name>
+•   Find the Commit to Revert: Use 'git log' to find the commit hash of the commit you want to revert.
+git log
+•   Revert the Commit: Use 'git revert' followed by the commit hash of the commit you want to revert.
+git revert <commit-hash>
+•   Review Changes: Git will open your default text editor to confirm the revert message. Save and close the editor to proceed.
+•   Push the Revert: Finally, push the reverted commit to the remote repository.
+git push origin <branch-name>
+============================================================================================================
+Q) Explain the difference between reverting and resetting?
+Ans)
+Resetting: Resetting: This command is used to change the present state of the repository to a precise point in its history. When you refresh, Git moves the 'HEAD' (present branch) to the particular commit, likely changing the files in your working directory and staging area. It is like reversing to a definite point in time, and it can be used to discard changes.
+Reverting: Reverting, on the other a hand, makes new commit that undoes the changes made by specific commit. In place of removing or changing history like resetting does, reverting adds new commit that effectively reverses the changes introduced by the commit you specify.
+============================================================================================================
+Q) What is the difference between git reflog and log?
+Ans)
+Git Log: It shows a history of commits (changes) made in your Git repository. It lists out commits in linear order, showing who made each change, when they made it, and the commit message.
+Git Reflog: It stands for "reference log". It records changes to the HEAD (current branch pointer) and permits you to see a timeline of recent movements within the repository, like commits, checkouts, merges, etc. It is effective for recovering lost commits or branches that are no longer visible in the regular log.
+============================================================================================================
+Q) What is the HEAD in Git?
+Ans) In Git, HEAD is a source to the current branch or commit you are working on. HEAD normally shows the recent commit of the current branch and moves when you switch branches or check out exact commits.
+============================================================================================================
+Q) What is the purpose of `git tag -a`?
+Ans) The intent of 'git tag -a' is to form an annotated tag in Git. Annotated tags are tags that contain additional metadata such as the tagger's name, email, date, and a message. They are valuable for labeling important points in history, like releases, and give another context compared to lightweight tags made with 'git tag' .
+============================================================================================================
+Q) What is the difference between `HEAD`, `working tree` and `index` in Git?
+Ans)
+HEAD: Points to the currently checked-out commit or branch.
+Working Tree: Includes the actual files you are currently working on or modifying.
+Index (Staging Area): Acts as a middle ground where changes are prepared before committing. It keeps snapshots of change to be included in the next commit.
+============================================================================================================
+Q) How to resolve a conflict in Git?
+Ans) Discover Conflicting Files: Find the files where conflicts have take place because of changes from unique branches.
+Correct Files to Repair Conflicts: Alter the files to sync conflicting changes and block future conflicts.
+Stage solved Files: Use 'git add' to add the resolved files to the staging area. Commit the Changes: Complete the process by committing the changed files applying 'git commit' .
+============================================================================================================
+Q) Explain the difference between `git merge` and `git rebase` and when you would use each?
+Ans) 'git merge' merges changes from one branch into another, keeping distinguish branch histories. It forms merge commits that directly show where branches came together. 'git rebase' reforms history by using commits from one branch onto another, causing in a linear sequence of commits. Prefer 'merge' to keep distinct branch timelines and use 'rebase' for enhancing commit history before merging branches.
+============================================================================================================
+Q) What language is used in GIT?
+Ans) Git is mainly developed using the C programming language. The core features and commands of Git, containing its data structures and algorithms, are applied in C. This choice of language confirms productivity, speed, and portability across distinct operating systems and platforms.
+============================================================================================================
+Q) How do you add a file to the staging area?
+Ans) Use `git add <file_name>` to add a file to the staging area, forming it ready for a commit.
+============================================================================================================
+Q) What is `git diff`?
+Ans) 'git diff' is a command in Git that presents the differences between varied states of files in a repository. It equates changes between the working directory, the staging area (index), and the last commit. It assists track changes, additions, and deletions before committing changes to the repository.
+============================================================================================================
+Q) What is the Git object model?
+Ans) The Git object model comprises four major types: blobs (which store file data), trees (which store directory structures), commits (which store repository snapshots), and tags (which store references to commits). These objects are the pillar of Git's version control system, permitting for capable tracking and management of changes.
+============================================================================================================
+Q) What is a git hook and how might you use it?
+Ans) A Git hook is a pattern script that instantly runs at exact points in the Git workflow, such as before or after commits, merges, or pushes. You can use hooks to apply coding rules, run tests, check for security faults, or simplify tasks. For an example, a pre-commit hook can run and tests to verify code quality before changes are committed.
+============================================================================================================
+Q) How does Git store data?
+Ans) Git stores data by saving snapshots of your project at diverse points in time. Each snapshot is a commit, which covers information about the project’s files (blobs) and directories (trees). These snapshots are recognized by unique hashes, creating it easy to track changes and retrieve history.
+============================================================================================================
+Q) Explain what is meant by the "detached HEAD" state in Git?
+Ans) When 'HEAD' points directly to a commit instead of a branch, Git is in a detached 'HEAD' state. Changes made in this state won’t be referenced by any branch and might be lost if not saved.
+============================================================================================================
+Q) Explain the difference between git reset, git revert, and git checkout?
+Ans)
+•   git reset: Moves HEAD to different commit, potentially changing history.
+•   git revert: Undoes exact commit by making new commit with inverse changes.
+•   git checkout: Switches branches or checks out files from commit, putting you in "detached HEAD" state for direct commits.
+============================================================================================================
+Q) How do you handle large files with Git?
+Ans) To handle large files in Git, use Git LFS (Large File Storage). It tracks large files severally from your repository, storing them on a remote server. This prevents bloating your repository size and secures improved performance while operations like cloning and fetching.
+============================================================================================================
+Q) What is the function of the git cherry-pick command?
+Ans) The git cherry-pick command uses exact commits from one branch to another, allowing selective merging of changes without merging entire branches.
+============================================================================================================
+Q) What is ‘bare repository’ in Git?
+Ans) A bare repository in Git is one missing a working directory. It only contains version control data, making it ideal for sharing and collaboration without changing files directly.
+============================================================================================================
+Q) What is branching in Git?
+Ans) Branching in Git permits forming separate lines of development. It allows users to work on features or fixes separately from the main codebase, helping parallel development and simpler integration of changes.
+============================================================================================================

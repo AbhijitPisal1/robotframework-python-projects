@@ -1,0 +1,127 @@
+
+```` Key Git Commands Cheat Sheet ````
+
+================================================================================
+### Setup --> configuring user information used across all local repositories ###
+
+Command : Git config -- global user.name "[firstname lastname]"
+Desc : Set a name that is identifiable for credit when review the history version
+
+Command : git config --global user.email "[valid-email]"
+Desc : set an email address that will be associated with each history marker
+
+Command : git config --global color.ui.auto
+Desc : set automatic Command line coloring for easy reviewing
+================================================================================
+### Init --> Initializing and cloning repositories ###
+
+Command : git init
+Desc : Initialize an existing directory as a git repository
+
+Command : git clone [URL]
+Desc : Retrieve an entire repository from a hosted location via URL
+================================================================================
+### Stage and snapshot --> working with snapshots and git staging area ###
+
+Command : git status
+Desc : desc: show modified files in working directly, staged for your next commit
+
+Command : git add [file]
+Desc : add a file as it looks now to your next commit stage
+
+Command : git reset [file]
+Desc : un-stage file while retaining the changes in working directory
+
+Command : git diff
+Desc : diff if what is changed but not staged
+
+Command : git diff --staged
+Desc : diff  of what is staged but not yet committed
+
+Command : git commit -m "[descriptive message]"
+Desc : commit your staged content a new commit snapshot
+================================================================================
+### branch and merge --> isolating work in branches changing context and integrating changes ###
+
+Command : git branch
+Desc : list your branches, a * will appear next to the currently active branch
+
+Command : git branch [branch-name]
+Desc : create a new branch at the current commit
+
+Command : git checkout
+Desc : switch to another branch and check it out into your working directory
+
+Command : git merge [branch]
+Desc : merge the specified branches history into the current one
+
+Command : git log
+Desc : how all commits in the current branch’s history
+================================================================================
+### inspect and compare --> examining logs, diffs and object information ###
+
+Command : git log
+Desc : show the commit history for the currently active branch
+
+Command : git log branchB.branchA
+Desc : show the commits on BranchA that are not on branchB
+
+Command : git log --follow [file]
+Desc : show the commits that changes file, even across renames
+
+Command : git diff branchB...branchA
+Desc : shows the diff of what is in branchA that is not in BranchB
+
+Command : git show [SHA]
+Desc : show any object in git in human-readable format
+================================================================================
+### Share and update --> retrieving updates from another repository and updating local repositories ###
+
+Command : git remote add [alias][url]
+Desc : add a git url as an alias
+
+Command : git fetch [alias]
+Desc : fetch down all the branches from that git remote
+
+Command : git merge [alias]/[branch]
+Desc : merge a remote branch into your current branch to bring it up to date
+
+Command : git push [alias][branch]
+Desc : transmit local branch commits to the remote repository branch
+
+Command : git pull
+Desc : fetch and merge any commits from the tracking remote branch
+================================================================================
+### tracking path changes --> versioning file removes and path changes ###
+
+Command : git rm [file]
+Desc : delete the file from project and stage the removal for commit
+
+Command : git mv [existing-path][new-path]
+Desc : change an existing file path and stage the move
+
+Command : git log --stat -M
+Desc : show all commit logs with indication of any paths that moved
+================================================================================
+### rewrite history --> rewriting branches , updating commits and clearing history ###
+
+Command : git rebase [branch]
+Desc : apply any commits of current branch ahead of specified one
+
+Command : git rest --hard [commit]
+Desc : clear staging area, rewrite working tree from the specified commits
+================================================================================
+### Sequence of Commands to create new repository from local folder and making commits :  ###
+
+1.  Generating new SSH Key								>> ssh-keygen -t rsa -b 4096 -C "mail address"
+2.  Checking git version								>> git --version
+3.  Initialize current folder as local repository		>> git init
+4.  Link local repository with the GitHub repository	>> git remote add origin "GitHubURL SSH"
+5.  Show GitHUb repository linked to local repository	>> git remote -v
+6.  Check new changes made in local repository			>> git status
+7.  Add files which are ready for commit				>> git add filename
+8.  Add files to local repository						>> git commit -m "message"
+9.  Push local repository changes to GitHub				>> git push -u origin master
+10. Pulling latest code from GitHub						>> git pull origin master
+11. Clone to local folder								>> git clone "GitHub repository Address for SSH"
+================================================================================

@@ -1,0 +1,187 @@
+
+````API Interview Preparation Guide in Q&A Format````
+
+================================================================================
+Q)  What is an API?
+Ans) Application Programming Interface (API) is useful for communication between different software systems.
+    It acts as an interface between two applications and allows two software systems to communicate with one another.
+    It is a collection of functions that can be executed by another software program.
+    It takes the request from the user and gives the response without exposing the internal details.
+================================================================================
+Q) What is API Testing?
+Ans) API testing is a type of software testing that aims to test the API directly, As a part of integration testing to determine if it meets the expectations for functionality, performance, and security.
+    It aims to analyze multiple endpoints such as databases, web services, etc.
+================================================================================
+Q) List the differences between API and Web Service.
+Ans)
+API :
+    API acts as an interface between two applications.
+    It provides support for HTTP/s protocol.
+    API supports XML and JSON.
+    It is used as an interface for communication between two applications.
+
+Web service :
+    Web services are a type of API that must be accessed through a network connection.
+    It provides support for HTTP protocol.
+    Web service supports XML.
+    It is used for REST, SOAP, and XML-RPC for communication.
+================================================================================
+Q) How do APIs work?
+Ans)
+API takes requests from the user
+-> It processes the request which may involve data validation, data processing, database interaction, etc.
+-> Then, The response is sent back to the source.
+================================================================================
+Q) What are the different test cases of API testing?
+Ans)
+    - Test that API operates correctly, meets the required specifications, returns expected results in proper format.
+    - Performance and stability under stressful conditions.
+    - Security vulnerabilities testing
+    - Responsiveness to runtime errors and exceptions, such as network timeouts and memory leaks.
+    - Data accuracy and response correctness, along with proper HTTP status/error codes and authorization details.
+================================================================================
+Q) Mention common HTTP methods used in API testing.
+Ans)
+    POST: It is used to create new data or resources on an API.
+    GET: It is used to retrieve data or resources from an API.
+    PUT: It is used to update existing data or resources on an API.
+    PATCH: It is used to update existing data or resources from an API partially.
+    DELETE: It is used to delete data or resources from an API.
+    HEAD: It is used to retrieve only the headers of a response without the body, useful for checking resource existence.
+    OPTIONS: It describes the communication options for a target resource, typically to identify supported HTTP methods.
+    CONNECT: It is used to establish a tunnel to the server, generally for proxy connections.
+    TRACE: It is used to test and diagnose the path taken by a request to the server by reflecting back the received request.
+================================================================================
+Q) What is the role of headers in API testing?
+Ans) Headers in API testing plays an important role in providing additional information that is not included in the request body. Herders are important in controlling the behavior of the server in handling the request, to provide authentication information, or to provide metadata about the request or response.
+================================================================================
+Q) What is the purpose of authentication in API testing?
+Ans)
+    API authentication is a combination of technology or process that verifies the identities of users who want access to an API. It involves the use of software protocol to verify identity of the requester before granting access to protected resources.
+    Authentication can be handled using various methods such as:
+    - Basic Authentication: Including a username and password in the request headers.
+    - Bearer Tokens: Sending a token in the headers for authorization (e.g., $Authorization: Bearer your_token$).
+    - API Keys: Including an API key as a query parameter or in the headers.
+================================================================================
+Q) What is the purpose of HTTP status codes in API testing?
+Ans) HTTP status codes indicate whether a specific request successfully completed or not. These are embedded in the HTTP header of a page to tell the browser the result of its request.
+================================================================================
+Q) What is the purpose of the request and response body in API testing?
+Ans) The request body is used to send and receive data such as input parameters, or data to create/ update resources via the REST API. The response body is the data API send to the client.
+================================================================================
+Q) What is the purpose of the request and response headers in API testing?
+Ans) The request headers are used to specify a content type, caching, authentication, etc. The response header can provide information about the server, caching, etc.
+================================================================================
+Q) How do you ensure the security of APIs in your tests?
+Ans)
+    - API security testing is the process of testing the vulnerabilities in the API.  This is done through penetration testing or manual scanning of the APIs.
+    - Use secure communication protocols like HTTPs to encrypt data transmitted between client and server.
+    - It is important to properly implement authentication and authorization mechanisms to ensure that only authorized users can access the API endpoints and perform the authorized actions.
+    - Ensure that all the input data in the API requests are properly authorized, validated, and sanitized to prevent injection attacks and cross-site scripting attacks.
+================================================================================
+Q) What are the different types of error responses in API testing?
+Ans)
+•	Validation errors: Validation errors occur when the API request does not meet the validation criteria defined by the API.
+•	HTTP error status codes: These can be client-side status codes or server-side status codes. There are standard HTTP status codes like 4xx or 5xx that indicate errors in the API request or response.
+•	Custom error messages: These are the customer error messages that are returned by the API in case of errors or exceptions.
+================================================================================
+Q) How do you handle error responses in your API tests?
+Ans)
+    - Clear error messages: One of the best practice to handle error responses is to provide clear and helpful error messages that explain the cause of the error and the solution to the error.
+    - Error logging: Best practice is to implement error logging and monitoring tools that can help track, analyze, and resolve errors in API testing.
+    - Use consistent error codes: It is important to use consistent and meaningful error messages that indicate the type and severity of the error.
+================================================================================
+Q) What is the procedure to perform API testing?
+Ans) The API testing flow basically includes three main steps:
+•	Send the request with the necessary input data.
+•	Get the response having the output data.
+•	verify that the response returned is as expected in the requirement.
+================================================================================
+Q) Explain the differences between GET and POST methods in API testing.
+Ans) In API testing, the GET and POST methods are used to send requests to a server, but they serve different purposes:
+
+1. GET Method:
+	- Used to retrieve data from a server.
+	- It appends data to the URL, making it visible (e.g., $https://api.example.com/users?id=1$).
+	- It has limitations on the amount of data you can send, usually around 2000 characters.
+	- It is idempotent, meaning repeated requests will return the same result without changing server state.
+components:
+	1. URL: The endpoint where the request is sent (e.g., $https://api.example.com/users$).
+	2. Query Parameters: Optional data sent in the URL, usually for filtering (e.g., $?id=1$).
+	3. Request Headers: Additional information sent with the request, like content type or authorization (e.g., $Authorization: Bearer token$).
+	4. Response: The data returned from the server, often in JSON format.
+
+2. POST Method:
+	- Used to send data to the server, often to create or update resources.
+	- The data is sent in the request body, so it is not visible in the URL.
+	- It can handle larger amounts of data without strict size limitations.
+	- It is not idempotent; multiple identical requests can create multiple resources.
+Components :
+	1. URL: The endpoint where the request is sent (e.g., $https://api.example.com/users$).
+	2. Request Body: The main data sent in the request, typically in JSON format (e.g., ${"name": "John", "email": "john@example.com"}$).
+	3. Request Headers: Information about the request, like content type (e.g., $Content-Type: application/json$).
+	4. Response: Confirmation of the action taken by the server, often including the created resource or a status message.
+
+In summary, GET focuses on sending data via the URL and retrieving information and POST sends larger amounts of data in the body to create or update resources.
+================================================================================
+Q) What format to use for assertions in API tests?
+Ans)
+Use assertions in a format that checks whether the actual outcome matches the expected outcome.
+Here are some common formats for assertions:
+1. Equality Checks:
+	- To check if two values are equal.
+	For example: assert response.status_code == 200
+
+2. Containment Checks:
+	To verify if a response contains a specific value.
+	For example: assert "user" in response.json()
+
+3. Boolean Checks:
+	To validate that a condition is true.
+	For example: assert response.ok
+
+4. List or Dictionary Checks:
+	- To ensure a list or dictionary has expected items.
+	For example: assert response.json()["name"] == "John"
+================================================================================
+Q) Provide the syntax for query parameters in API requests.
+Ans)
+    The syntax for query parameters in API requests is to append them to the URL after a question mark ($?$) and separate multiple parameters with an ampersand ($&$). Each parameter consists of a key-value pair, formatted as $key=value$.
+
+    Example Syntax: https://api.example.com/users?id=1&name=John
+================================================================================
+Q) In Postman, how to delete a variable after test execution is finished?
+Ans)
+    In Postman, to delete a variable after test execution, we can use the pm.environment.unset or pm.collectionVariables.unset function in the Tests tab of your request.
+================================================================================
+Q) How to test the performance of an API?
+Ans)
+    Performance testing can be done using tools like JMeter or Postman’s Collection Runner. We focus on metrics such as response time, throughput, and how the API behaves under load. Set specific test cases and measure the runtime under various conditions.
+================================================================================
+Q) What is the difference between environment variables and global variables in Postman?
+Ans)
+    - Environment Variables: Scoped to a specific environment, making them useful for testing across different setups (e.g., development, testing).
+    - Global Variables: Accessible across all environments, used for values that are consistent across multiple requests or environments.
+================================================================================
+Q)What is input validation?
+Ans)
+    - Process of analyzing the inputs and preventing malicious data from entering the system.
+    - It ensures that all input data in API requests are properly sanitized and validated to prevent injection attacks.
+================================================================================
+Q) What is Latency in API testing?
+Ans) Latency in API testing is how long it takes for the request to reach the server. The shorter the response time, the better the user experience.
+================================================================================
+Q) List the challenges faced while performing API testing.
+Ans)
+•	Building irrelevant tests: Building tests without considering how the APIs will be consumed may be quicker in short term.
+•	Initial setup of API testing: Setting up an API testing setup requires certain level of expertise and dedication among the team members.
+•	Not including API dependencies: Failure to include API dependencies as a part of API testing strategy can be a critical API testing challenge.
+•	Not validating data: It might be possible that API tests pass successfully but APIs are not returning the correct data in their responses. It is important to verify that the API is returning correct data.
+================================================================================
+Q) How do you structure your API tests?
+Ans)
+    Structure API tests by organizing them into clear and manageable sections:
+    - Setup: Initiate variables and environment configurations.
+    - Tests: Write tests for different endpoints with assertions for validation.
+    - Teardown: Clean up any variables or states after tests run, ensuring no leftover data affects future tests.
+================================================================================

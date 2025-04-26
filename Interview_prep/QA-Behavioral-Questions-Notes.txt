@@ -1,0 +1,78 @@
+
+```` QA Behavioral Interview Questions Reference Sheet ````
+
+=================================================================================
+Q) How do you handle change requests in your application?
+Ans.)
+Requirement Analysis: Understand the requested changes thoroughly.
+Impact Assessment: Assess how the changes affect existing tests and functionality.
+Documentation: Document the changes for future reference.
+Implementation: Update test scripts and automation frameworks as needed.
+Regression Testing: Conduct regression tests to ensure no new issues are introduced.
+=================================================================================
+Q) How do you handle test cases when requirements are not clearly defined?
+Ans)
+Collaborate with Stakeholders: Engage with product owners and users to clarify requirements.
+Use Exploratory Testing: Conduct exploratory testing to uncover application behavior.
+Create Test Cases Based on Assumptions: Develop test cases from reasonable assumptions, clearly labeled as so.
+Prioritize Robustness: Focus on critical functionalities and high-risk areas.
+Iterate: Be ready to revise test cases as requirements clarify.
+Document Everything: Keep detailed records of discussions and assumptions for future reference.
+=================================================================================
+Q) You are asked to automate a functionality that is not yet fully developed. How do you handle this?
+Ans.) I would first collaborate with the development team to understand the expected functionality and its requirements. Then, I would create a partial automation framework that allows for testing as features become available, using stubs or mocks for the uncompleted parts to ensure a flexible test strategy.
+=================================================================================
+Q) If a Test fails, what will be your next step?
+Ans.) I would analyze the test logs, investigate the cause of the failure, and check if it’s related to the application or the script. After identifying the issue, I would log it in the bug tracking system and re-run the test after the fix is implemented.
+=================================================================================
+Q) If the application has minor changes, what would be your approach to modifying the Automation scripts?
+Ans.) I would review the affected areas of the script, make necessary adjustments, such as updating locators or expected results, and ensure that the modified scripts pass all regression tests for those functionalities.
+=================================================================================
+Q) How would you automate login functionality for a website?
+Ans.) I would utilize the Robot Framework with Python to write a test case that navigates to the login page, inputs valid credentials, and asserts successful login by verifying the presence of an element unique to the logged-in state. Additionally, I could employ libraries such as `Selenium` for browser automation, using functions like `driver.findelementbyid()` to locate input fields and `driver.submit()` to submit the login form.
+=================================================================================
+Q) How would you automate a test scenario where you need to check if an email is sent after user registration?
+Ans.) I would automate the user registration process and then use an email testing tool such as `MailHog` or `pytest-email` to verify that the email was received. I would check for the correct subject, sender, and content by leveraging libraries like `smtplib` for sending a test email or `imaplib` for fetching it from the inbox.
+=================================================================================
+Q) How would you automate a scenario where you need to validate the contents of a downloaded file after clicking a button on a webpage?
+Ans.) I would automate the button click action using Selenium, confirm the file download, and then use Python’s built-in `open()` function or libraries like `pandas` or `csv` to read and validate the file content against expected results, ensuring that all required data is present and correct.
+=================================================================================
+Q) How would you automate a scenario where you need to verify a specific color, font, and position of an element on a webpage?
+Ans.) I would use Selenium with Python to locate the element and retrieve its CSS properties using `element.valueofcssproperty()`. I would then assert these properties to confirm they match the expected values for color, font, and position, ensuring the validation is thorough.
+=================================================================================
+Q) How would you handle pop-up windows or alert boxes in your automation script?
+Ans.) I would implement code to switch the context to the pop-up or alert and perform necessary actions using Selenium. For alerts, I would use the `switchto.alert` method to accept or dismiss it. For handling pop-up windows, I would switch to the new window using `driver.switchto.window()`.
+=================================================================================
+Q) How would you automate a scenario where you need to verify if a user can scroll down a webpage until the footer section is visible?
+Ans.) I would simulate scrolling actions using JavaScript with `driver.executescript("window.scrollTo(0, document.body.scrollHeight);")` to scroll the page. Then, I would check if the footer element is present in the viewport using assertions, such as `element.isdisplayed()`, to confirm its visibility on the page.
+=================================================================================
+Q) If there is a scenario that takes a long time to execute, would you prefer Manual TestNG or Automation Testing?
+Ans.) I would prefer Automation Testing, as it allows for quicker execution over multiple iterations, and I can run the tests in parallel, thereby saving time and resources in the long run.
+=================================================================================
+Q) You've been asked to automate a legacy application. What is your approach?
+Ans.) I would first assess the existing application architecture and identify the testing requirements. Then, I would design automation strategies that integrate with legacy systems, possibly using tools compatible with older technologies and ensuring thorough documentation is maintained.
+=================================================================================
+Q) A script you wrote was working fine yesterday but is failing today. How do you troubleshoot?
+Ans.) I would check for any recent changes in the application code, validate the test environment, and review the logs for error messages to pinpoint the cause of the failure. After this, I would make adjustments as necessary.
+=================================================================================
+Q) Your Automation scripts are running slowly. How can you improve the speed?
+Ans.) To improve speed, I would optimize the scripts by implementing efficient locators, reducing unnecessary waits, and possibly running tests in parallel. I would also review the test data management practices to streamline performance.
+=================================================================================
+Q) Your Automation script is failing due to a change in the application. How do you handle this?
+Ans.) I would quickly identify the changed elements and update the script accordingly. Additionally, I would coordinate with the development team to understand the changes and ensure our automation remains aligned with the current state of the application.
+=================================================================================
+Q) How would you pick test cases for regression testing?
+Ans.) I would select test cases based on risk analysis, critical functionality, and previous defect history to ensure that the most impactful areas of the application are covered while maximizing test coverage.
+=================================================================================
+Q) Suppose a developer is not fixing a bug; how would you approach the situation?
+Ans.) I would communicate directly with the developer to understand any challenges they might face and advocate for a priority resolution, clearly articulating the impact of the bug on the overall project.
+=================================================================================
+Q) In your framework, if you have 100 pages, do you create 100 Page Objects?
+Ans.) While creating 100 Page Objects for 100 pages adheres to the Page Object Model's principles of modularity and reusability, it's essential to evaluate the necessity of each object. If multiple pages share similar functionalities, it may be more efficient to consolidate them into fewer Page Objects. This approach reduces complexity and maintenance overhead while maintaining clean, manageable code. Ultimately, the goal is to balance modularity with efficiency, ensuring the framework remains practical and easy to update
+=================================================================================
+Q) How to handle high priority release in a short time?
+Ans.) I would focus on test case selection based on critical features, execute high-priority tests first, and collaborate closely with the development team to ensure swift resolution of any identified issues.
+=================================================================================
+Q) How to handle projects without documentation?
+Ans.) I would initiate discussions with team members to gather informal knowledge, create my own documentation as I learn, and establish a systematic way to capture insights throughout the project lifecycle to foster clarity for future efforts.
+=================================================================================

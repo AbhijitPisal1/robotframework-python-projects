@@ -1,0 +1,32 @@
+
+```` Understanding XML and Its Applications ````
+
+================================================================================
+@ Definition :
+    - XML short for "eXtensible Markup Language,"
+    - human- and machine-readable.
+    - The primary purpose of XML, however, is to store data in a way that can be easily read by and shared between software applications.
+    - Since its format is standardized, XML can be shared across systems or platforms, both locally and over the internet, and the recipient will still be able to parse the data.
+    - XML does not do anything with the data other than store it, like a database. Another piece of software must be created or used to send, receive, store, or display the data.
+================================================================================
+@ XML file :
+    - An XML file contains XML code and ends with the file extension ".xml".
+    - It contains tags that define not only how the document should be structured but also how it should be stored and transported over the internet.
+    - Plain text is the actual data being stored. While plain text represents the data, tags indicate what the data is. Each tag represents a type of data and tells the computer what to do with the plain text data inside of it. Tags aren’t supposed to be seen by users, only the software itself
+================================================================================
+@ XML Hierarchy :
+    - Each instance of an XML tag is called an element. In an XML file, elements are arranged in a hierarchy, which means that elements can contain other elements.
+    - The topmost element is called the "root" element, and contains all other elements, which are called "child" elements.
+    - The beginning and end of each element are represented by a starting tag (e.g., "<firstName>") and a closing tag (e.g., "</firstName>") respectively.
+================================================================================
+@ XML vs HTML :
+    - Both XML and HTML contain text and tags that instruct the software on how to use it. However, while XML tags specify the type of data, HTML tags specify how data is displayed. In short, XML is used to represent and share structured information, whereas HTML is used to display content on web pages.
+    - HTML, a developer must use tags from the HTML tag library, or a standardized set of tags. Limited number of tags available
+    - XML does not have this limitation, as there is no preset library of XML tags. Instead, developers can create an unlimited number of custom tags to fit their data needs.
+================================================================================
+@ USE of XML files :
+    - Since XML files are plain text documents, they are easy to create, store, transport, and interpret by computers and humans alike
+    - The text-based format of XML files makes them highly portable, and therefore widely used for transferring information between web servers, to send information to other applications packaged in XML files.
+    - Since XML defines the type of information contained in a document, it's easier and more effective to search the web with than HTML
+    - XML files allow computer apps to easily structure and fetch the data that they need. After retrieving data from the file, programs can decide what to do with the data.
+================================================================================

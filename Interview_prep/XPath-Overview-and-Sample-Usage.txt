@@ -1,0 +1,104 @@
+
+```` Key Concepts and Examples of XPath ````
+
+================================================================================
+@Definition:
+    - helps to query XML documents.
+    - uses "path like" syntax to identify and navigate nodes in an XML document
+    - bidirectional flow which means traversal can be both ways, with no restriction to start the traversal at a specific level
+    - declarative expression not procedural; this helps to use any indexes and different types of axes/functions efficiently to select the specific node
+================================================================================
+@Disadvantages of XPath over CSS
+    - XPath locators are comparatively slow, which can affect the overall performance of the test suite.
+    - It cannot solve the modern world shadow DOM problem.
+    - XPath is associated with more than one element in the DOM tree
+    - It tends to break as and when new element-level changes are introduced.
+    - Usage of indexes (specific nodes with numbers) within the XPath causes high maintenance (Ex: //div[1]).
+    - If XPath gets complicated more it becomes untidy and readability decreases
+================================================================================
+@ Types :
+  #Absolute XPath
+    - starts with the root node of the page and traverses from the root node through the whole DOM to reach to the desired element. It starts with a single slash '/' and traverses from the root element to the desired element.
+    - provides the exact location of an element within the document structure
+    - XPath starts from the root node, making it capable of locating any element in the DOM hierarchy.
+    - It allows for the precise selection of deeply nested elements in complex or static page layouts
+    - less adaptable to changes in DOM
+    Example: /html/body/div[2]/div/div/div[2]/div/div[6]/div/div[2]
+  #Relative XPath
+    - can be started from middle of the DOM structure or anywhere on the page.
+    - The xpath search starts from the mentioned tag name along with the attribute value defined.
+    - By navigating based on relationships with other components it  enables more variable element positioning.
+    - xpath not dependent on particular paths hence less likely to break when the web page's structure changes.
+    - more appropriate for managing items with variable properties or dynamic content
+    - When many elements share similar properties, it may cause ambiguity in element selections
+    - General Syntax : //tagname[@attribute_name= 'Attribute_value']
+    Note : The details embedded in square brackets are called Predicates which are used to find a specific node or a node that contains a specific value
+    Example: //input[@placeholder='Full Name']
+================================================================================
+@ Sample Xpath examples
+
+1. Using Attributes such as Id, name and class value:
+    //input[@Id='firstName’]
+    //input[@name='First Name’]
+    //input[@class=“TextArea”]
+
+2. Using Conditions AND & OR with attribute value:
+    AND :   both the predicate conditions should be fulfilled to identify the element
+            //input[@placeholder='First Name' AND @type='text’]
+    OR :     one of the predicate conditions should be fulfilled to identify the element
+            //input[@placeholder='First Name' OR @type='text’]
+
+3. Using text(), contains() & starts-with() functions:
+    text()  :           //label[text()='Name’]
+    contains()  :       //label[contains(@id, 'userName’)]
+    starts-with()   :   //label[starts-with(@id, 'user’)]
+    Contains(text)  :   //label[contains(text(),”UserName”)]
+
+4. Using the Axes in XPath which is basically identifying elements based on the relationship between different element on DOM
+
+    Using ancestor axes to select main div tag:
+        //label[text()='Title']//ancestor::div
+    Using descendant axes to select 2nd input tag:
+    	//div[contains(@class, 'main')]//descendant::input[@id='titleName']
+    Using parent axes to select parent div tag:
+	    //label[@id='title-label' AND text()='Title']//parent::div[contains(@class, 'md-3')]
+    Using child axes to select 2nd label field:
+	    //div[contains(@class, 'md-3')]//child::label[text()='Title']
+    Using preceding axes to select 2nd label field:
+    	//label[text()='Title']//preceding::label
+    Using following axes to select 2nd input field:
+    	//input[@id= 'firstName']//following::input
+    Using following-sibling axes to select 3rd div tag:
+    	//div[contains(@class, 'col-md-3')]//following-sibling::div
+
+5. Using positional and conditional statements
+
+Sample DOM (source W3Schools):
+<bookstore>
+<book>
+  <title lang="en">Harry Potter</title>
+  <price>29.99</price>
+</book>
+<book>
+  <title lang="en">Learning XML</title>
+  <price>39.95</price>
+</book>
+</bookstore>
+
+XPath examples :
+/bookstore/book[1]              Selects the first book element that is the child of the bookstore element.
+/bookstore/book[last()]	        Selects the last book element that is the child of the bookstore element
+/bookstore/book[last()-1]	    Selects the last but one book element that is the child of the bookstore element
+/bookstore/book[position()<3]	Selects the first two book elements that are children of the bookstore element
+//title[@lang]	                Selects all the title elements that have an attribute named lang
+//title[@lang='en']	            Selects all the title elements that have a "lang" attribute with a value of "en"
+/book[price>35.00]	            Selects all the book elements that have a price element with a value greater than 35.00
+/book[price>35.00]/title	    Selects all the title elements of the book elements that have a price element with a value greater than 35.00
+
+================================================================================
+### Few more point to keep in mind:
+a)	If you want to traverse to an element which is one level above the current node you are on, you can use the '/..' forward slash followed by two dots.
+Ex - //label[text()='Female']/..//input
+b)	Whenever you want to perform actions based on attribute value instead of element tag then we can use '*' at the start of the xpath instead of tag name.
+Example - //*[text()='Other']
+================================================================================

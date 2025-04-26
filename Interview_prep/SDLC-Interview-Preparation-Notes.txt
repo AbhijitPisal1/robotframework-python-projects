@@ -1,0 +1,125 @@
+
+```` SDLC Key Concepts - Interview Preparation Notes ````
+
+=================================================================================
+Q) What is the Software Development Life Cycle (SDLC)?
+Ans.) The Software Development Life Cycle (SDLC) refers to a systematic process for developing software efficiently. It includes various phases such as planning, development, testing, and deployment, aimed at delivering high-quality software that meets user requirements.
+=================================================================================
+Q) Describe the Low-Level Design (LLD) and High-Level Design (HLD).
+Ans.) LLD entails detailing the specifications and logic of software modules, created after High-Level Design (HLD). HLD offers a broad overview of the software architecture and module relationships, essential for understanding the software's structure before development begins.
+=================================================================================
+Q) What are the advantages and disadvantages of the SDLC process?
+Ans.) The SDLC process provides structured management oversight and ensures comprehensive documentation for effective project tracking. However, it can be rigid, often leading to challenges when changes are needed, and may incur extra costs due to extensive planning and potential delays.
+=================================================================================
+Q) Which SDLC model is optimal and why?
+Ans.) The Agile model is favored for its adaptability, enabling ongoing customer input and rapid responses to changing requirements. It promotes iterative development, continuous improvement, and collaboration among team members.
+=================================================================================
+Q) What occurs during the testing phase of the SDLC?
+Ans.) The testing phase is critical for validating that the software meets customer expectations through various testing methods, including Quality Assurance (QA), System Integration Testing (SIT), and User Acceptance Testing (UAT), to identify and resolve issues prior to release.
+=================================================================================
+Q) What is a Feasibility Study and a Software Requirements Specification (SRS)?
+Ans.) A feasibility study evaluates the practicality and value of developing a software product, while an SRS is a detailed document outlining the software's functionalities and requirements, serving as a roadmap for development.
+=================================================================================
+Q) What are the key phases of the SDLC?
+Ans.) The SDLC typically includes:
+    Planning (Feasibility Study): Define goals, assess feasibility and outlining an overall project plan
+    Requirements Gathering and Analysis: Collect and document user needs.
+    Design: Create architecture and system specifications.
+    Development (Coding): Write and build the software.
+    Testing: Identify and fix software defects.
+    Deployment: Release software for user access.
+    Maintenance: Provide updates and ongoing support.
+=================================================================================
+Q) How do you ensure quality throughout the SDLC?
+Ans.) Quality assurance involves engaging stakeholders during requirements gathering, conducting design reviews, adhering to coding standards, and performing automated testing, ensuring continual quality monitoring during the project lifecycle.
+=================================================================================
+Q) How do you manage changes within the SDLC?
+Ans.) Effective management of changes relies on clear communication with stakeholders and an Agile approach that allows continual reassessment of priorities and integration of feedback without disrupting project progression.
+=================================================================================
+Q) Explain Continuous Integration (CI) within the SDLC.
+Ans.) Continuous Integration is a development practice where code changes are routinely merged into a shared repository, followed by automatic testing to swiftly identify errors.
+=================================================================================
+Q) What is risk analysis in the context of the SDLC?
+Ans.) Risk analysis involves identifying potential project pitfalls to address them early in the planning and design stages, enhancing the chances of project success.
+=================================================================================
+Q) What are functional and non-functional requirements?
+Ans.) Functional requirements specify the software's functionalities, while non-functional requirements define attributes like performance, security, and usability.
+=================================================================================
+Q) What are the core principles of the Agile Manifesto?
+Ans.) The Agile Manifesto emphasizes customer satisfaction, openness to change, frequent delivery of functional software, collaboration, working software as progress measure, and technical excellence.
+=================================================================================
+Q) Define a Sprint in Agile.
+Ans.) A Sprint is a time-limited iteration within which a specific set of tasks is completed, typically lasting between one to four weeks.
+=================================================================================
+Q) What roles exist in a Scrum team and their responsibilities?
+Ans.) Key roles include:
+- Product Owner: Manages the Product Backlog and prioritizes tasks based on business value. responsible for maximizing the value of the product by managing the Product Backlog and ensuring stakeholder input.
+- Scrum Master: Facilitates the Scrum process, removes impediments, and ensures adherence to Scrum practices by the team.
+- Development Team: A cross-functional group responsible for delivering the product increment.
+=================================================================================
+Q) Describe Scrum artifacts and their significance.
+Ans.) Scrum Artifacts are tangible outputs from the Scrum process. Scrum artifacts include:
+- Product Backlog: An ordered and prioritized list of product features, enhancements, and bug fixes needed for a product, managed by the Product Owner
+- Sprint Backlog: Tasks selected for completion in a given Sprint.
+- Increment: The completed work at the end of a Sprint that is usable i.e. the sum of all completed Product Backlog items during a Sprint, representing a potentially shippable product.
+=================================================================================
+Q) What is a Sprint Planning meeting, and what are its main outcomes?
+Ans.) A Sprint Planning meeting establishes the Sprint Goal and selects items from the Product Backlog, resulting in a defined Sprint Backlog for the upcoming Sprint.
+=================================================================================
+Q) How is Sprint velocity measured and utilized?
+Ans.) Sprint velocity is a measure of work completed during a Sprint (often in story points) , helping teams predict future workloads and set realistic commitments in future Sprint planning.
+=================================================================================
+Q) Explain the Definition of Done (DoD) in Scrum.
+Ans.) The Definition of Done is a mutually agreed-upon set of criteria that must be met for a product increment to be considered complete, maintaining consistency and quality.
+=================================================================================
+Q) What is the significance of a Sprint Review?
+Ans.) The Sprint Review evaluates the increment and gathers feedback from stakeholders, allowing adjustments to the Product Backlog for future work based on insights gained.
+=================================================================================
+Q) Address common challenges teams face with Scrum implementation.
+Ans.) Common challenges include resistance to change and communication barriers, which can be mitigated through training, effective communication strategies, and fostering an environment supportive of continuous improvement.
+=================================================================================
+Q) What is a Scrum Board?
+Ans.) A Scrum Board is a visual tool that displays the workflow of a project, typically showing tasks categorized as To Do, In Progress, and Done.
+=================================================================================
+Q) What is the purpose of a Sprint Retrospective?
+Ans.) The Sprint Retrospective is a meeting at the end of a Sprint where the team reflects on what went well and what can be improved for future Sprints. The objective is to identify strengths, weaknesses, and areas for improvement in the team's processes and collaboration.
+=================================================================================
+Q) What is a Burn-Down Chart?
+Ans.) A Burn-Down Chart is a graphical representation of work completed versus work remaining in a Sprint, helping teams track their progress.
+=================================================================================
+Q) What is a Sprint Goal?
+Ans.) A Sprint Goal is a concise statement that describes the purpose and expected outcome of the Sprint, guiding the team’s efforts.
+=================================================================================
+Q) What is a Sprint?
+Ans.) A Sprint is a time-boxed iteration in Scrum, typically lasting 1 to 4 weeks, where a specific set of work is completed.
+=================================================================================
+Q) What happens during Sprint Planning?
+Ans.) During Sprint Planning, the Scrum team defines the Sprint Goal and selects items from the Product Backlog to include in the current Sprint.
+=================================================================================
+Q) What is a Sprint Backlog?
+Ans.) The Sprint Backlog is a subset of the Product Backlog, representing the tasks the development team commits to completing during the Sprint.
+=================================================================================
+Q) What is a Daily Stand-Up?
+Ans.) A Daily Stand-Up is a short, time-boxed meeting where team members share their progress, plans for the day, and any obstacles they face.
+=================================================================================
+Q) What is Time-Boxing in Sprint?
+Ans.) Time-Boxing is the practice of setting fixed durations (like for Sprints and meetings) to encourage focus and efficiency.
+=================================================================================
+Q) What is “Done” in a Sprint context?
+Ans.) "Done" in a Sprint context refers to a mutually agreed-upon definition that specifies the completion criteria for delivered items.
+=================================================================================
+Q) How is Sprint Progress monitored?
+Ans.)Sprint Progress is monitored through tools like Burn-Down Charts and Daily Stand-Ups, which track progress against the Sprint Goal.
+=================================================================================
+Q) What are the different methodologies of SDLC?
+Ans.)
+
+Waterfall Model: A linear and sequential approach where each phase must be completed before the next begins, often used for projects with well-defined requirements.
+Agile Model: An iterative and incremental approach that emphasizes flexibility, collaboration, and customer feedback, allowing for rapid adjustments throughout the development process.
+Spiral Model: Combines iterative development with the systematic risk analysis of each cycle, focusing on gradual refinement through repeated iterations.
+V-Model (Verification and Validation Model): An extension of the Waterfall model that emphasizes testing at each development stage, ensuring quality through validation and verification processes.
+Big Bang Model: A less structured approach where development starts without much planning or requirements, often leading to unpredictable outcomes and high risk.
+Iterative Model: Focuses on repeating development cycles to refine and enhance the product with evolving requirements and continuous feedback from stakeholders.
+================================================================================
+Q) What is the estimation in a sprint?
+Ans.) Estimation in a sprint refers to the process of evaluating the effort or time required to complete tasks or user stories, typically using methods like story points or hours, to help plan and allocate work effectively within the sprint.

@@ -1,0 +1,75 @@
+
+```` Working with PyCharm for Robot Framework Scripting ````
+ 
+================================================================================
+1. Before running the script open settings of project and change the terminal to cmd.exe (by default the path given is powershell.exe)
+
+2. To run a run script from local terminal use below command
+	python -m robot -d results FolderName/FileName.robot
+	ex. python -m robot -d results tests/testdemo1.robot
+
+3. If setting up chromedriver please ensure to give entire path with chromedriver exe file name
+	ex. Create Webdriver    Chrome    executable_path=C:/Users/APisal/chromedriver-win64/chromedriver.exe
+
+	OR ELSE add chromedriver path in system variables path and use the "Open Broswer" keyword
+
+4. To run all robot tests/files in a folder:
+    navigate to the folder in terminal by running : cd <<path of folder>>
+    run command : python -m robot .
+
+5. To run all test scripts in multiple files in parallel:
+    navigate to the folder in terminal by running : cd <<path of folder>>
+    run command : python -m pabot .
+    run command : pabot --testlevelsplit filename.robot
+================================================================================
+SCENARIOS TO BE TESTED                  COMMANDS IN TERMINAL
+execute all tests in folder            robot .
+execute specific test                   robot <testfilename>.robot
+execute test cases by test name         robot --t <testname> .
+execute test cases by tags in file      robot --include <tagname> .
+execute test cases by multiple tag      robot --include <tagname1>AND<tagname2> .
+                                        robot --include <tagname1>OR<tagname2> .
+exclude tests by tag                    robot --exclude <tagname> .
+execute tests by suite name             robot --suite <foldername> .
+execute only failed tests               robot --rerunfailed output.xml .
+
+================================================================================
+To give global variable value from terminal while running the scripts
+    robot --variable VAR_NAME:NEW-value --include SMOKE filename.robot
+================================================================================
+--reporttitle allows you to provide a specific title on the report file
+
+--critical (-c) allows you to specify which tags will cause the test report to be red
+
+--noncritical (-n) allows you to specify which tags will not cause the test report to be red
+
+--timestampoutputs (-T) prevents the results/logs overwriting. preserver multiple results.
+
+================================================================================
+typically when running scripts from a folder, it runs scripts in alphanumeric order,
+to set a particular order, we can rename files with prefix XX__ to order the files
+
+ex. 01_login.robot
+02.addItems.robot
+03.Purchase.robot...
+
+================================================================================
+to randomize the script execution, use --randomize command tag, which will randomly execute
+given tests (random order test but ordered suites execution)
+or suites (ordered test but random suites execution)
+or all (tests and suites both random)
+or none
+================================================================================
+to get more detailed logs
+- logs have default log level:  Info
+- command line change --loglevel(-L) debug
+- in the script - Set Log Level Debug
+================================================================================
+Automatic variables
+    - Return values from keywords
+    - pass info from an executing keyword back to the keyword that called it
+    Ex :
+        ${ReturnedInfo}= A keyword that returns
+        [Return] Something you want to return
+
+
