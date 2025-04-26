@@ -7,7 +7,7 @@ Welcome to the **robotframework-python-projects Repository**. This repository is
 3. [Installation Instructions](#installation-instructions)
 4. [Folder Structure](#folder-structure)
    - [Python Learning](#python-learning)
-   - [Interview Preparation](#interview-preparation)
+   - [Interview Preparation](#interview-preparation-files)
    - [Robot Framework Mini Projects](#robotframework-mini-projects)
 5. [Contributing](#contributing)
 6. [License](#license)
@@ -50,7 +50,7 @@ This will install all necessary packages, including Selenium, Robot Framework, a
 The repository is organized into several folders to help you learn and practice different aspects of Python, Test Automation, and Agile SDLC. Here’s a breakdown of the folder structure:
 1. python-learning:
 A collection of folders to strengthen your Python fundamentals and OOP understanding. It covers python basics and real-world OOP projects like an E-commerce platform, and Library System. Also includes a set of commonly asked Python interview questions with solutions.
-2. interview-preparation :
+2. interview-preparation-files :
 Interview prep material focused on Test Automation, SDLC, and Agile. Contains concise notes on key topics such as API Testing, BDD, CI/CD, XPath, Git, POM, and more, including behavioral questions.
 3. robotframework-mini-projects:
 This folder contains mini projects designed to help you gain hands-on experience with **Selenium** and **Robot Framework**. These projects will allow you to practice various automation techniques, including **BDD (Behavior-Driven Development)**, **Gherkin**, and **Keyword-Driven Testing**. Whether you're just starting with automation or looking to refine your skills, these projects will guide you through real-world scenarios.
