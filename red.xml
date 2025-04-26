@@ -4,7 +4,7 @@
     <relativeTo>WORKSPACE</relativeTo>
     <referencedLibrary type="PYTHON" name="ScreenCapLibrary" path="C:/Users/ABHIJIT/AppData/Local/Programs/Python/Python38/Lib/site-packages/ScreenCapLibrary/__init__.py" dynamic="false"/>
     <referencedLibrary type="PYTHON" name="SeleniumLibrary" path="C:/Users/ABHIJIT/AppData/Local/Programs/Python/Python38/Lib/site-packages/SeleniumLibrary/__init__.py" dynamic="false"/>
-    <referencedLibrary type="PYTHON" name="shop_library" path="robotframework-python-projects/mini_projects/rs-academy-application/Library/shop_library.py" dynamic="false"/>
+    <referencedLibrary type="PYTHON" name="shop_library" path="robotframework-python-projects/robotframework-mini_projects/rs-academy-application/Library/shop_library.py" dynamic="false"/>
     <pythonpath/>
     <classpath/>
     <excludedForValidation/>
