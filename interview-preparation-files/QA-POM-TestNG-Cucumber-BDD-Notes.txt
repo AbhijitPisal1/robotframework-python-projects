@@ -9,7 +9,8 @@
 Q.) Explain Page Object Model
 Ans.
     The Page Object Model (POM) is a design pattern in Selenium.
-     It helps create an object repository for storing web elements. Each page of the web application has a corresponding Page Class.
+     It helps create an object repository for storing web elements. 
+     Each page of the web application has a corresponding Page Class.
      Enhances test maintenance by organizing code.
      Reduces code duplication by separating classes for each web page. If a web element or functionality on a page changes, you only need to update the relevant page class, not every test case that uses it.
 ================================================================================
@@ -42,8 +43,8 @@ Ans.
 Q.) What are the challenges faced while implementing POM?
 Ans.
     Initial setup effort
-     Need for clear organization of classes for complex applications
-     Managing dependencies between page classes
+    Need for clear organization of classes for complex applications
+    Managing dependencies between page classes
 ================================================================================
 Q.) What are the disadvantages of POM?
 Ans.
@@ -65,8 +66,8 @@ Ans.
 Q.) What is the difference between Page Object Model (POM) and Page Factory in Selenium?
 Ans.
     POM: A design pattern where each page of the application is represented by a class.
-     Page Factory: A class in Selenium that simplifies the initialization of elements in POM using the @FindBy annotation.
-     Page Factory enhances POM by reducing repetitive calls to driver.findElement().
+    Page Factory: A class in Selenium that simplifies the initialization of elements in POM using the @FindBy annotation.
+    Page Factory enhances POM by reducing repetitive calls to driver.findElement().
 ================================================================================
 Q.) How do you initialize WebElements using Page Factory in Selenium?\
 Ans.
@@ -125,6 +126,20 @@ Ans.
         Test Setup and Test Teardown can be considered as a form of hook in Robot Framework.
         These can be defined globally in the Settings section to apply them to all test cases or individually to specific test cases.
         Declared as keywords like “Test Setup” and "Test Teardown" to specify when they should run.
+================================================================================
+Q: In Cucumber, how can you ensure that a specific piece of code runs only before the first scenario in a feature file?
+Answer:
+Use a static flag in @Before hook:
+private static boolean isFirstScenario = true;
+
+@Before
+public void beforeFirstScenario() {
+    if (isFirstScenario) {
+        // Code to run once
+        isFirstScenario = false;
+    }
+}
+This ensures the code executes only once before the first scenario.
 ================================================================================ 
 
 --- TestNG ---
@@ -158,17 +173,95 @@ Q.) How do you integrate Selenium with TestNG?
 Ans.
      You can integrate Selenium with TestNG by annotating test methods with @Test, and organizing tests with TestNG’s XML configuration file.
 ================================================================================
-Q.) What are TestNG Listeners, and how do you implement them?
-Ans.
-     TestNG listeners allow you to listen to test execution events. You can implement ITestListener or ISuiteListener interfaces to track test execution progress or handle reporting.
+Q: What happens if you use SoftAssert in TestNG but forget to call assertAll()?
+Answer:
+If you don’t call assertAll():
+    Failed assertions won’t be reported, and the test will appear PASSED even if some validations failed.
+    Passed soft assertions are still logged correctly.
+    Skipping assertAll() can lead to false positives in your automation suite.
+Always place softAssert.assertAll() at the end of your test to ensure all assertion results are reported.
+================================================================================
+Q: What are TestNG Listeners and how are they used in Selenium?
+Answer:
+    TestNG Listeners are special classes that let you run custom actions on events like test start, success, failure, or skip.
+To use them:
+    Implement ITestListener and override methods like onTestFailure() for screenshots, logs, etc.
+public class MyListener implements ITestListener {
+  public void onTestFailure(ITestResult result) {
+    // Take screenshot or log failure
+  }
+}
+
+Attach the listener using @Listeners(MyListener.class) or in testng.xml:
+<listeners>
+  <listener class-name="your.package.MyListener"/>
+</listeners>
+Listeners help automate retries, logging, and reporting in your Selenium framework.
+================================================================================
+Q: Which TestNG listeners have you used in your automation framework?
+Answer:
+Common TestNG listeners used:
+    ITestListener: For logging, screenshots on failure, retrying failed tests.
+    ISuiteListener: For actions before and after the entire suite execution.
+    IAnnotationTransformer: For modifying test annotations at runtime (e.g., enabling/disabling tests).
+ex.     
+public class MyListener implements ITestListener { 
+    public void onTestFailure(ITestResult result) { 
+        // Take screenshot 
+    } 
+}
 ================================================================================     
 Q.) How do you integrate Cucumber with TestNG and POM?
 Ans.
      Cucumber is integrated with TestNG by using the @CucumberOptions annotation in a TestNG runner class.
 ================================================================================
+Q.) What is DataProvider in TestNG?
+Ans.
+    DataProvider is a TestNG feature that allows you to run the same test method with multiple sets of data. It supports parameterized testing.
+================================================================================
 Q.) How do you handle different environments (e.g., dev, prod) in Cucumber with TestNG and POM?
 Ans.
      Different environments can be handled using configuration files (e.g., .properties, .yml) and environment-specific profiles.
+================================================================================
+Q.) write the order of execution of TestNG annotation and briefly explain each of them
+Ans.
+
+Order of Execution of TestNG Annotations:
+@BeforeSuite
+Runs once before all tests in the entire suite. Used for global setup like initializing reports or setting environment variables.
+
+@BeforeTest
+Runs before any test methods inside the <test> tag in the TestNG XML file. Used for setting up test-level configurations.
+
+@BeforeClass
+Runs once before the first test method in the current test class. Useful for class-level setup (e.g., opening browser).
+
+@BeforeMethod
+Runs before each test method. Used for preconditions like navigating to a URL or resetting test data.
+
+@Test
+The actual test method runs here.
+
+@AfterMethod
+Runs after each test method. Used for cleanup like taking screenshots or clearing test data.
+
+@AfterClass
+Runs once after all test methods in the current class have executed. Used for class-level cleanup like closing browser.
+
+@AfterTest
+Runs after all test methods inside the <test> tag have run. Used for test-level cleanup.
+
+@AfterSuite
+Runs once after all tests in the suite have finished. Used for final cleanup like closing database connections or generating summary reports.
+================================================================================
+Q. ) In TestNG, how do you prioritize test methods?
+Ans.) Use the `priority` attribute in `@Test`. Lower values run first.
+
+@Test(priority = 1)
+=================================================================================
+Q. ) What is Grouping in TestNG?
+Ans.) Grouping allows running a subset of tests together using `groups` attribute.
+@Test(groups = {"smoke"})
 ================================================================================ 
 
 --- Cucumber ---
@@ -249,6 +342,14 @@ Ans.
 Q.) How do you organize step definitions in a large Cucumber project?
 Ans.
      In large projects, organize step definitions by feature (e.g., LoginSteps.java, SearchSteps.java). Keep reusable code in utility classes to maintain clarity.
+================================================================================
+Q.) What keywords are used in a Cucumber feature file?
+Ans.)
+In Cucumber, a feature file uses Gherkin keywords such as **Feature**, **Scenario**, **Scenario Outline**, **Given**, **When**, **Then**, **And**, **But**, **Background**, and **Examples** to define the behavior and flow of test cases in plain English.
+================================================================================
+Q.) What is the difference between Scenario and Scenario Outline in Cucumber?
+Ans.)
+In Cucumber, **Scenario** is used to define a single concrete example of a feature’s behavior, whereas **Scenario Outline** is used for running the same scenario multiple times with different sets of test data provided in the **Examples** table.
 ================================================================================ 
 Q.) How do you use tags in Cucumber?
 Ans.
@@ -273,5 +374,77 @@ Ans.
 Q.) What is the role of the @Given, @When, and @Then annotations in Cucumber?
 Ans.
      These annotations link the steps in Gherkin to Java methods. @Given sets up the initial context, @When describes the action, and @Then defines the expected outcome.
+================================================================================ 
+Q.) What is a Feature file?
+Ans.) 
+    In Cucumber, a feature file contains scenarios written in Gherkin language that describe the behavior of the application in plain English.
+=================================================================================
+Q.) What is Glue?
+Ans.)
+    Glue is the path in the Cucumber runner class that links feature files to step definition classes.
+=================================================================================
+Q.) What are the differences between Hook and Background?
+Ans.)
+     `Background` is used to define common steps that run before each scenario in a feature file. `Hooks` (`@Before`, `@After`) are defined in step definition classes and apply to all feature files.
+=================================================================================
+Q.) What is Scenario Outline?
+Ans.) 
+    It allows parameterization of a scenario using Examples table. It runs the same scenario multiple times with different data.
+=================================================================================
+Q.)How do you pass parameters from a feature file to step definition file?
+Ans.)
+    Using regular expressions in the step definition.
 
+```gherkin
+Given I enter "username" and "password"
+```
+
+```java
+@Given("^I enter \"([^\"])\" and \"([^\"])\"$")
+public void enterCredentials(String user, String pass) { }
+```
+=================================================================================
+Q.) What is a Listener?
+Ans.) Listeners in TestNG or Cucumber allow custom code execution based on test events like test start, success, failure, etc. TestNG uses `ITestListener`, and Cucumber uses `@Before`, `@After`, and plugins.
+=================================================================================
+
+--- Maven ---
+
+================================================================================ 
+Q.) What is Maven?
+Ans.) Maven is a build automation and dependency management tool primarily for Java projects. It uses a `pom.xml` file to manage project configurations, dependencies, plugins, and build lifecycles.
+=================================================================================
+Q.) What is `pom.xml`?
+Ans.) `pom.xml` (Project Object Model) is the core configuration file in Maven. It defines project details, dependencies, plugins, and build configurations.
+=================================================================================
+Q.) What are Maven plugins? Name a few used in test automation.
+Ans.) Plugins in Maven extend its capabilities and help perform tasks like compiling code, running tests, and packaging. Common plugins in test automation:
+
+ maven-surefire-plugin – Runs unit and test automation scripts
+ maven-compiler-plugin – Compiles Java source code
+ maven-jar-plugin – Packages code into a JAR
+================================================================================
+Q.) What is a Maven repository?
+Ans.) A Maven repository is a storage location for project artifacts (JARs, libraries, etc.).
+
+ Local Repository: Located on the developer’s machine (.m2 folder).
+ Central Repository: Public online repository provided by Maven.
+ Remote Repository: Custom or private repositories (e.g., company repositories).
+================================================================================
+Q.) How does Maven help with version control of dependencies?
+Ans.) Maven allows you to define specific versions of dependencies in pom.xml, ensuring consistency across builds and environments. This avoids version conflicts and ensures predictable behavior.
+================================================================================
+Q.) How can you run TestNG tests using Maven?
+Ans.)
+
+1. Add the TestNG dependency to pom.xml.
+2. Configure the maven-surefire-plugin to detect and run TestNG tests.
+3. Run the tests using the command:
+
+bash
+    mvn test
+================================================================================
+Q.) Can Maven be integrated with CI/CD tools like Jenkins?
+Ans.) Yes. Jenkins can execute Maven commands like mvn clean install in its pipeline or job configurations to build, test, and deploy automation projects as part of a CI/CD workflow.
+================================================================================
 

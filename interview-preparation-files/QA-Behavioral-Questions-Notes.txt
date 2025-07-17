@@ -4,20 +4,20 @@
 =================================================================================
 Q) How do you handle change requests in your application?
 Ans.)
-Requirement Analysis: Understand the requested changes thoroughly.
-Impact Assessment: Assess how the changes affect existing tests and functionality.
-Documentation: Document the changes for future reference.
-Implementation: Update test scripts and automation frameworks as needed.
-Regression Testing: Conduct regression tests to ensure no new issues are introduced.
+    Requirement Analysis: Understand the requested changes thoroughly.
+    Impact Assessment: Assess how the changes affect existing tests and functionality.
+    Documentation: Document the changes for future reference.
+    Implementation: Update test scripts and automation frameworks as needed.
+    Regression Testing: Conduct regression tests to ensure no new issues are introduced.
 =================================================================================
 Q) How do you handle test cases when requirements are not clearly defined?
 Ans)
-Collaborate with Stakeholders: Engage with product owners and users to clarify requirements.
-Use Exploratory Testing: Conduct exploratory testing to uncover application behavior.
-Create Test Cases Based on Assumptions: Develop test cases from reasonable assumptions, clearly labeled as so.
-Prioritize Robustness: Focus on critical functionalities and high-risk areas.
-Iterate: Be ready to revise test cases as requirements clarify.
-Document Everything: Keep detailed records of discussions and assumptions for future reference.
+    Collaborate with Stakeholders: Engage with product owners and users to clarify requirements.
+    Use Exploratory Testing: Conduct exploratory testing to uncover application behavior.
+    Create Test Cases Based on Assumptions: Develop test cases from reasonable assumptions, clearly labeled as so.
+    Prioritize Robustness: Focus on critical functionalities and high-risk areas.
+    Iterate: Be ready to revise test cases as requirements clarify.
+    Document Everything: Keep detailed records of discussions and assumptions for future reference.
 =================================================================================
 Q) You are asked to automate a functionality that is not yet fully developed. How do you handle this?
 Ans.) I would first collaborate with the development team to understand the expected functionality and its requirements. Then, I would create a partial automation framework that allows for testing as features become available, using stubs or mocks for the uncompleted parts to ensure a flexible test strategy.
@@ -75,4 +75,40 @@ Ans.) I would focus on test case selection based on critical features, execute h
 =================================================================================
 Q) How to handle projects without documentation?
 Ans.) I would initiate discussions with team members to gather informal knowledge, create my own documentation as I learn, and establish a systematic way to capture insights throughout the project lifecycle to foster clarity for future efforts.
+=================================================================================
+Q) You find an intermittent bug that appears only in production, not QA. How would you approach investigating it?
+Ans.) I would start by analyzing production logs and monitoring data to identify any patterns or triggers around the bug. I'd try to reproduce the issue using production-like data and environment settings. If necessary, I’d implement additional logging or telemetry in the production system to capture more details. Collaborating with developers and stakeholders to isolate the root cause would be key.
+=================================================================================
+Q) Your regression suite is taking too long to run. What steps would you take to optimize it?
+Ans.) First, I’d analyze test execution time and identify bottlenecks. I’d then categorize tests (e.g., smoke, sanity, full regression) and implement test parallelization where feasible. I’d also consider removing redundant tests and moving non-critical tests to run in scheduled jobs rather than blocking deployments. Using test impact analysis to run only affected tests could further optimize execution time.
+=================================================================================
+Q) A build is failing due to failing automation tests. How would you debug and triage the issue?
+Ans.) I’d first check the test report, logs, and screenshots (if available) to identify what failed. I’d verify if the failure is due to an actual defect, test script issue, or environment-related flakiness. I’d rerun the failing tests in isolation to confirm the behavior and collaborate with developers if needed. Prioritizing and labeling the issue properly (e.g., blocker, flaky, false positive) would guide the next steps.
+=================================================================================
+Q) How do you manage cross-browser testing in your automation? Which tools or strategies do you use?
+Ans.) I use tools like Selenium Grid, BrowserStack, or Sauce Labs to execute tests across different browsers and devices. I ensure tests are browser-agnostic by avoiding hard-coded waits or browser-specific selectors. Tests are regularly run on a matrix of supported browsers to catch compatibility issues early.
+=================================================================================
+Q) Your automation tests are failing frequently due to minor UI changes. How can you improve the stability of your scripts?
+Ans.) I’d make the scripts more resilient by using dynamic locators (like XPath with contains or regex), and avoiding brittle selectors like index-based XPaths. Introducing a page object model (POM) would centralize UI element definitions, making updates easier. Implementing visual testing tools like Percy or Applitools could help catch unintended changes while tolerating minor UI shifts.
+=================================================================================
+Q) Have you written custom utilities or libraries in your automation codebase? What problem did it solve?
+Ans.) Yes, I’ve written custom utility libraries for reusable functions like waiting mechanisms, API calls, dynamic test data generation, and custom logging. These utilities helped reduce code duplication, improved maintainability, and enabled faster onboarding of new team members.
+=================================================================================
+Q) How do you balance between automating a test case vs. keeping it manual?
+Ans.) I consider factors like test case stability, repeatability, criticality, and ROI. High-impact, frequently executed tests are prioritized for automation, while one-time or highly subjective exploratory tests are kept manual. If automation would require extensive maintenance for a rarely-used feature, I’d opt for manual testing.
+=================================================================================
+Q) How would you test a chatbot or voice assistant application?
+Ans.) I’d define various user intents and utterances to validate the NLP processing and dialog flow. For chatbots, tools like Botium or custom scripts using APIs can simulate user inputs and validate responses. For voice assistants, I’d use speech-to-text mock inputs and validate text-based outputs against expected responses, also including edge cases like slang, noise, and accents.
+=================================================================================
+Q) What kind of logging and reporting mechanisms do you use in your automation?
+Ans.) I use structured logging with tools like Log4j or built-in test framework loggers to capture execution details. For reporting, I use tools like Allure, Extent Reports, or TestNG reports to visualize pass/fail trends and screenshots for failures. Reports are integrated with CI/CD tools for visibility across teams.
+=================================================================================
+Q) How do you handle test environment instability or downtime while running automated tests?
+Ans.) I include environment health checks before test execution and implement retry logic for transient failures. Test cases are designed to fail gracefully and provide detailed failure logs. If instability is common, I raise the issue with DevOps and push for better monitoring and alerting.
+=================================================================================
+Q) Suppose there are 100 links in a webpage. How do you check which links are not clickable?
+Ans.) I’d collect all anchor elements using a locator like `driver.findElements(By.tagName("a"))`, then iterate through each link and check if it’s displayed and enabled. For better accuracy, I’d use JavaScript or the Actions class to attempt a click and catch exceptions to identify unclickable links.
+=================================================================================
+Q) Suppose there are 20 windows opened. How do you switch to the 10th window?
+Ans.) I’d get all window handles using `driver.getWindowHandles()` and store them in a list. Then, I’d switch using `driver.switchTo().window(list.get(9))` since the list is 0-based indexed.
 =================================================================================

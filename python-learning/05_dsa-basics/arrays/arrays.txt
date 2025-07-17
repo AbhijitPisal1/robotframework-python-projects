@@ -1,0 +1,92 @@
+Array Overview:
+
+- Arrays are not a native data type in Python.
+- Use the built-in `list` for simple array-like behavior.
+- For true arrays (more efficient and structured), use:
+  - `array` module (standard library)
+  - `numpy` module (third-party, powerful for numerical computing)
+- Arrays store elements in a **contiguous block of memory** (no pointers).
+- All elements must be of the **same data type** (e.g., all integers).
+  - Mixing types (e.g., int and str) is not allowed in array modules.
+- Each item is **uniquely identified by its index** (zero-based).
+
+*** Why Use Arrays? ***
+
+- Arrays provide a **structured and efficient way to store multiple elements** of the same type.
+- They enable **fast indexing, predictable memory usage**, and are ideal for:
+  - Numerical computations
+  - Bulk data processing
+  - Scientific and engineering tasks
+
+*** Array Types ***
+
+| Array Type         | Indexing Syntax     | Structure Description                       | Dimensions           | Notes                                                      |
+|--------------------|---------------------|---------------------------------------------|-----------------------|------------------------------------------------------------|
+| 1D Array (Linear)  | a[i]                | One row with multiple columns               | Single (1D)           | - Elements accessed with one index                         |
+|                    |                     |                                             |                       | - Index `i` ranges from 0 to n-1                           |
+| 2D Array           | a[i][j]             | Table-like: rows and columns                | Two-dimensional (2D)  | - Elements accessed using row and column indices           |
+|                    |                     |                                             |                       | - Commonly used for matrices                               |
+| 3D Array           | a[i][j][k]          | Cube-like: rows, columns, and depth layers  | Three-dimensional (3D)| - Elements accessed using three indices                    |
+|                    |                     |                                             |                       | - Conceptually a group of 2D arrays layered in depth       |
+|                    |                     |                                             |                       | - Rarely used; consider numpy for high-dim efficiency      |
+
+Pointers:
+- In Python, use lists or `numpy` arrays for multi-dimensional structures.
+- `1D array` = single index access, useful for lists of values.
+- `2D array` = matrix-like, excellent for grids, spreadsheets, images.
+- `3D array` = stack of 2D arrays; typically used in scientific computing.
+
+*** Memory Representation of Arrays ***
+
+- **One-Dimensional Array**:
+  - Stored in contiguous memory cells.
+  - System guarantees all elements are placed next to each other.
+  - No control over where it's stored, but elements must be contiguous.
+
+- **Two-Dimensional Array**:
+  - Flattened into a one-dimensional memory layout.
+  - Each row is stored consecutively in memory.
+
+- **Three-Dimensional Array**:
+  - Also represented as a one-dimensional block in memory.
+  - Conceptually a set of 2D arrays stacked, but stored linearly.
+
+*** Time and Space Complexity for 1D Array Operations ***
+
+| Operation                           | Time Complexity | Space Complexity |
+|-------------------------------------|------------------|------------------|
+| Creating an empty array             | O(1)             | O(1)             |
+| Creating an array with elements     | O(n)             | O(n)             |
+| Inserting a value in array          | O(n)             | O(1)             |
+| Traversing a given array            | O(n)             | O(1)             |
+| Accessing a given cell in an array  | O(1)             | O(1)             |
+| Searching a given value in an array | O(n)             | O(1)             |
+| Deleting a given value from an array| O(n)             | O(1)             |
+Notes:
+- n = number of elements
+
+*** Time and Space Complexity for 2D Array Operations (NumPy-based) ***
+
+| Operation                                 | Time Complexity     | Space Complexity     |
+|-------------------------------------------|----------------------|-----------------------|
+| Creating an empty 2D array                | O(1)                 | O(1)                  |
+| Creating a 2D array with elements         | O(n × m)             | O(n × m)              |
+| Inserting a new row or column             | O(n × m)             | O(n × m) (returns copy) |
+| Traversing the entire 2D array            | O(n × m)             | O(1)                  |
+| Accessing a specific cell [i][j]          | O(1)                 | O(1)                  |
+| Searching for a value in 2D array         | O(n × m)             | O(1)                  |
+| Deleting a row or column (copy-based)     | O(n × m)             | O(n × m) (returns copy) |
+
+Notes:
+- n = number of rows
+- m = number of columns
+- Most structural modifications in NumPy (insert/delete) return a new array, increasing space usage.
+
+*** When to Use Arrays ***
+- Store multiple values of the same data type efficiently.
+- Enable fast random access (O(1) time) to elements by index.
+
+*** When to Avoid Arrays ***
+- Arrays support only a single data type; mixed types require separate arrays.
+- Fixed-size memory allocation may lead to reallocation and performance overhead.
+- Unused pre-allocated memory can result in wasted space.

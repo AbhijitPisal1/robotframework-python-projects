@@ -48,14 +48,6 @@ Ans) The 'git pull' command updates the current local branch with changes from a
 Q) What does git clone do?
 Ans) The 'git clone' forms a copy of a remote repository upon your local machine. It downloads all files, branches, and history, enabling you to start working on the project or contribute to it. With git clone -b , you can download and work on an individual branch of a repository.
 ============================================================================================================
-Q) What are the advantages of using GIT?
-Ans) Using Git provides multiple advantages:
-•   It assists teamwork by supporting multiple developers to work on the same project together.
-•   Each developer has a local copy of the repository, improving performance and enabling offline work.
-•   Free and widely supported.
-•   Git supports work on various types of projects.
-•   Each repository has only one Git directory.
-============================================================================================================
 Q) What is the difference between git init and git clone?
 Ans) 'git init' develops a new, empty Git repository in the present directory, while 'git clone' copies an existing remote repository, containing all files and history, to a local directory.
 ============================================================================================================

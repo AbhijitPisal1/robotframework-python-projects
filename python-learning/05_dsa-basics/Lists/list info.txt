@@ -1,0 +1,63 @@
+############ LIST COLLECTION DATA TYPE IN PYTHON ############
+
+### What is a list ###
+
+A list is a built-in collection type in Python used to store multiple values.
+- Syntax: Enclosed in square brackets [], e.g., [1, "apple", 3.14]
+- Ordered: Maintains insertion order
+- Mutable: Can add, remove, or modify items
+- Indexed: Supports positive and negative indexing, slicing
+- Heterogeneous: Can contain different data types (int, str, float, etc.)
+- Allows duplicates: Elements can appear more than once
+
+### Pitfalls and How to Avoid Them ###
+
+# 1. Some list methods modify the list in-place and return None
+mylist3 = [2, 4, 3, 5, 6, 1]
+print(mylist3)
+mylist3 = mylist3.sort()  # This sets mylist3 to None
+print(mylist3)            # Output: None
+
+# Correct usage:
+mylist3 = [2, 4, 3, 5, 6, 1]
+mylist3.sort()            # sort() modifies the list in-place
+print(mylist3)
+
+# 2. Multiple operations exist for similar tasks
+# Example: remove(), pop(), del — all remove elements
+#          append(), extend(), + operator — all add elements
+# Tip: Use the method that matches your exact need (by value or index, single or multiple items), and keep your usage consistent.
+
+# 3. Preserve original list before modifying, if needed later
+# Example: use copy() to create a backup before sort, reverse, etc.
+
+### Arrays vs Lists ###
+# Similarities:
+# - Both are mutable data structures
+# - Both support indexing, iteration, and slicing
+
+# Key Differences:
+# - Arrays support arithmetic operations; lists do not
+# - Arrays require uniform data types; lists can hold mixed types
+
+import numpy as np
+arr1 = np.array([1, 2, 3, 4])
+list1 = [1, 2, 3, 4]
+
+print(arr1 / 2)   # Output: [0.5 1.  1.5 2. ]
+# print(list1 / 2)  # Uncommenting this will raise TypeError
+
+### List Operations Complexity ###
+
+| Operation                            | Time Complexity | Space Complexity |
+|------------------------------------|-----------------|------------------|
+| Creating an empty list              | O(1)            | O(1)             |
+| Creating a list with elements       | O(n)            | O(n)             |
+| Appending a value to the list       | O(1) amortized  | O(1)             |
+| Inserting a value at an index       | O(n)            | O(1)             |
+| Traversing all elements             | O(n)            | O(1)             |
+| Accessing an element by index       | O(1)            | O(1)             |
+| Searching for a value (linear search)| O(n)          | O(1)             |
+| Deleting an element by value        | O(n)            | O(1)             |
+| Deleting an element by index        | O(n)            | O(1)             |
+| Copying a list                      | O(n)            | O(n)             |

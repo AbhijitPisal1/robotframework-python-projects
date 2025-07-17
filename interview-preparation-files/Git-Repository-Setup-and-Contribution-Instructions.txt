@@ -1,0 +1,160 @@
+Repository Setup and Contribution Instructions
+==============================================
+-------------------------
+1. Cloning the Repository
+-------------------------
+To start working on this project, first clone the repository to your local machine.
+
+1.1 Install Git
+    If you don’t have Git installed on your machine, download and install it from git-scm.com.
+
+1.2 Clone the Repository
+    Open a terminal (Command Prompt, Git Bash, or any terminal of your choice)
+    and navigate to the directory where you want to store the repository.
+    Then run the following command to clone the repository:
+
+        git clone https://github.com/AbhijitPisal1/RobotFramework_Python.git
+
+1.3 Navigate into the Project Directory
+    Once the repository is cloned, move into the project directory:
+
+        cd RobotFramework_Python.git
+
+--------------------------------------
+2. Creating a New Branch for Your Work
+--------------------------------------
+We encourage you to create a new branch when working on a specific feature,
+bug fix, or research. This keeps the main branch clean and ensures easy collaboration.
+
+2.1 Create and Switch to a New Branch
+    To create a new branch and switch to it, use the following command:
+
+        git checkout -b <new-branch-name>
+
+    Replace <new-branch-name> with a descriptive name for your branch
+    (e.g., feature-x, bugfix-y, research-z).
+
+2.2 Verify Branch Creation
+    You can verify that you’re on the correct branch by running:
+
+        git branch
+
+    The current branch will be highlighted with an asterisk (*).
+
+----------------------------------------
+3. Making Changes and Committing Locally
+----------------------------------------
+Once you’ve made changes to the code or added new features,
+you’ll need to commit your work to the repository.
+
+3.1 Stage Your Changes
+    Use git add to stage the changes. You can add specific files or all files at once:
+
+        git add .
+
+3.2 Commit Your Changes
+    After staging your changes, commit them with a meaningful message:
+
+        git commit -m "Describe your changes here"
+
+3.3 View Commit History
+    To view your commit history, run:
+
+        git log
+
+----------------------------
+4. Pushing Changes to GitHub
+----------------------------
+Once your work is complete and committed locally,
+push your changes to the remote repository on GitHub.
+
+4.1 Push Your Branch to GitHub
+    To push your changes to GitHub, run the following command:
+
+        git push origin <new-branch-name>
+
+    Replace <new-branch-name> with the name of your branch.
+
+4.2 Create a Pull Request (PR)
+    After pushing your branch, go to the GitHub repository and you should see
+    an option to Compare & Pull Request. Click on it to create a PR and merge
+    your changes into the main branch (or another relevant branch).
+
+-----------------------------------------------------
+5. Forking the Repository (For External Contributors)
+-----------------------------------------------------
+If you don’t have write access to the repository,
+you should fork the repository first and then create a pull request from your fork.
+
+Steps to Fork and Contribute:
+
+5.1 Fork the Repository
+    Go to the repository page on GitHub (https://github.com/xyz.git)
+    and click on the Fork button in the upper-right corner to create a copy
+    of the repository under your own GitHub account.
+
+5.2 Clone Your Forked Repository
+    Clone your forked repository to your local machine:
+
+        git clone https://github.com/your-username/xyz.git
+
+5.3 Add the Original Repository as a Remote
+    To keep your fork updated with changes from the original repository,
+    add the original repository as a remote:
+
+        git remote add upstream https://github.com/xyz.git
+
+5.4 Sync Your Fork with the Original Repository
+    Periodically fetch the latest changes from the original repository and merge them into your fork:
+
+        git fetch upstream
+        git checkout main
+        git merge upstream/main
+
+    After merging, push the changes to your fork:
+
+        git push origin main
+
+5.5 Create a Pull Request
+    Once you’ve made changes and committed them to your fork,
+    go to GitHub and create a pull request (PR) from your fork to the original repository.
+
+-----------------------------
+6. Pulling the Latest Changes
+-----------------------------
+If others have made changes to the repository and you want to stay up-to-date,
+you can pull the latest changes into your local repository.
+
+6.1 Pull the Latest Changes
+    To pull the latest changes from the remote repository (usually origin), run:
+
+        git pull origin main
+
+6.2 Syncing Forked Repositories
+    If you have forked the repository, follow these steps to sync with the original repository
+    (as mentioned in the "Forking the Repository" section).
+
+---------------------------
+7. Handling Merge Conflicts
+---------------------------
+When merging changes from different branches or contributors, conflicts may arise.
+Git will notify you of conflicts, and you'll need to manually resolve them.
+
+7.1 Resolve Conflicts
+    Open the conflicting files and make the necessary changes.
+    Conflicts will be marked with conflict markers like <<<<<<<, =======, and >>>>>>>.
+
+7.2 Mark as Resolved
+    After resolving conflicts, mark the files as resolved:
+
+        git add <resolved-file>
+
+7.3 Commit the Merge
+    Commit the merge resolution:
+
+        git commit -m "Resolved merge conflict"
+
+7.4 Push the Resolved Changes
+    Push your changes to the remote repository:
+
+        git push origin <branch-name>

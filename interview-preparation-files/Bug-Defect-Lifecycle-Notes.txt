@@ -2,59 +2,50 @@
 ```` Bug/Defect Lifecycle Overview ````
 
 ===============================================================================================================
-@Definition :
-The bug / defect lifecycle, is the progression of a bug from its initial discovery to its resolution and closure.
-===============================================================================================================
-@Stages:
-Open/New:   The bug is reported and awaiting review. -> Tools used Centralized tracking and organization of bugs.
-Assigned:   The bug is assigned to a developer for fixing. -> Clarifies ownership and accountability.
-In Progress:The developer is actively working on the bug.-> Indicates active progress towards resolution.
-Resolved:   The bug has been fixed and is ready for testing.-> Allows for review and verification of the solution.
-Verify:     The fix is being tested to confirm resolution.-> Ensures quality assurance before the bug is closed.
-Reopened:   The bug is reopened if unresolved or recurs.-> Facilitates continuous improvement through iterative testing.
-Closed:     The bug is confirmed as resolved and closed.-> Provides a clear indication of completed tasks in tracking system.
-Won't Fix:  The decision is made not to address the bug.-> Helps prioritize by eliminating non-critical issues from consideration.
-Deferred:   The bug will be addressed in a future release.-> Enables focus on high-priority tasks and resource management.
-Invalid:    Indicates the issue is not a valid defect or is a duplicate.-> Reduces clutter in the tracking system and focuses efforts on legitimate issues.
-===============================================================================================================
-@Tools Used :
-    JIRA: Extensive tracking and reporting capabilities, excellent for agile project management.
-    Bugzilla: Open-source tool focused on bug tracking, known for its straightforward interface.
-    MantisBT: Another open-source tool with a user-friendly interface, ideal for small to medium teams.
-    Trello: A more visual tool for tracking bugs using boards and cards, suitable for smaller projects.
-    Redmine: Integrates project management and bug tracking with customizable workflows.
-===============================================================================================================
-@Benefits:
-    Centralized Tracking: All bugs and their statuses are kept in one location.
-    Improved Collaboration: Teams can work more effectively by having clear visibility of tasks.
-    Enhanced Reporting: Detailed insights into bug trends and team performance can be generated.
-    Streamlined Process: Provides a systematic approach to managing bugs, improving efficiency in resolution.
-===============================================================================================================
-@Categorization of defects :
-    Severity (High - Medium - Low impact to system performance/security)
-    Priority (High - Medium - Low urgency)
-    Reproducibility (Reproducible, Intermittent, Non-Reproducible, or Cannot Reproduce)
-    Root Cause (Coding Error, Design Flaw, Configuration Issue, or User Error, etc.)
-    Bug Type (Functional Bugs, Performance Issues, Usability Problems, Security Vulnerabilities, Compatibility Errors, etc.)
-    Areas of Impact
-    Frequency of Occurrence
+Q1: What is the Bug/Defect Lifecycle? Explain its stages.
+A:
+The Bug Lifecycle (also called Defect Lifecycle) describes the progression of a bug from discovery to closure, helping teams systematically track and resolve defects during development and testing.
+
+Stages:
+New/Open: Bug is reported and logged in the defect tracking system, awaiting triage.
+Assigned: Bug is assigned to a developer or team responsible for fixing it.
+In Progress: Developer is actively working on resolving the bug.
+Resolved/Fixed: Developer marks the bug as fixed and ready for testing.
+Retest/Verify: Tester verifies the fix by retesting the issue.
+Reopened: If the issue persists or recurs after retesting, the bug is reopened and sent back for fixing.
+Closed: Bug is confirmed fixed and closed after successful verification.
+Deferred: Bug is acknowledged but postponed for future releases due to low priority or resource constraints.
+Won’t Fix: Bug is decided not to be fixed, often due to non-critical impact or design decisions.
+Invalid/Rejected: Bug is not a valid defect (e.g., duplicate, not reproducible).
+
+This lifecycle ensures clear communication, accountability, and effective defect management.
 ==============================================================================================================
 Q) Explain the concept of defect logging and its importance in STLC ?
 Ans.)
-@ Definition:
     - systematic documentation of defects found in the software application.
     - typically includes information such as defect ID, description, severity, steps to reproduce, screenshots, environment details, and status.
-@ Importance of Defect Logging in STLC:
-    - provides a clear and standardized way to communicate issues between testers and developers.
-    - Detailed defect reports help developers understand the problem, which guides them in debugging and fixing the issue.
-    - By logging defects with different severity levels (e.g., critical, high, medium, low), teams can prioritize their work.
-    - Critical issues can be addressed immediately, while less impactful issues can be resolved later.
-    - A log of defects allows for tracking the status of each defect (new, in progress, resolved, closed).
-    - creates accountability among team members, as it is clear who is responsible for resolving which defects.
-    - Help identify patterns or recurring issues, enabling teams to take corrective actions to improve the overall quality of the product.
-    - Defect logs serve as historical documentation for understanding past issues and avoiding similar problems in subsequent projects.
-    - Insights gained from defect logs can inform future testing strategies and plans.
-    - Knowing where defects frequently occur allows for targeted testing efforts to mitigate risk in critical areas.
+    - Defect logging provides a clear, standardized way to document issues, helping testers and developers communicate effectively.
+    - It enables prioritization based on severity, tracks defect status, creates accountability, and provides historical data to improve product quality and testing strategies.
+
+===============================================================================================================
+Q)  Give one example of each bug type based on priority and severity:
+Ans.) 
+
+High Priority & Low Severity:
+Example: A typo in the company logo’s alt text on the homepage.
+Reason: Does not break functionality (low severity) but affects the company’s image, so must be fixed quickly (high priority).
+
+High Priority & High Severity:
+Example: The login page crashes and users cannot access their accounts.
+Reason: Critical functionality broken (high severity) and requires immediate fix (high priority).
+
+Low Priority & Low Severity:
+Example: Slight misalignment of a rarely used icon on a settings page.
+Reason: No functional impact (low severity) and not urgent (low priority).
+
+Low Priority & High Severity:
+Example: The system fails to generate PDF previews for archived engineering documents older than 10 years.
+Reason: The issue is severe (PDF preview functionality is completely broken for those documents), but it’s low priority because those documents are rarely accessed, mostly for legacy reference, and don't impact current workflows.
 ===============================================================================================================
 Q) Explain the Deferred State in Defect cycle.
 Ans.)
@@ -90,13 +81,9 @@ Defect Cascading:   Defect cascading occurs when one defect leads to the manifes
 ===============================================================================================================
 Q) Define Defect Rejection Ratio and Defect Leakage Ratio
 Ans.)
-Defect Rejection Ratio:
-    The defect rejection ratio measures the percentage of reported defects that are rejected by the development team after evaluation.
-    Defect Rejection Ratio = (Total Number of Reported Defects/Number of Rejected Defects )×100
-Defect Leakage Ratio:
-    The defect leakage ratio indicates the percentage of defects that are detected after the software has been released to production, which should have been identified during the testing phase.
-    Defect Leakage Ratio = (Defects Found in Production/(Total Defects Found (in Production + Testing)))×100
-These ratios help assess the effectiveness of the testing process and overall software quality.
+    Defect Rejection Ratio: Percentage of reported defects rejected after evaluation.
+    Defect Leakage Ratio: Percentage of defects found post-release that were missed during testing.
+These metrics gauge testing effectiveness.
 ===============================================================================================================
 Q) Define Bug Release and Bug Leakage
 Ans.)
@@ -119,8 +106,11 @@ Ans.)
 Q) Explain the Difference in Bug-Error-Defect-Failure
 Ans.)
 Bug:    A bug is a generic term used to describe any flaw or issue in the software that may cause it to produce incorrect or unexpected results. It is often used interchangeably with defect.
+
 Error:  An error refers to a human mistake made during software development, coding, or testing that can lead to defects. It is the actual incorrect action or oversight made by a developer or tester.
+
 Defect:    A defect is a discrepancy between the expected behavior and the actual behavior of the software. It arises when the software does not meet its requirements or specifications due to errors made during development.
+
 Failure:    A failure occurs when the software doesn't perform its intended function or operation in a production environment. It is the manifestation of a defect when the software is executed.
 ===============================================================================================================
 Q) Explain the procedure for creating a Defect Report

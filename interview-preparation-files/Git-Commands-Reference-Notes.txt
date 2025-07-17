@@ -24,7 +24,7 @@ Desc : Retrieve an entire repository from a hosted location via URL
 ### Stage and snapshot --> working with snapshots and git staging area ###
 
 Command : git status
-Desc : desc: show modified files in working directly, staged for your next commit
+Desc : show modified files in working directory, staged for your next commit
 
 Command : git add [file]
 Desc : add a file as it looks now to your next commit stage
@@ -56,7 +56,7 @@ Command : git merge [branch]
 Desc : merge the specified branches history into the current one
 
 Command : git log
-Desc : how all commits in the current branch’s history
+Desc : show all commits in the current branch’s history
 ================================================================================
 ### inspect and compare --> examining logs, diffs and object information ###
 
@@ -113,7 +113,7 @@ Desc : clear staging area, rewrite working tree from the specified commits
 ================================================================================
 ### Sequence of Commands to create new repository from local folder and making commits :  ###
 
-1.  Generating new SSH Key								>> ssh-keygen -t rsa -b 4096 -C "mail address"
+1.  Generating new SSH Key								>> ssh-keygen -t rsa -b 1234 -C "mail address"
 2.  Checking git version								>> git --version
 3.  Initialize current folder as local repository		>> git init
 4.  Link local repository with the GitHub repository	>> git remote add origin "GitHubURL SSH"

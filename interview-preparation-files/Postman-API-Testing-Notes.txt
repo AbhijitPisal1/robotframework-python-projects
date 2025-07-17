@@ -53,7 +53,7 @@ Ans)
     TRACE: It is used to test and diagnose the path taken by a request to the server by reflecting back the received request.
 ================================================================================
 Q) What is the role of headers in API testing?
-Ans) Headers in API testing plays an important role in providing additional information that is not included in the request body. Herders are important in controlling the behavior of the server in handling the request, to provide authentication information, or to provide metadata about the request or response.
+Ans) Headers in API testing plays an important role in providing additional information that is not included in the request body. Headers are important in controlling the behavior of the server in handling the request, to provide authentication information, or to provide metadata about the request or response.
 ================================================================================
 Q) What is the purpose of authentication in API testing?
 Ans)
@@ -72,13 +72,6 @@ Ans) The request body is used to send and receive data such as input parameters,
 Q) What is the purpose of the request and response headers in API testing?
 Ans) The request headers are used to specify a content type, caching, authentication, etc. The response header can provide information about the server, caching, etc.
 ================================================================================
-Q) How do you ensure the security of APIs in your tests?
-Ans)
-    - API security testing is the process of testing the vulnerabilities in the API.  This is done through penetration testing or manual scanning of the APIs.
-    - Use secure communication protocols like HTTPs to encrypt data transmitted between client and server.
-    - It is important to properly implement authentication and authorization mechanisms to ensure that only authorized users can access the API endpoints and perform the authorized actions.
-    - Ensure that all the input data in the API requests are properly authorized, validated, and sanitized to prevent injection attacks and cross-site scripting attacks.
-================================================================================
 Q) What are the different types of error responses in API testing?
 Ans)
 •	Validation errors: Validation errors occur when the API request does not meet the validation criteria defined by the API.
@@ -90,12 +83,6 @@ Ans)
     - Clear error messages: One of the best practice to handle error responses is to provide clear and helpful error messages that explain the cause of the error and the solution to the error.
     - Error logging: Best practice is to implement error logging and monitoring tools that can help track, analyze, and resolve errors in API testing.
     - Use consistent error codes: It is important to use consistent and meaningful error messages that indicate the type and severity of the error.
-================================================================================
-Q) What is the procedure to perform API testing?
-Ans) The API testing flow basically includes three main steps:
-•	Send the request with the necessary input data.
-•	Get the response having the output data.
-•	verify that the response returned is as expected in the requirement.
 ================================================================================
 Q) Explain the differences between GET and POST methods in API testing.
 Ans) In API testing, the GET and POST methods are used to send requests to a server, but they serve different purposes:
@@ -146,13 +133,19 @@ Here are some common formats for assertions:
 ================================================================================
 Q) Provide the syntax for query parameters in API requests.
 Ans)
-    The syntax for query parameters in API requests is to append them to the URL after a question mark ($?$) and separate multiple parameters with an ampersand ($&$). Each parameter consists of a key-value pair, formatted as $key=value$.
+    The syntax for query parameters in API requests is to append them to the URL after a question mark (?) and separate multiple parameters with an ampersand (&). Each parameter consists of a key-value pair, formatted as key=value.
 
     Example Syntax: https://api.example.com/users?id=1&name=John
 ================================================================================
 Q) In Postman, how to delete a variable after test execution is finished?
 Ans)
-    In Postman, to delete a variable after test execution, we can use the pm.environment.unset or pm.collectionVariables.unset function in the Tests tab of your request.
+    In Postman, you can delete a variable after test execution using pm.environment.unset (for environment variables) or pm.collectionVariables.unset (for collection variables). Place the code in the Tests tab:
+// To delete an environment variable
+pm.environment.unset("variable_name");
+
+// To delete a collection variable
+pm.collectionVariables.unset("variable_name");
+
 ================================================================================
 Q) How to test the performance of an API?
 Ans)
@@ -163,7 +156,7 @@ Ans)
     - Environment Variables: Scoped to a specific environment, making them useful for testing across different setups (e.g., development, testing).
     - Global Variables: Accessible across all environments, used for values that are consistent across multiple requests or environments.
 ================================================================================
-Q)What is input validation?
+Q) What is input validation?
 Ans)
     - Process of analyzing the inputs and preventing malicious data from entering the system.
     - It ensures that all input data in API requests are properly sanitized and validated to prevent injection attacks.
@@ -185,3 +178,147 @@ Ans)
     - Tests: Write tests for different endpoints with assertions for validation.
     - Teardown: Clean up any variables or states after tests run, ensuring no leftover data affects future tests.
 ================================================================================
+Q) How do you test APIs behind a load balancer (to trigger 502/504)?
+Ans.)
+ Load balancers route requests to upstream servers.
+ 502 Bad Gateway → Bad response from upstream server.
+ 504 Gateway Timeout → Upstream server timed out.
+
+Testing approach:
+ Simulate traffic spikes to test load balancer behavior.
+ Temporarily bring down an upstream server to trigger 502.
+ Set low timeouts on upstream APIs to simulate 504.
+ Validate load balancer health checks are working properly.
+
+Tools: Postman Collection Runner, JMeter, or Locust for traffic simulation.
+==================================================
+Q) How would you mock an API response when the backend isn’t ready?
+Ans.)
+Use mocking tools to simulate API responses.
+ Postman Mock Server → Create mock endpoints with sample JSON.
+ WireMock → Mock HTTP endpoints in local/dev environments.
+ Swagger/OpenAPI → Auto-generate mock servers from API specs.
+
+Example (Postman):
+1. Create a mock server in Postman.
+2. Define endpoint /users with response {"id":1,"name":"John"}.
+3. Use mock server URL in your tests until backend is live.
+==================================================
+Q) What is Postman, and why is it used?
+Ans.) Postman is an API development tool that helps users create, send, and test HTTP requests. It simplifies the process of API testing and allows for easy collaboration among team members.
+================================================================================
+Q) How do you create a request in Postman?
+Ans.) To create a request, open Postman, select the request type (GET, POST, etc.), enter the URL, and add any headers or body data as needed. Then, click the "Send" button to execute the request.
+================================================================================
+Q) What are Collections in Postman?
+Ans.) Collections are groups of requests that can be organized for better management. They allow users to save APIs, organize requests, and share them with team members easily.
+================================================================================
+Q) How can you handle environment variables in Postman?
+Ans.) Environment variables can be created to store values like API keys or endpoint URLs. They can be set under the "Manage Environments" option and can be referenced using the syntax {{variableName}} in requests.
+================================================================================
+Q) What are Tests in Postman?
+Ans.) Tests are JavaScript code snippets that run after a request is sent to validate the response. They can check for response status, response time, headers, cookies, and specific data in the response body.
+================================================================================
+Q) Write a test script in Postman to check if the status code is 200.
+Ans.)
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+================================================================================
+Q) Write a test to check if a response header contains Content-Type as application/json.
+Ans.)
+pm.test("Content-Type is application/json", function () {
+    pm.response.to.have.header("Content-Type", "application/json");
+});
+================================================================================
+Q) Write a test in Postman to check if the response time is under 500ms.
+Ans.)
+pm.test("Response time is less than 500ms", function () {
+    pm.expect(pm.response.responseTime).to.be.below(500);
+});
+================================================================================
+Q) How do you check if a JSON response contains a specific key-value pair?
+Ans.)
+pm.test("Response has correct key-value", function () {
+    let jsonData = pm.response.json();
+    pm.expect(jsonData.status).to.eql("success");
+});
+================================================================================
+Q) What is the Collection Runner in Postman?
+Ans.) The Collection Runner allows users to run all requests in a collection sequentially. It is useful for testing multiple APIs and can be configured to run with different environments and data sets.
+================================================================================
+Q) Can you explain the difference between Pre-request Scripts and Tests in Postman?
+Ans.) Pre-request Scripts are code snippets that run before a request is sent, allowing you to set up variables or conditions. Tests run after the response is received to validate outcomes based on the response data.
+================================================================================
+Q) What is Newman, and how is it related to Postman?
+Ans.) Newman is a command-line tool that allows users to run Postman collections directly from the CLI. It is useful for integrating Postman tests in CI/CD pipelines to automate API testing.
+================================================================================
+Q) How can you run a Postman collection from the CLI using Newman?
+Ans.)
+You can run a Postman collection from the CLI using Newman like this:
+	newman run collection.json -e environment.json -r cli,html
+collection.json → Your Postman collection file.
+-e environment.json → (Optional) Specify an environment file.
+-r cli,html → Generate reports in CLI and HTML formats.
+
+This executes the collection with the given environment and produces results in both CLI and HTML outputs.
+================================================================================
+Q) How can you integrate Postman tests with a CI/CD pipeline?
+Ans.) Postman tests can be integrated in CI/CD by installing Newman in the pipeline’s environment and running collections as part of the build process. For example, in a Jenkins pipeline:
+groovy
+pipeline {
+    agent any
+    stages {
+        stage('API Tests') {
+            steps {
+                sh 'npm install -g newman'
+                sh 'newman run collection.json -e environment.json'
+            }
+        }
+    }
+}
+================================================================================
+Q) How does Postman handle variable scopes?
+Ans.) Postman supports various variable scopes: global variables (available throughout all requests), environment variables (specific to an environment), collection variables (used within a collection), and local variables (only for the specific request).
+================================================================================
+Q) How can we save API responses to a file in Postman?
+Ans.)
+API responses can be saved by using Newman’s export feature:
+	newman run collection.json -r json --reporter-json-export output.json
+This saves the test results including responses to a JSON file.
+================================================================================
+Q) How can you run Postman requests in parallel?
+Ans.) Postman GUI does not support true parallel execution, but you can achieve it using Newman with third-party tools like `newman-parallel` or by writing custom Node.js scripts with Promise.all.
+================================================================================
+Q) Write a Pre-request Script to set a random token before each request.
+Ans.)
+	pm.environment.set("token", Math.random().toString(36).substring(2));
+================================================================================
+Q) List of all methods of pm. object
+Ans.) In Postman, the `pm` object provides several methods and properties that are useful for testing and manipulating requests and responses. Here is a list of important `pm` methods:
+1. pm.response:
+   Accesses the response object, allowing you to inspect the response properties.
+   Example: pm.response.json() retrieves the response body as JSON.
+
+2. pm.test:
+   Used to define a test case and validates conditions on the response.
+   Example: pm.test("Status code is 200", function () { pm.response.to.have.status(200); });
+
+3. pm.request:
+   Accesses the request object, allowing inspection of request details (headers, body, etc.).
+   Example: pm.request.url retrieves the URL of the current request.
+
+4. pm.environment:
+   Provides methods to manage environment variables.
+   Example: pm.environment.set("token", "yourtokenhere"); sets an environment variable.
+
+5. pm.collectionVariables:
+   Used to manage collection-level variables.
+   Example: pm.collectionVariables.get("variable\_name"); retrieves a collection variable.
+
+6. pm.globals:
+   Accesses global variables in Postman.
+   Example: pm.globals.set("globalVariable", "value"); sets a global variable.
+================================================================================
+
+
