@@ -1,0 +1,186 @@
+
+```` SQL & Database Testing Interview Q&A ````
+
+================================================================================ 
+Q) What is database testing, and why is it important?
+Answer: Database testing ensures correctness, integrity, and reliability of stored data. It validates CRUD operations (Create, Read, Update, Delete), data retrieval, constraints, and relationships.
+Example:
+    -- Check retrieval
+    SELECT name FROM users WHERE user_id = 1;
+================================================================================ 
+Q) What is the difference between INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL JOIN?
+Answer:
+•	INNER JOIN: Returns only the rows where there is a match between both tables.
+•	LEFT JOIN: Returns all rows from the left table, and matched rows from the right table; non-matching rows from the right table will be NULL.
+•	RIGHT JOIN: Returns all rows from the right table, and matched rows from the left table; non-matching rows from the left table will be NULL.
+•	FULL JOIN: Returns rows when there is a match in either table. Non-matching rows from both tables will be filled with NULL.
+================================================================================
+Q) What are CRUD operations in SQL?
+Answer: CRUD stands for Create, Read, Update, and Delete operations for managing data in a database.
+Examples:
+    -- Read
+    SELECT name, age FROM users WHERE age > 25;
+    -- Create
+    INSERT INTO users (name, email) VALUES ('John', 'john@example.com');
+    -- Update
+    UPDATE users SET email = 'new_email@example.com' WHERE user_id = 1;
+    -- Delete
+    DELETE FROM users WHERE user_id = 1;
+================================================================================
+Q) What is the difference between a Primary Key and a Foreign Key?
+Answer:
+• Primary Key: Uniquely identifies each row in a table; no duplicates or NULLs allowed.
+• Foreign Key: Links one table to another by referencing the primary key; ensures referential integrity.
+Example:
+    CREATE TABLE orders (
+        order_id INT PRIMARY KEY,
+        user_id INT,
+        FOREIGN KEY (user_id) REFERENCES users(user_id)
+    );
+================================================================================
+Q) What is the difference between INNER JOIN and LEFT JOIN?
+Answer:
+• INNER JOIN: Returns rows with matching values in both tables.
+• LEFT JOIN: Returns all rows from the left table and matched rows from the right; NULLs if no match.
+Example:
+    SELECT u.name, o.order_date
+    FROM users u
+    LEFT JOIN orders o ON u.user_id = o.user_id;
+================================================================================
+Q) What are aggregate functions in SQL?
+Answer: Aggregate functions perform calculations on multiple rows and return a single value.
+Examples:
+• COUNT(): Counts rows.
+• SUM(): Total of a column.
+• AVG(): Average of values.
+Example:
+    SELECT department, COUNT(*), AVG(salary)
+    FROM employees
+    GROUP BY department;
+================================================================================
+Q) What is the difference between GROUP BY and HAVING?
+Answer:
+• GROUP BY: Groups rows sharing a value for aggregate operations.
+• HAVING: Filters groups after aggregation.
+Example:
+    SELECT department, COUNT(*)
+    FROM employees
+    GROUP BY department
+    HAVING COUNT(*) > 5;
+================================================================================
+Q) What does the DISTINCT keyword do in SQL?
+Answer: DISTINCT removes duplicate rows from a result set, returning only unique values.
+Example:
+    SELECT DISTINCT city FROM customers;
+================================================================================
+Q) What is the difference between DELETE, TRUNCATE, and DROP in SQL?
+Answer:
+• DELETE: Removes rows from a table and can be rolled back if within a transaction.
+• TRUNCATE: Removes all rows, cannot be rolled back, and is faster than DELETE.
+• DROP: Deletes the entire table or database, including structure and data.
+Example:
+    DELETE FROM users WHERE user_id = 10;
+    TRUNCATE TABLE users;
+    DROP TABLE users;
+================================================================================
+Q) What are indexes in SQL, and why are they used?
+Answer: Indexes speed up data retrieval by allowing the database to locate rows faster. However, they can slow down INSERT, UPDATE, and DELETE due to index maintenance.
+Example:
+    CREATE INDEX idx_user_id ON users(user_id);
+================================================================================
+Q) What are ACID properties in databases?
+Answer:
+• Atomicity: All operations succeed or none do.
+• Consistency: Ensures data integrity before and after transactions.
+• Isolation: Transactions do not affect each other.
+• Durability: Committed changes persist even after system failures.
+================================================================================
+Q) What are basic SQL optimization tips?
+Answer:
+• Avoid SELECT *; fetch only needed columns.
+• Use indexes on frequently filtered columns.
+• Analyze query performance with EXPLAIN or similar tools.
+Example:
+    EXPLAIN SELECT name FROM users WHERE email = 'test@example.com';
+================================================================================
+Q) What is a subquery in SQL?
+Answer: A subquery is a query nested inside another SQL query, often used for filtering or calculating intermediate results.
+Example:
+    SELECT name FROM users
+    WHERE user_id IN (SELECT user_id FROM orders WHERE amount > 100);
+================================================================================
+Q) What is the difference between UNION and UNION ALL?
+Answer:
+• UNION: Combines results from multiple SELECT statements and removes duplicates.
+• UNION ALL: Combines results and includes duplicates.
+Example:
+    SELECT name FROM employees_us
+    UNION
+    SELECT name FROM employees_uk;
+================================================================================
+Q) What does COALESCE do in SQL?
+Answer: COALESCE returns the first non-NULL value from a list of expressions.
+Example:
+    SELECT COALESCE(phone_number, 'N/A') FROM customers;
+================================================================================
+Q) What are transactions in SQL, and why are they important?
+Answer: Transactions ensure multiple SQL operations execute as a single unit, preserving data consistency. They can be committed or rolled back.
+Example:
+    BEGIN;
+    UPDATE accounts SET balance = balance - 100 WHERE account_id = 1;
+    UPDATE accounts SET balance = balance + 100 WHERE account_id = 2;
+    COMMIT;
+================================================================================
+Q) How can you prevent SQL injection attacks?
+Answer: Use parameterized queries or prepared statements instead of string concatenation.
+Example (Python with psycopg2):
+    cur.execute("SELECT * FROM users WHERE email = %s", (user_email,))
+================================================================================
+Q) What is the difference between COUNT(*) and COUNT(column)?
+Answer:
+• COUNT(*): Counts all rows, including NULLs.
+• COUNT(column): Counts only non-NULL values in a specified column.
+Example:
+    SELECT COUNT(*) FROM users;
+    SELECT COUNT(email) FROM users;
+================================================================================
+Q) How can you validate unique values in a column?
+Answer: Use GROUP BY and HAVING to find duplicate values.
+Example:
+    SELECT email, COUNT(*)
+    FROM users
+    GROUP BY email
+    HAVING COUNT(*) > 1;
+================================================================================
+Q) What are simple data integrity checks in SQL?
+Answer:
+• Verify primary key uniqueness.
+• Check foreign key relationships.
+• Ensure NOT NULL constraints are respected.
+Example:
+    SELECT COUNT(*) FROM users WHERE user_id IS NULL;
+================================================================================
+Q) What does ROW_NUMBER() do in SQL?
+Answer: ROW_NUMBER() assigns a unique sequential number to rows within a partition, useful for ranking.
+Example:
+    SELECT user_id, order_date,
+           ROW_NUMBER() OVER (PARTITION BY user_id ORDER BY order_date DESC) AS row_num
+    FROM orders;
+================================================================================
+Q) How do you find users with more than 5 orders?
+Answer:
+    SELECT user_id, COUNT(*)
+    FROM orders
+    GROUP BY user_id
+    HAVING COUNT(*) > 5;
+================================================================================
+Q) How do you get the top 3 highest salaries per department?
+Answer:
+    SELECT department_id, employee_id, salary
+    FROM (
+        SELECT department_id, employee_id, salary,
+               RANK() OVER (PARTITION BY department_id ORDER BY salary DESC) AS rnk
+        FROM employees
+    ) ranked
+    WHERE rnk <= 3;
+================================================================================

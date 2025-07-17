@@ -113,13 +113,12 @@ Ans.)Sprint Progress is monitored through tools like Burn-Down Charts and Daily 
 =================================================================================
 Q) What are the different methodologies of SDLC?
 Ans.)
-
-Waterfall Model: A linear and sequential approach where each phase must be completed before the next begins, often used for projects with well-defined requirements.
-Agile Model: An iterative and incremental approach that emphasizes flexibility, collaboration, and customer feedback, allowing for rapid adjustments throughout the development process.
-Spiral Model: Combines iterative development with the systematic risk analysis of each cycle, focusing on gradual refinement through repeated iterations.
-V-Model (Verification and Validation Model): An extension of the Waterfall model that emphasizes testing at each development stage, ensuring quality through validation and verification processes.
-Big Bang Model: A less structured approach where development starts without much planning or requirements, often leading to unpredictable outcomes and high risk.
-Iterative Model: Focuses on repeating development cycles to refine and enhance the product with evolving requirements and continuous feedback from stakeholders.
+1. Waterfall Model: A linear and sequential approach where each phase must be completed before the next begins, often used for projects with well-defined requirements.
+2. Agile Model: An iterative and incremental approach that emphasizes flexibility, collaboration, and customer feedback, allowing for rapid adjustments throughout the development process.
+3. Spiral Model: Combines iterative development with the systematic risk analysis of each cycle, focusing on gradual refinement through repeated iterations.
+4. V-Model (Verification and Validation Model): An extension of the Waterfall model that emphasizes testing at each development stage, ensuring quality through validation and verification processes.
+5. Big Bang Model: A less structured approach where development starts without much planning or requirements, often leading to unpredictable outcomes and high risk.
+6. Iterative Model: Focuses on repeating development cycles to refine and enhance the product with evolving requirements and continuous feedback from stakeholders.
 ================================================================================
 Q) What is the estimation in a sprint?
 Ans.) Estimation in a sprint refers to the process of evaluating the effort or time required to complete tasks or user stories, typically using methods like story points or hours, to help plan and allocate work effectively within the sprint.

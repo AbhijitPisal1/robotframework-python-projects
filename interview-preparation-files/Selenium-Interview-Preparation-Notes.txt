@@ -19,6 +19,7 @@ Selenium WebDriver operates with a Client-Server architecture. The client (test 
      - Chrome DevTools integration for better control.
    - Selenium 3 is based on the legacy WebDriver and doesn’t have some of these newer features.
 ----------------------------------------------------------------------
+
 Q: What is the structure of Selenium?
 Answer:
 Selenium consists of the following components:
@@ -38,15 +39,42 @@ Answer:
 ----------------------------------------------------------------------
 Q: What are the different types of locators in Selenium?
 Answer:
-Selenium provides several locators to identify elements:
-1.	ID: driver.findElement(By.id("elementId"))
-2.	Name: driver.findElement(By.name("elementName"))
-3.	Class Name: driver.findElement(By.className("className"))
-4.	Tag Name: driver.findElement(By.tagName("tagName"))
-5.	Link Text: driver.findElement(By.linkText("linkText"))
-6.	Partial Link Text: driver.findElement(By.partialLinkText("partialText"))
-7.	XPath: driver.findElement(By.xpath("xpathExpression"))
-8.	CSS Selector: driver.findElement(By.cssSelector("cssSelector"))
+Locators are methods used by Selenium to find and interact with elements on a web page. 
+Different types of locators help identify elements uniquely or broadly based on their attributes or position.
+
+Common Selenium Locators:
+1. ID
+    Uses the element’s unique id attribute.
+    Fastest and most reliable locator if the ID is unique.
+    ex: driver.findElement(By.id("elementId"))
+2. Name
+    Uses the element’s name attribute.
+    Useful if id is not available.
+    ex: driver.findElement(By.name("elementName"))
+3. Class Name
+    Uses the CSS class attribute of elements.
+    Can match multiple elements, so use carefully.
+    ex: driver.findElement(By.className("className"))
+4. Tag Name
+    Finds elements by their HTML tag (e.g., input, button).
+    Useful for bulk operations or broad selection.
+    ex: driver.findElement(By.tagName("tagName"))
+5.Link Text
+    Matches a link (<a>) by its exact visible text.
+    Used to locate hyperlinks.
+    ex: driver.findElement(By.linkText("linkText"))
+6.Partial Link Text
+    Matches links by partial text.
+    Useful when exact link text is long or dynamic.
+    ex: driver.findElement(By.partialLinkText("partialText"))
+7.CSS Selector
+    Uses CSS syntax to locate elements via IDs, classes, attributes, and hierarchy.
+    Powerful and flexible.
+    ex: driver.findElement(By.cssSelector("cssSelector"))
+8.XPath
+    Uses XML path language to navigate and locate elements.
+    Most powerful and flexible locator, can select elements based on complex conditions and hierarchy.
+    ex: driver.findElement(By.xpath("xpathExpression"))
 ----------------------------------------------------------------------
 Q: What is the difference between findElement() and findElements()?
 Answer:
@@ -69,7 +97,8 @@ Answer:
 ----------------------------------------------------------------------
 Q: How do you perform mouse actions in Selenium?
 Answer:
-Use the Actions class to perform mouse gestures like hovering, clicking, double-clicking, and drag-and-drop. Example:
+Use the Actions class to perform mouse gestures like hovering, clicking, double-clicking, and drag-and-drop. 
+Example:
 Actions actions = new Actions(driver);
 actions.moveToElement(driver.findElement(By.id("elementId"))).perform();
 ----------------------------------------------------------------------
@@ -155,14 +184,19 @@ Selenium provides three types of synchronization to ensure that scripts wait for
 3.	Fluent Wait: Similar to Explicit Wait but with more flexibility, such as polling at intervals.
 Synchronization is crucial for dynamic web pages where elements might take time to appear.
 ----------------------------------------------------------------------
-Q: What are some common exceptions in Selenium WebDriver?
-Answer:
-Some common exceptions include:
-1.	NoSuchElementException: The element was not found.
-2.	TimeoutException: The command took too long to execute.
-3.	StaleElementReferenceException: The element is no longer attached to the DOM.
-4.	ElementNotVisibleException: The element is not visible.
-5.	ElementNotInteractableException: The element cannot be interacted with.
+Q: What are the different exceptions in Selenium WebDriver?
+A: Some common exceptions include:
+
+1. NoSuchElementException : Thrown when an element cannot be found on the page using the given locator.
+2. TimeoutException : Occurs when a command does not complete in the specified time, e.g., waiting for an element to appear.
+3. StaleElementReferenceException : Happens when the element being interacted with is no longer attached to the DOM (e.g., page refreshed or DOM updated).
+4. ElementNotInteractableException : Thrown when an element is present but cannot be interacted with (e.g., hidden or disabled).
+6. NoSuchFrameException : When the specified frame or iframe is not found.
+7. NoSuchWindowException : When the window or tab specified is not found.
+8. InvalidSelectorException : When the locator syntax is incorrect or not supported.
+9. WebDriverException : Generic exception when the WebDriver fails or encounters an unexpected error.
+10. SessionNotCreatedException : When a new browser session cannot be created, often due to version incompatibilities.
+11. JavascriptException : When an error occurs during JavaScript execution.
 ----------------------------------------------------------------------
 Q: How do you handle Selenium exceptions in Robot Framework?
 Answer:
@@ -287,3 +321,97 @@ Q: How do you handle CAPTCHA in Selenium? is it Possible?
 Answer:
     Handling CAPTCHA is difficult since it's designed to prevent automation. You could use services like 2Captcha or AntiCaptcha to solve CAPTCHAs if needed.
 ----------------------------------------------------------------------
+Q: What are Globs in Selenium, and how are they used?
+Answer::
+    Globs are a simplified pattern matching syntax commonly used in Selenium IDE for matching strings with wildcard characters. 
+    They allow testers to specify patterns to match elements, text, or attributes without needing complex regular expressions.
+
+The key wildcard characters in glob syntax include:
+    * — matches zero or more characters
+    ? — matches exactly one character
+    [] — matches any one character from the set inside the brackets
+
+For example, the glob pattern button_* would match any string starting with "button_" like "button_1", "button_submit", etc.
+
+Use cases:
+    Globs are useful when the exact string may vary slightly, such as dynamic IDs or text that changes in small ways but follows a predictable pattern.
+    Because glob syntax is simpler than regex, it’s easier to write and understand, making it a good default choice for most Selenium IDE tests.
+
+Importance:
+    Globs provide a balance between flexibility and simplicity. 
+    They allow pattern matching without the complexity of regex, making test scripts more maintainable and readable, especially for testers who may not be familiar with regular expressions.
+----------------------------------------------------------------------
+Q: What is a Regular Expression (Regex) and how is it useful in Selenium testing?
+Answer:
+    A Regular Expression (or regex) is a powerful and flexible pattern matching language used to define complex string patterns. 
+    Unlike globs, regex supports a rich syntax allowing fine-grained control over matching, including character classes, quantifiers, assertions, grouping, and alternation.
+    For example, the regex pattern button_\d{3} matches strings like "button_123" or "button_001" — where \d{3} specifies exactly three digits.
+
+Use cases:
+    In Selenium testing, regex is especially valuable when you need to validate complex dynamic content or extract parts of strings. 
+    For example, validating form inputs, matching dynamic element IDs with specific numeric patterns, or verifying text formats like dates, emails, or phone numbers.
+
+Importance:
+    Regular expressions enable very precise and complex pattern matching that globs can’t handle. 
+    Although they have a steeper learning curve, mastering regex allows testers to write robust, flexible tests capable of handling dynamic and unpredictable UI elements or data.
+----------------------------------------------------------------------
+Q: What is WebDriverManager?
+Answer :
+    WebDriverManager is a Java library that automatically manages browser drivers (e.g., ChromeDriver, GeckoDriver) for Selenium. It eliminates the need to manually download and set the path for drivers.
+----------------------------------------------------------------------
+Q: How do you check if a dropdown is multi-select?
+Answer :
+
+Select select = new Select(driver.findElement(By.id("dropdown")));
+boolean isMulti = select.isMultiple();
+----------------------------------------------------------------------
+Q: How do you fetch all values from a dropdown and print them?
+Answer :
+
+Select select = new Select(driver.findElement(By.id("dropdown")));
+for (WebElement option : select.getOptions()) {
+    System.out.println(option.getText());
+}
+----------------------------------------------------------------------
+Q: Code to validate if a text is highlighted and underlined:
+Answer: 
+WebElement element = driver.findElement(By.id("highlightedText"));
+String backgroundColor = element.getCssValue("background-color");
+String textDecoration = element.getCssValue("text-decoration");
+
+if (textDecoration.contains("underline") && backgroundColor != null) {
+    System.out.println("Text is highlighted and underlined.");
+}
+----------------------------------------------------------------------
+Q: How to scroll down a webpage using Selenium WebDriver?
+Answer:
+JavascriptExecutor js = (JavascriptExecutor) driver;
+js.executeScript("window.scrollBy(0,500)");
+----------------------------------------------------------------------
+Q: How to perform right-click (context click)?
+Answer:
+Actions action = new Actions(driver);
+WebElement element = driver.findElement(By.id("context"));
+action.contextClick(element).perform();
+----------------------------------------------------------------------
+Q: How can you execute Selenium test cases on a remote machine?
+Answer:
+To run Selenium tests remotely:
+    Start Selenium Grid or a cloud service like BrowserStack/Sauce Labs.
+    Use RemoteWebDriver instead of ChromeDriver:
+        DesiredCapabilities caps = new DesiredCapabilities();
+        caps.setBrowserName("chrome");
+        WebDriver driver = new RemoteWebDriver(new URL("http://remote-server:4444/wd/hub"), caps);
+This connects your test to the remote machine and executes there.
+----------------------------------------------------------------------
+Q: What approach would you take to identify and validate broken links on a web page?
+Answer:
+1. Collect all links:
+    List<WebElement> links = driver.findElements(By.tagName("a"));
+2. For each link, send HTTP HEAD request:
+    HttpURLConnection conn = (HttpURLConnection) new URL(link).openConnection();
+    conn.setRequestMethod("HEAD");
+    if (conn.getResponseCode() >= 400) {
+        System.out.println("Broken link: " + link);
+    }
+This detects links returning HTTP 4xx/5xx errors.

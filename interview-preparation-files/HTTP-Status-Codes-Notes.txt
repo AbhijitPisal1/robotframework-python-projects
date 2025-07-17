@@ -4,44 +4,50 @@
 ====================================================================================================
 Q) What is an API status code and what are its benefits
 Ans.)
-    - An API status code is a three-digit number sent from the server in response to a request made to an API.
-    - These codes are a standard part of the HTTP protocol
-    - Used to indicate whether the request was successful, encountered an error, or requires further action.
-    - Provide immediate feedback about the outcome of their API requests aids in troubleshooting
-    - Saves time in debugging and helps ensure application runs smoothly.
+	An API status code is a three-digit number sent from the server in response to a request made to an API.
+	Used to indicate whether the request was successful, encountered an error, or requires further action.
+	It helps developers/testers quickly identify success, client errors, or server errors.
+ Benefits:
+	Faster debugging.
+	Immediate insight into API health.
+	Helps automate error handling in tests.
 ====================================================================================================
 Q) What are different types of status codes ?
 Ans.) -- 5 Types of HTTP Status Codes
 
-1xx - Informational Responses:-> Indicate that the request was received and understood. However, no action is required at this stage -> Communicates transfer protocol-level information.
-100 Continue: The server has received the request headers, and the client should proceed to send the request body.
-101 Switch : The requester has asked the server to switch protocols and the server has agreed.
-103 Early hints : Return some response headers before final message
+1xx - Informational Responses:-> 
+Indicate that the request was received and understood. However, no action is required at this stage -> Communicates transfer protocol-level information.
+    100 Continue: The server has received the request headers, and the client should proceed to send the request body.
+    101 Switch : The requester has asked the server to switch protocols and the server has agreed.
+    103 Early hints : Return some response headers before final message
 
-2xx - Successful Responses :-> The request was successfully received, understood, and accepted.
-200 OK: The request was successful, and the server returned the requested resource.
-201 Created: The request has been fulfilled, and a new resource was created as a result.
-202 Accepted: The request has been accepted for processing, but the processing is not complete.
-204 NO content : Server processed requested successfully but no content is returned.
+2xx - Successful Responses :->
+The request was successfully received, understood, and accepted.
+    200 OK: The request was successful, and the server returned the requested resource.
+    201 Created: The request has been fulfilled, and a new resource was created as a result.
+    202 Accepted: The request has been accepted for processing, but the processing is not complete.
+    204 NO content : Server processed requested successfully but no content is returned.
 
-3xx - Redirection Messages :-> Indicates that the client must take some additional action in order to complete their request.
-301 Moved Permanently: The requested resource has been permanently moved to a new URL.
-302 Found: The resource you requested is temporarily located at a different URL.
-304 Not Modified: The requested resource has not been modified since the last request.
+3xx - Redirection Messages :->
+Indicates that the client must take some additional action in order to complete their request.
+    301 Moved Permanently: The requested resource has been permanently moved to a new URL.
+    302 Found: The resource you requested is temporarily located at a different URL.
+    304 Not Modified: The requested resource has not been modified since the last request.
 
-4xx - Client Error Responses :-> Indicate that the client’s request contains incorrect syntax or cannot be fulfilled.
-400 Bad Request: The server cannot process the request due to a client error incorrect request.
-401 Unauthorized: Authentication is required, and it has failed or has not yet been provided.
-403 Forbidden: The server understands the request but refuses to authorize it.  i.e., the user does not have the necessary permissions for the resource
-404 Not Found: The server cannot find the requested resource.
-405 Method Not Allowed : The request HTTP method has been disabled and cannot be used for that resource
+4xx - Client Error Responses :->
+Indicate that the client’s request contains incorrect syntax or cannot be fulfilled.
+    400 Bad Request: The server cannot process the request due to a client error/incorrect request.
+    401 Unauthorized: Authentication is required, and it has failed authenticate or has not yet been provided authorization details.
+    403 Forbidden: The server understands the request but refuses to authorize it.  i.e., the user does not have the necessary permissions for the resource
+    404 Not Found: The server cannot find the requested resource.
+    405 Method Not Allowed : The request HTTP method has been disabled and cannot be used for that resource
 
-5xx - Server Error Responses :-> Signify that the server failed to fulfill a valid request.
-
-500 Internal Server Error: The server encountered an unexpected condition that prevented it from fulfilling the request.
-501  Not Implemented: The HTTP method is not supported by the server and cannot be handled.
-502 Bad Gateway: The server, acting as a gateway or proxy, received an invalid response from the upstream server.
-503 Service Unavailable: The server is currently unable to handle the request due to temporary overload or maintenance.
+5xx - Server Error Responses :->
+Signify that the server failed to fulfill a valid request.
+    500 Internal Server Error: The server encountered an unexpected condition that prevented it from fulfilling the request.
+    501 Not Implemented: The HTTP method is not supported by the server and cannot be handled.
+    502 Bad Gateway: The server, acting as a gateway or proxy, received an invalid response from the upstream server.
+    503 Service Unavailable: The server is currently unable to handle the request due to temporary overload or maintenance.
 ==================================================
 Q) Explain how to Troubleshoot API Status Codes
 Ans.)
@@ -59,4 +65,83 @@ Server-Side Errors (5xx)
     200 OK: Proceed with the response data as your request was successful.
     201 Created: If a resource was created, you might want to follow up by retrieving or confirming the creation.
     204 No Content: A 204 indicates that the request was successful, but there's no content to return. No further action is necessary.
+====================================================================================================
+Q) What would you do if you get a 502 Bad Gateway error in API testing?
+Ans.)
+Understand the issue:
+    502 means the server (gateway/proxy) got an invalid response from an upstream server.
+    Common in load-balanced or microservices architectures.
+
+Troubleshooting Steps:
+    Check if the upstream service is healthy.
+    Verify the API endpoint is correct (DNS resolution issues?).
+    Look for network or firewall issues between servers.
+    Test directly against the upstream server (bypass proxy).
+    Check response headers for clues (e.g., Server: nginx).
+
+Automation Handling:
+    Retry the request with exponential backoff (helps if upstream is temporarily down).
+    Add circuit breaker logic (skip calls when service is consistently failing).
+    Fail test gracefully but log detailed error (status code, response headers).
+==================================================
+Q) How would you handle a 503 Service Unavailable error in automation?
+Ans.)
+Cause: Server overloaded or in maintenance.
+Actions:
+     Retry after a delay (Retry-After header often specifies wait time).
+     Add fallback logic (e.g., mock response if critical).
+     Alert the team if persistent.
+==================================================
+Q) What steps would you take on a 504 Gateway Timeout?
+Ans.)
+     Increase client-side timeout (if server needs more time).
+     Check upstream server performance.
+ In automation, avoid immediate failure—retry a few times before failing the test.
+==================================================
+Q) How do you test for rate limiting (429 Too Many Requests)?
+Ans.)
+     Simulate rapid API calls in a loop.
+     Observe if server returns 429.
+     Validate Retry-After header and honor wait time in automation.	
+     Implement throttling logic in your API clients.
+==================================================
+Q) Explain how to troubleshoot API status codes effectively.
+Ans.)
+For 4xx (Client Errors):
+     Double-check API endpoint and HTTP method.
+     Validate headers (auth tokens, content type).
+     Check request body for missing/invalid fields.
+
+For 5xx (Server Errors):
+     Look at API response logs or server logs.
+     Retry requests with backoff for transient issues.    
+     Report persistent errors to backend team with full request/response dump.
+
+For timeouts and proxy issues (502/504):
+     Test upstream API independently.
+     Increase client timeout if needed.
+     Check load balancer/proxy configurations.
+==================================================
+Q) How do you handle different status codes in API automation reports?
+Ans.)
+    Group responses in test reports: Success (2xx), Client Errors (4xx), Server Errors (5xx).
+    Highlight unexpected status codes as failures.
+    Log complete request & response details for failed calls.
+==================================================
+Q) What status code would you expect for DELETE on a non-existing resource?
+Ans.)
+The API may return:
+    404 Not Found → Resource doesn’t exist.
+  Or 204 No Content → If the API treats DELETE as idempotent (doesn’t care if resource existed).
+Key point:
+     According to REST principles, DELETE should be idempotent. So multiple DELETE calls shouldn’t fail even if resource is already gone.
+==================================================
+Q) How do you handle intermittent 500 errors in API test automation?
+Ans.)
+500 Internal Server Error means server-side issue (temporary or persistent).
+Mitigation in automation:
+   Retry failed requests with exponential backoff (helps with transient issues).
+   Log complete request/response for debugging.
+   Mark test as flaky only after multiple retries fail.
+   Raise to backend team if reproducible.
 ==================================================

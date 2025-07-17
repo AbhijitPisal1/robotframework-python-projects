@@ -1,0 +1,40 @@
+"""
+Big O Rules - How to Measure Time Complexity
+
+This guide helps you quickly estimate the time complexity of any code using Big O notation.
+
+Rule 1: Constant Time - O(1)
+  - Any assignment, comparison, or simple statement executed once
+  - Example: if statements, variable assignments, return statements
+
+Rule 2: Linear Time - O(n)
+  - Simple loop from start to end without nested loops
+  - Operations grow directly with input size n
+  - Example: for i in range(n): print(i)
+
+Rule 3: Quadratic Time - O(n^2)
+  - Nested loops of the same size, one inside the other
+  - Operations grow with the square of input size
+  - Example: for i in range(n):
+                 for j in range(n):
+                     print(i, j)
+
+Rule 4: Logarithmic Time - O(log n)
+  - Loops or recursion where the input is divided by two (or any factor) each time
+  - Operations grow slowly as input size increases
+  - Example: binary search dividing list in half every step
+
+Rule 5: Adding Complexities
+  - When multiple independent code parts run in sequence, add their complexities
+  - Example: O(n) + O(n^2) = O(n^2) (drop smaller term)
+
+-------------------------------------------------------------
+How to use these rules:
+- Look for loops and how many times they run
+- Check if loops are nested or sequential
+- Watch for recursive calls and how input size changes each time
+- Drop constant multipliers and non-dominant terms for simplicity
+
+This set of rules will help you analyze and measure the efficiency of any code quickly.
+
+"""

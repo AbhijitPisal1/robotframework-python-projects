@@ -1,0 +1,86 @@
+Time and Space Complexity - Interview Guide with Q&A
+---------------------------
+What is Time Complexity?
+---------------------------
+Time Complexity measures how the runtime of an algorithm changes as input size grows.
+It’s expressed using Big O notation, showing the upper bound on operations needed.
+
+Why is Time Complexity Important?
+- Predicts performance for large inputs.
+- Helps compare different algorithms.
+- Critical in interviews for writing efficient code.
+- Demonstrates your understanding of algorithm efficiency.
+
+Common Time Complexity Questions & Answers
+------------------------------------------
+Q: What is Big O notation?
+   A: It describes the worst-case growth rate of an algorithm’s runtime as input size increases.
+
+Q: How do you determine time complexity of loops?
+   A: Single loop from 0 to n is O(n). Nested loops multiply runtimes, e.g., two loops → O(n^2).
+
+Q: What is O(1) time complexity? Example?
+   A: Constant time; runtime does not depend on input size.
+      Example: Accessing an element in an array by index.
+
+Q: Explain O(log n) time complexity.
+   A: Logarithmic time; input size reduces by a factor each step.
+      Example: Binary search halves search space each iteration.
+
+Q: Why do we drop constants in Big O?
+   A: Constants don’t affect growth rate for large inputs, so we focus on dominant terms.
+
+Q: How do recursive calls affect time complexity?
+   A: Depends on number of calls and work done per call. Simple recursion often O(n), nested recursion higher.
+
+Q: How do multiple code segments with different complexities combine?
+   A: Add their complexities; keep dominant term. O(n) + O(n^2) = O(n^2).
+
+Q. What do you mean by Big O, Omega, and Theta Notations
+
+- Big O (O): Upper bound on runtime or space — worst-case scenario.
+    - It tells us the worst-case scenario — the maximum time/space an algorithm could take.
+    - Example: O(n²) means algorithm won’t take longer than proportional to n squared.
+
+- Omega (Ω): Lower bound — best-case scenario.
+    - It tells us the best-case scenario — the minimum time/space an algorithm requires.
+    - Example: Ω(1) means algorithm takes at least constant time.
+
+- Theta (Θ): Tight bound — both upper and lower bounds are the same.
+    -  It means the algorithm’s running time grows exactly at this rate (within constant factors).
+    -  Example: Θ(n log n) means algorithm’s runtime grows exactly proportional to n log n.
+
+    - Big O focuses on scalability and guarantees upper limits.
+    - Omega focuses on minimum effort possible.
+    - Theta means the complexity is well-defined and predictable.
+
+---------------------------
+What is Space Complexity?
+---------------------------
+Space Complexity measures the amount of memory an algorithm needs relative to input size.
+
+Why is Space Complexity Important?
+- Helps understand memory usage.
+- Important when memory is limited.
+- Impacts algorithm scalability.
+- Often discussed alongside time complexity in interviews.
+
+Common Space Complexity Questions & Answers
+-------------------------------------------
+Q: What factors affect space complexity?
+A: Space complexity depends on variables, data structures used, and the memory needed for function calls—especially in recursive functions where each call adds to the call stack.
+
+Q: What does O(1) space complexity mean? Can you give an example?
+A: O(1) means the algorithm uses a fixed amount of memory, no matter how big the input is.
+    For example, using a few variables to store counters or sums without creating large data structures.
+
+Q: Why do recursive algorithms often have O(n) space complexity?
+A: Because each recursive call adds a new layer (frame) on the call stack.
+If there are n recursive calls before reaching the base case, the memory used grows linearly with n.
+
+Q: How does looping (iteration) affect space complexity?
+A: Iteration usually uses O(1) space since it reuses the same variables and doesn’t add new function calls or data structures that grow with input size.
+
+Q: Can you trade space for time in an algorithm?
+A: Yes! Sometimes you use extra memory (like caching results or storing computed values) to make your algorithm run faster, trading space for improved time efficiency.
+
