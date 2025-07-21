@@ -11,7 +11,7 @@
 @Disadvantages of XPath over CSS
     - XPath locators are comparatively slow, which can affect the overall performance of the test suite.
     - It cannot solve the modern world shadow DOM problem.
-    - XPath is associated with more than one element in the DOM tree
+    - XPath can be associated with more than one element in the DOM tree
     - It tends to break as and when new element-level changes are introduced.
     - Usage of indexes (specific nodes with numbers) within the XPath causes high maintenance (Ex: //div[1]).
     - If XPath gets complicated more it becomes untidy and readability decreases
@@ -27,7 +27,7 @@
   #Relative XPath
     - can be started from middle of the DOM structure or anywhere on the page.
     - The xpath search starts from the mentioned tag name along with the attribute value defined.
-    - By navigating based on relationships with other components it  enables more variable element positioning.
+    - By navigating based on relationships with other components it enables more variable element positioning.
     - xpath not dependent on particular paths hence less likely to break when the web page's structure changes.
     - more appropriate for managing items with variable properties or dynamic content
     - When many elements share similar properties, it may cause ambiguity in element selections

@@ -1,5 +1,5 @@
 
-```` SQL & Database Testing Interview Q&A ````
+```` SQL & Database Testing Notes ````
 
 ================================================================================ 
 Q) What is database testing, and why is it important?
@@ -7,25 +7,39 @@ Answer: Database testing ensures correctness, integrity, and reliability of stor
 Example:
     -- Check retrieval
     SELECT name FROM users WHERE user_id = 1;
-================================================================================ 
-Q) What is the difference between INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL JOIN?
-Answer:
-•	INNER JOIN: Returns only the rows where there is a match between both tables.
-•	LEFT JOIN: Returns all rows from the left table, and matched rows from the right table; non-matching rows from the right table will be NULL.
-•	RIGHT JOIN: Returns all rows from the right table, and matched rows from the left table; non-matching rows from the left table will be NULL.
-•	FULL JOIN: Returns rows when there is a match in either table. Non-matching rows from both tables will be filled with NULL.
 ================================================================================
 Q) What are CRUD operations in SQL?
 Answer: CRUD stands for Create, Read, Update, and Delete operations for managing data in a database.
 Examples:
-    -- Read
-    SELECT name, age FROM users WHERE age > 25;
-    -- Create
-    INSERT INTO users (name, email) VALUES ('John', 'john@example.com');
-    -- Update
-    UPDATE users SET email = 'new_email@example.com' WHERE user_id = 1;
-    -- Delete
-    DELETE FROM users WHERE user_id = 1;
+    - Read:      SELECT name, age FROM users WHERE age > 25;
+    - Create:    INSERT INTO users (name, email) VALUES ('John', 'john@example.com');
+    - Update:    UPDATE users SET email = 'new_email@example.com' WHERE user_id = 1;
+    - Delete:    DELETE FROM users WHERE user_id = 1;
+================================================================================
+Q) What do these SQL keywords do: SELECT, FROM, WHERE, GROUP BY, ORDER BY?
+Answer:
+    SELECT: Chooses which columns or data you want to see.
+    FROM: Tells which table to get the data from.
+    WHERE: Filters the rows and shows only those that meet a condition.
+    GROUP BY: Groups rows that have the same values in specified columns, so you can do calculations like counting or summing for each group.
+    ORDER BY: Sorts the results by one or more columns, either ascending (A-Z) or descending (Z-A).
+================================================================================
+Q) What is the difference between ROW_NUMBER(), RANK(), and DENSE_RANK()?
+Answer:
+    ROW_NUMBER(): Assigns a unique sequential number to each row, even if there are ties. No numbers are skipped.
+    RANK(): Assigns ranks to rows with the same values the same rank number, but skips numbers after ties. (Gaps can appear in ranking.)
+    DENSE_RANK(): Like RANK(), but doesn’t skip numbers after ties. No gaps in ranking.
+================================================================================
+Q) What is the Order of SQL clauses in a SELECT query:
+Answer:
+    SELECT — Choose the columns you want to see
+    FROM — Specify the table(s) to get data from
+    JOIN — Combine rows from two or more tables
+    WHERE — Filter rows based on conditions
+    GROUP BY — Group rows to perform aggregations
+    HAVING — Filter groups created by GROUP BY
+    ORDER BY — Sort the final results
+    LIMIT (or FETCH) — Limit the number of rows returned
 ================================================================================
 Q) What is the difference between a Primary Key and a Foreign Key?
 Answer:
@@ -37,6 +51,13 @@ Example:
         user_id INT,
         FOREIGN KEY (user_id) REFERENCES users(user_id)
     );
+================================================================================ 
+Q) What is the difference between INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL JOIN?
+Answer:
+•	INNER JOIN: Returns only the rows where there is a match between both tables.
+•	LEFT JOIN: Returns all rows from the left table, and matched rows from the right table; non-matching rows from the right table will be NULL.
+•	RIGHT JOIN: Returns all rows from the right table, and matched rows from the left table; non-matching rows from the left table will be NULL.
+•	FULL JOIN: Returns rows when there is a match in either table. Non-matching rows from both tables will be filled with NULL.
 ================================================================================
 Q) What is the difference between INNER JOIN and LEFT JOIN?
 Answer:
@@ -75,9 +96,9 @@ Example:
 ================================================================================
 Q) What is the difference between DELETE, TRUNCATE, and DROP in SQL?
 Answer:
-• DELETE: Removes rows from a table and can be rolled back if within a transaction.
-• TRUNCATE: Removes all rows, cannot be rolled back, and is faster than DELETE.
-• DROP: Deletes the entire table or database, including structure and data.
+• DELETE: Removes specific rows from a table based on a condition. You can undo (rollback) this if inside a transaction.
+• TRUNCATE: Removes all rows from a table quickly but cannot be undone (no rollback). It keeps the table s structure intact.
+• DROP: Completely deletes the table or database, including all data and the table structure itself.
 Example:
     DELETE FROM users WHERE user_id = 10;
     TRUNCATE TABLE users;
@@ -132,8 +153,8 @@ Example:
     COMMIT;
 ================================================================================
 Q) How can you prevent SQL injection attacks?
-Answer: Use parameterized queries or prepared statements instead of string concatenation.
-Example (Python with psycopg2):
+Answer: Always use parameterized queries or prepared statements instead of building SQL queries by directly adding user inputs (string concatenation). This ensures that user input is treated as data, not executable code, preventing attackers from injecting harmful SQL.
+Example:
     cur.execute("SELECT * FROM users WHERE email = %s", (user_email,))
 ================================================================================
 Q) What is the difference between COUNT(*) and COUNT(column)?

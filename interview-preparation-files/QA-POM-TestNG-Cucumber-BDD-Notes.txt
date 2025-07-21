@@ -1,137 +1,94 @@
 
-```` POM, TestNG, Cucumber, and BDD – Interview Preparation Notes ````
+```` POM, TestNG, Cucumber, and BDD Notes ````
 
- ================================================================================
+================================================================================
 
---- Page Object Model (POM) ---
+-------------------- Page Object Model (POM) --------------------
 
 ================================================================================
 Q.) Explain Page Object Model
-Ans.
-    The Page Object Model (POM) is a design pattern in Selenium.
-     It helps create an object repository for storing web elements. 
-     Each page of the web application has a corresponding Page Class.
-     Enhances test maintenance by organizing code.
-     Reduces code duplication by separating classes for each web page. If a web element or functionality on a page changes, you only need to update the relevant page class, not every test case that uses it.
+Ans.) The Page Object Model (POM) is a design pattern used in Selenium automation testing.
+It creates separate classes (page objects) for each page in the application.
+Each page class contains locators and methods related to that page’s elements and actions.
+This helps organize the code, making it easier to maintain and reuse.
+When a page changes, you only update its page class, not all test scripts.
+In short: POM improves test maintenance and reduces code duplication by separating page-specific code into reusable objects.
 ================================================================================
 Q.) Explain the flow in POM when using BaseClass, TestClass, PageClass
-Ans.
-     Setup: TestClass starts by calling invokedriver() from BaseClass to initialize the WebDriver, open the specified URL, and maximize the browser window.
-     BaseClass: Initializes WebDriver, manages browser setup and teardown, and sets up logging.
-     LoginPage: Implements Page Object Model for the login page, interacts with web elements, and logs actions.
-     Login Test: Contains TestNG test methods for login functionality, uses assertions, and logs test actions.
-     Testng.xml: Configures TestNG suite for executing tests and includes a listener for reporting.
+Ans.) BaseClass manages setup/teardown, PageClass models page elements and actions, TestClass runs test logic by using both to execute tests smoothly.
+Testng.xml - Configures test execution order, test suites, and listeners for reporting.
 ================================================================================
 Q.) What are the advantages of using POM?
-Ans.
-     Reusability
-     Better code maintainability
-     Separation of test logic from page structure
-     Less duplication of code
-     If a web element or functionality on a page changes, you only need to update the relevant page class, not every test case that uses it.
+Ans.)
+    - Reusability of page components across tests.
+    - Easier maintenance by updating only page classes when UI changes.
+    - Clear separation between test logic and page details.
+    - Reduces code duplication by centralizing page actions.
+    - Improves readability and organization of test scripts.
 ================================================================================
 Q.) How is POM different from Page Factory?
-Ans. 
-     POM is a design pattern, while Page Factory is a class in Selenium that provides an easier way to initialize web elements.
-     Page Factory uses the @FindBy annotation to locate elements.
+Ans.)
+POM: A design pattern where each page is represented by a class with methods and locators written manually to interact with web elements.It Requires manual initialization and locating of elements
+
+Page Factory: An extension of POM that uses annotations (@FindBy) and initializes web elements automatically using PageFactory.initElements().It Provides faster, cleaner code by handling element initialization and supports lazy loading of elements.
 ================================================================================
 Q.) What is the role of constructors in POM?
-Ans.
-     Constructors in POM are used to initialize the WebDriver instance and other necessary configurations for the page class, such as initializing elements using Page Factory.
+Ans.) Constructors in POM are used to initialize the WebDriver instance and other necessary configurations for the page class, such as initializing elements using Page Factory.
      Web elements in POM can be initialized using PageFactory.initElements(driver, this) or by creating a constructor and passing the driver instance.
 ================================================================================
 Q.) What are the challenges faced while implementing POM?
-Ans.
-    Initial setup effort
-    Need for clear organization of classes for complex applications
-    Managing dependencies between page classes
-================================================================================
-Q.) What are the disadvantages of POM?
-Ans.
-     POM can lead to the creation of too many classes for large applications.
-     Increased complexity in managing them.
+Ans.)
+    - Initial setup can be time-consuming, especially for large applications.
+    - Requires good design skills to properly structure page classes.
+    - Maintenance can become complex if page classes grow too large or poorly organized.
+    - Handling dynamic web elements or pages with frequently changing UI can be tricky.
 ================================================================================
 Q.) Can you use multiple drivers in POM?
-Ans.
-     Yes, but it's essential to ensure that each page class or test class has its own driver instance to avoid conflicts.
-================================================================================
-Q.) What is the Page Object Model (POM) in Selenium, and why is it used?
-Ans. 
-     The Page Object Model (POM) is a design pattern that creates a separate class for each page of a web application. Each page class contains elements and methods corresponding to actions on that page.
-     POM helps:
-         Increase Reusability: Page objects can be reused in multiple test cases.
-        Enhance Maintainability: Changes to the UI only require updates to the page object class, not all tests.
-        Improve Code Organization: Makes the test code cleaner and easier to understand.
-================================================================================
-Q.) What is the difference between Page Object Model (POM) and Page Factory in Selenium?
-Ans.
-    POM: A design pattern where each page of the application is represented by a class.
-    Page Factory: A class in Selenium that simplifies the initialization of elements in POM using the @FindBy annotation.
-    Page Factory enhances POM by reducing repetitive calls to driver.findElement().
-================================================================================
-Q.) How do you initialize WebElements using Page Factory in Selenium?\
-Ans.
-     WebElements are initialized using the @FindBy annotation and the PageFactory.initElements(driver, this) method. This ensures elements are located and initialized when the page object is created.
+Ans.) Yes, but it's essential to ensure that each page class or test class has its own driver instance to avoid conflicts.
 ================================================================================
 Q.) How do you handle dynamic web elements in the Page Object Model (POM)?
-Ans.
-     For dynamic web elements, use explicit waits with WebDriverWait to ensure elements are visible or interactable before performing actions.
-     Additionally, you can use relative XPath or other flexible locators to accommodate changing element properties.
+Ans.) 
+    - Use explicit waits (e.g., WebDriverWait) to ensure elements are visible or clickable before interacting with them.
+    - Create custom methods in the Page Class that generate dynamic locators based on input parameters.
+    - Use relative XPath or flexible CSS selectors to handle changing attributes.
+    - Avoid hardcoding dynamic values—make locators data-driven where possible.
 ================================================================================ 
 
---- Behavior-Driven Development (BDD) ---
+-------------------- Behavior-Driven Development (BDD) --------------------
 
 ================================================================================
 Q.) What is BDD, and how does it differ from TDD (Test-Driven Development)?
-Ans.
-     TDD (Test-Driven Development): In TDD, we write tests before coding. This approach ensures that code is tested during development, leading to simpler design and early bug detection.
-The cycle is: write a failing test, implement the code, and refactor.
-     BDD (Behavior-Driven Development): BDD focuses on collaboration among developers, QA, and non-technical stakeholders.
-Scenarios are written in natural language (like Gherkin) to describe expected behavior.
-It ensures that software meets user needs and improves communication.
-     ATDD (Acceptance Test-Driven Development): ATDD involves creating acceptance tests before starting development.
-It ensures all parties agree on the requirements upfront. This approach clarifies expectations and defines what "done" means for features.
+Ans.)
+TDD (Test-Driven Development): Tests are written before writing the actual code.
+Cycle: write a failing test → write code to pass the test → refactor.
+Focuses on unit-level testing and developer-driven design.
+
+BDD (Behavior-Driven Development): Focuses on expected behavior from the user’s perspective.
+Scenarios are written in natural language (e.g., Gherkin).
+Encourages collaboration between developers, QA, and business stakeholders.
+
+ATDD (Acceptance Test-Driven Development): Acceptance tests are defined before development begins.
+Ensures that all stakeholders agree on requirements and feature expectations.
 ================================================================================
 Q.) What is the importance of the Given-When-Then structure in BDD?
-Ans.
-     The Given-When-Then structure is a core concept of BDD that helps define clear scenarios.
-     It improves readability, maintainability, and communication between team members.
-     It helps break down complex features into manageable and understandable steps.
+Ans.) The Given-When-Then structure defines the scenario clearly by setting the context (Given), describing the action (When), and stating the expected result (Then). It makes test cases easy to read, improves collaboration, and ensures everyone understands the behavior being tested.
 ================================================================================
 Q.) How do you handle data-driven testing in Cucumber?
-Ans.
-     Cucumber uses Scenario Outline and Examples tables to perform data-driven testing
-================================================================================
-Q.) What are some advantages of using BDD for test automation in Robot Framework?
-Ans.
-     Improved Collaboration using natural language test cases
-     Living documentation that automatically gets updated as the code evolves
-     Ensures that all critical user scenarios are covered in the test cases
-     Natural language structure makes tests more readable and maintainable
+Ans.) Cucumber handles data-driven testing using Scenario Outline with Examples tables. The placeholders in the scenario are replaced with values from the Examples table, allowing the same test to run multiple times with different data.
 ================================================================================
 Q.) How do you organize BDD scenarios and tests in Robot Framework to make them modular and maintainable?
-Ans.    
+Ans.)    
      Tags: Use tags like @smoke, @regression, @login, etc., to categorize tests for easy filtering and execution.
      Keywords: Break down your tests into reusable keywords for each Given-When-Then step.
      Variables: Use variables to make your tests more flexible and reusable across different test cases.
 ================================================================================
-Q.) What is a hook in BDD and how is it used in Robot Framework?
-Ans.
-     Behavior-Driven Development (BDD)
-         Special block of code or methods that are automatically executed at specific points during execution.
-         Executed typically before or after a test scenario, allowing performing setup, cleanup, and reporting tasks.
-         Can be run across multiple test cases, without repeating the code in each scenario itself.
-         Defined as methods annotated with keywords like "@Before" and "@After" to specify when they should run.
-     Robot Framework:
-        Test Setup and Test Teardown can be considered as a form of hook in Robot Framework.
-        These can be defined globally in the Settings section to apply them to all test cases or individually to specific test cases.
-        Declared as keywords like “Test Setup” and "Test Teardown" to specify when they should run.
+Q.) What is a hook in BDD?
+Ans.) A hook is a special block of code that runs automatically at specific points during test execution, usually before or after a scenario. Hooks are used to perform setup, cleanup, or reporting tasks without duplicating code across scenarios. They are defined with annotations like @Before and @After to control when they execute.
 ================================================================================
 Q: In Cucumber, how can you ensure that a specific piece of code runs only before the first scenario in a feature file?
-Answer:
-Use a static flag in @Before hook:
-private static boolean isFirstScenario = true;
+Ans.) Cucumber does not have a built-in hook specifically for "before the first scenario" in a feature. However, you can achieve this by using a flag variable in a global or static context. Use a @Before hook that checks this flag, runs the code once, and then sets the flag to prevent subsequent runs.
 
+private static boolean isFirstScenario = true;
 @Before
 public void beforeFirstScenario() {
     if (isFirstScenario) {
@@ -139,120 +96,99 @@ public void beforeFirstScenario() {
         isFirstScenario = false;
     }
 }
-This ensures the code executes only once before the first scenario.
 ================================================================================ 
 
---- TestNG ---
+-------------------- TestNG --------------------
 
 ================================================================================
 Q.) How do you group test methods in TestNG?
-Ans.
-     In TestNG, you can group test methods using the groups attribute in the @Test annotation. This helps you organize tests into categories, like smoke or regression, and you can execute specific groups using the XML configuration.
+Ans.) In TestNG, you group test methods by using the groups attribute in the @Test annotation inside your test class. This categorizes tests, for example as “smoke” or “regression.” You then specify which groups to run in the TestNG XML configuration file, allowing selective execution of test sets.
+
+Example syntax in the test class:
+    @Test(groups = {"smoke"})
+    public void testLogin() {
+        // test code here
+    }
+Example syntax in the TestNG XML file:
+    <groups><run><include name="smoke"/></run></groups>
+This setup runs only the tests tagged with the “smoke” group.
 ================================================================================
 Q.) How does TestNG integrate with Maven for test execution?
-Ans.
-     TestNG integrates with Maven using the maven-surefire-plugin to execute tests as part of the Maven build process. You configure this in the pom.xml file.
+Ans.) TestNG integrates with Maven through the maven-surefire-plugin, which allows you to run TestNG tests during the Maven build lifecycle (typically in the test phase). You configure this plugin in your pom.xml file to specify TestNG as the test framework and can customize which tests to run.
 ================================================================================
 Q.) How do you specify the thread count for parallel execution in Maven?
-Ans.
-     In Maven, thread count for parallel execution can be specified in the testng.xml file or the maven-surefire-plugin.
+Ans.) In Maven, you can set the thread count for parallel test execution either in the TestNG XML file or in the maven-surefire-plugin configuration within pom.xml.
+In testng.xml:
+    <suite name="Suite" parallel="tests" thread-count="5">
+      <!-- test definitions -->
+    </suite>
+In pom.xml (maven-surefire-plugin):
+    <configuration>
+      <parallel>methods</parallel>
+      <threadCount>5</threadCount>
+    </configuration>
 ================================================================================
 Q.) How do you include or exclude specific tests in TestNG?
-Ans.
-     In TestNG, tests can be included or excluded using the groups attribute in the @Test annotation or in the testng.xml file.
+Ans.) In TestNG, you can include or exclude tests using the groups attribute in the @Test annotation and then control which groups run via the testng.xml file.
+    <groups>
+      <run>
+        <include name="smoke"/>
+        <exclude name="regression"/>
+      </run>
+    </groups>
 ================================================================================
 Q.) What is the difference between @BeforeSuite, @BeforeTest, and @BeforeMethod in TestNG?
-Ans.
-     These annotations are used to define setup methods that run at different levels of the test execution process.
+Ans.)These annotations define setup methods that run at different points in the test lifecycle:
+    @BeforeSuite: Runs once before all tests in the entire suite.
+    @BeforeTest: Runs before any test tagged within a <test> tag in testng.xml.
+    @BeforeMethod: Runs before each individual test method.
+Each helps prepare the environment at different scopes — suite-wide, test-group, or per test method.
 ================================================================================
 Q.) How do you handle dependencies between test methods in TestNG?
-Ans.
-     In TestNG, dependencies between test methods are specified using dependsOnMethods or dependsOnGroups in the @Test annotation.
+Ans.) In TestNG, you manage test method dependencies using the dependsOnMethods or dependsOnGroups attributes in the @Test annotation. This ensures that a test runs only after its dependent tests have passed.
 ================================================================================
-Q.) How do you integrate Selenium with TestNG?
-Ans.
-     You can integrate Selenium with TestNG by annotating test methods with @Test, and organizing tests with TestNG’s XML configuration file.
-================================================================================
-Q: What happens if you use SoftAssert in TestNG but forget to call assertAll()?
-Answer:
-If you don’t call assertAll():
-    Failed assertions won’t be reported, and the test will appear PASSED even if some validations failed.
-    Passed soft assertions are still logged correctly.
-    Skipping assertAll() can lead to false positives in your automation suite.
+Q.) What happens if you use SoftAssert in TestNG but forget to call assertAll()?
+Ans.) If you use SoftAssert but don’t call assertAll(), TestNG will not report any assertion failures, even if some assertions fail. This means your test may incorrectly pass because the collected assertion results are never checked and reported. Calling assertAll() triggers the evaluation of all soft assertions and throws any accumulated failures.
 Always place softAssert.assertAll() at the end of your test to ensure all assertion results are reported.
 ================================================================================
-Q: What are TestNG Listeners and how are they used in Selenium?
-Answer:
-    TestNG Listeners are special classes that let you run custom actions on events like test start, success, failure, or skip.
-To use them:
-    Implement ITestListener and override methods like onTestFailure() for screenshots, logs, etc.
-public class MyListener implements ITestListener {
-  public void onTestFailure(ITestResult result) {
-    // Take screenshot or log failure
-  }
-}
+Q.) What are Listeners?
+Ans.) TestNG Listeners are interfaces that allow you to monitor and customize the behavior of test execution by listening to events like test start, success, failure, or skip. In Selenium, listeners are used to enhance reporting, take screenshots on test failure, log test progress, and perform actions automatically based on test outcomes.
 
-Attach the listener using @Listeners(MyListener.class) or in testng.xml:
-<listeners>
-  <listener class-name="your.package.MyListener"/>
-</listeners>
-Listeners help automate retries, logging, and reporting in your Selenium framework.
-================================================================================
-Q: Which TestNG listeners have you used in your automation framework?
-Answer:
+TestNG uses `ITestListener`, and Cucumber uses `@Before`, `@After`, and plugins.
+
 Common TestNG listeners used:
     ITestListener: For logging, screenshots on failure, retrying failed tests.
     ISuiteListener: For actions before and after the entire suite execution.
     IAnnotationTransformer: For modifying test annotations at runtime (e.g., enabling/disabling tests).
-ex.     
-public class MyListener implements ITestListener { 
-    public void onTestFailure(ITestResult result) { 
-        // Take screenshot 
-    } 
-}
 ================================================================================     
 Q.) How do you integrate Cucumber with TestNG and POM?
-Ans.
-     Cucumber is integrated with TestNG by using the @CucumberOptions annotation in a TestNG runner class.
+Ans.) Cucumber is integrated with TestNG by using the @CucumberOptions annotation in a TestNG runner class.
 ================================================================================
 Q.) What is DataProvider in TestNG?
-Ans.
-    DataProvider is a TestNG feature that allows you to run the same test method with multiple sets of data. It supports parameterized testing.
+Ans.) DataProvider is a TestNG feature that allows you to run the same test method with multiple sets of data. It supports parameterized testing.
 ================================================================================
 Q.) How do you handle different environments (e.g., dev, prod) in Cucumber with TestNG and POM?
-Ans.
-     Different environments can be handled using configuration files (e.g., .properties, .yml) and environment-specific profiles.
+Ans.) Different environments can be handled using configuration files (e.g., .properties, .yml) and environment-specific profiles.
 ================================================================================
 Q.) write the order of execution of TestNG annotation and briefly explain each of them
-Ans.
+Ans.) Order of Execution of TestNG Annotations:
+@BeforeSuite : Runs once before all tests in the entire suite. Used for global setup like initializing reports or setting environment variables.
 
-Order of Execution of TestNG Annotations:
-@BeforeSuite
-Runs once before all tests in the entire suite. Used for global setup like initializing reports or setting environment variables.
+@BeforeTest : Runs before any test methods inside the <test> tag in the TestNG XML file. Used for setting up test-level configurations.
 
-@BeforeTest
-Runs before any test methods inside the <test> tag in the TestNG XML file. Used for setting up test-level configurations.
+@BeforeClass : Runs once before the first test method in the current test class. Useful for class-level setup (e.g., opening browser).
 
-@BeforeClass
-Runs once before the first test method in the current test class. Useful for class-level setup (e.g., opening browser).
+@BeforeMethod : Runs before each test method. Used for preconditions like navigating to a URL or resetting test data.
 
-@BeforeMethod
-Runs before each test method. Used for preconditions like navigating to a URL or resetting test data.
+@Test : The actual test method runs here.
 
-@Test
-The actual test method runs here.
+@AfterMethod : Runs after each test method. Used for cleanup like taking screenshots or clearing test data.
 
-@AfterMethod
-Runs after each test method. Used for cleanup like taking screenshots or clearing test data.
+@AfterClass : Runs once after all test methods in the current class have executed. Used for class-level cleanup like closing browser.
 
-@AfterClass
-Runs once after all test methods in the current class have executed. Used for class-level cleanup like closing browser.
+@AfterTest : Runs after all test methods inside the <test> tag have run. Used for test-level cleanup.
 
-@AfterTest
-Runs after all test methods inside the <test> tag have run. Used for test-level cleanup.
-
-@AfterSuite
-Runs once after all tests in the suite have finished. Used for final cleanup like closing database connections or generating summary reports.
+@AfterSuite : Runs once after all tests in the suite have finished. Used for final cleanup like closing database connections or generating summary reports.
 ================================================================================
 Q. ) In TestNG, how do you prioritize test methods?
 Ans.) Use the `priority` attribute in `@Test`. Lower values run first.
@@ -264,148 +200,82 @@ Ans.) Grouping allows running a subset of tests together using `groups` attribut
 @Test(groups = {"smoke"})
 ================================================================================ 
 
---- Cucumber ---
+-------------------- Cucumber --------------------
 
 ================================================================================ 
 Q.) What is Cucumber, and how is it used in automation testing?
-Ans.
-     Cucumber is a Behavior-Driven Development (BDD) framework that allows writing tests in plain English using Gherkin syntax. It helps teams collaborate by writing tests that non-technical stakeholders can understand. It maps Gherkin steps to automation code for execution.
+Ans.) Cucumber is a Behavior-Driven Development (BDD) framework that allows writing tests in plain English using Gherkin syntax. It helps teams collaborate by writing tests that non-technical stakeholders can understand. It maps Gherkin steps to automation code for execution.
 ================================================================================ 
 Q.) What is Gherkin syntax in Cucumber?
-Ans.
-     Gherkin is a simple, structured language used to write Cucumber tests. It follows the Given-When-Then format to describe app behavior. Example:
+Ans.) Gherkin is a simple, structured language used to write Cucumber tests. It follows the Given-When-Then format to describe app behavior. Example:
      Given the user is on the login page
      When the user enters valid credentials
      Then the user should be redirected to the homepage
 ================================================================================ 
 Q.) How do you write scenarios in Cucumber?
-Ans.
-     Scenarios are written in a feature file using Gherkin syntax. A feature describes a part of the application, and each scenario defines a test case. Example:
-     Given the user is on the registration page
-     When the user enters valid details
-     Then the user should be registered
+Ans.) Scenarios are written in a feature file using Gherkin syntax. A feature describes a part of the application, and each scenario defines a test case.
 ================================================================================ 
 Q.) How does Cucumber map Gherkin steps to Java code?
-Ans.
-     Cucumber maps Gherkin steps to Java methods using step definitions. Each Gherkin step is linked to a method in the Java code. Example:
+Ans.) Cucumber maps Gherkin steps to Java methods using step definitions. Each Gherkin step is linked to a method in the Java code. Example:
      @Given("^the user is on the login page$")
      public void userIsOnLoginPage() {
        // Code to open the login page
      }
 ================================================================================ 
-Q.) How do you run Cucumber tests with Maven?
-Ans.
-     You can run Cucumber tests using the Cucumber Maven Plugin. Configure it in the pom.xml to execute tests as part of the Maven build process. Example:
-     <plugins>
-       <plugin>
-         <groupId>io.cucumber</groupId>
-         <artifactId>cucumber-maven-plugin</artifactId>
-         <version>YOUR_CUCUMBER_VERSION</version>
-       </plugin>
-     </plugins>
-================================================================================ 
 Q.) How do you perform data-driven testing in Cucumber?
-Ans.
-     Data-driven testing is done using Scenario Outline with an Examples table. This allows running the same scenario with different inputs. Example:
-     Scenario Outline: User login with different credentials
+Ans.) Data-driven testing is done using Scenario Outline with an Examples table. This allows running the same scenario with different inputs. Example:
+  Scenario Outline: User login with different credentials
        Given the user is on the login page
        When the user enters "<username>" and "<password>"
        Then the user should be logged in
      
-     Examples:
+  Examples:
        | username | password |
        | user1    | pass123  |
        | user2    | pass456  |
 ================================================================================ 
 Q.) What is the purpose of the @Before and @After hooks in Cucumber?
-Ans.
+Ans.)
      @Before runs setup tasks before each scenario, like initializing the WebDriver.
-     @After runs cleanup tasks after each scenario, like closing the browser. Example:
-     @Before
-     public void setup() { /* Setup code */ }
-     
-     @After
-     public void teardown() { /* Cleanup code */ }
+     @After runs cleanup tasks after each scenario, like closing the browser.
 ================================================================================ 
 Q.) How do you implement Cucumber step definitions in Java?
-Ans.
-     In Java, step definitions are written using annotations like @Given, @When, and @Then. These methods contain the code for the corresponding steps in the Gherkin scenario. Example:
-     @Given("the user is on the login page")
-     public void userIsOnLoginPage() { /* Code to open login page */ }
-     
-     @When("the user enters valid credentials")
-     public void userEntersValidCredentials() { /* Code to enter credentials */ }
-     
-     @Then("the user should be redirected to the homepage")
-     public void userIsRedirectedToHomepage() { /* Code to verify redirection */ }
+Ans.) In Java, step definitions are written using annotations like @Given, @When, and @Then. These methods contain the code for the corresponding steps in the Gherkin scenario. 
 ================================================================================ 
 Q.) How do you organize step definitions in a large Cucumber project?
-Ans.
-     In large projects, organize step definitions by feature (e.g., LoginSteps.java, SearchSteps.java). Keep reusable code in utility classes to maintain clarity.
+Ans.) In large projects, organize step definitions by feature (e.g., LoginSteps.java, SearchSteps.java). Keep reusable code in utility classes to maintain clarity.
+================================================================================
+Q.) How do you organize step definitions in a large Cucumber project?
+Ans.) In large projects, organize step definitions by feature (e.g., LoginSteps.java, SearchSteps.java). Keep reusable code in utility classes to maintain clarity.
 ================================================================================
 Q.) What keywords are used in a Cucumber feature file?
-Ans.)
-In Cucumber, a feature file uses Gherkin keywords such as **Feature**, **Scenario**, **Scenario Outline**, **Given**, **When**, **Then**, **And**, **But**, **Background**, and **Examples** to define the behavior and flow of test cases in plain English.
+Ans.) In Cucumber, a feature file uses Gherkin keywords such as Feature, Scenario, Scenario Outline, Given, When, Then, And, But, Background, and Examples to define the behavior and flow of test cases in plain English.
 ================================================================================
 Q.) What is the difference between Scenario and Scenario Outline in Cucumber?
-Ans.)
-In Cucumber, **Scenario** is used to define a single concrete example of a feature’s behavior, whereas **Scenario Outline** is used for running the same scenario multiple times with different sets of test data provided in the **Examples** table.
+Ans.) In Cucumber, Scenario is used to define a single concrete example of a feature’s behavior, whereas Scenario Outline is used for running the same scenario multiple times with different sets of test data provided in the Examples table.
 ================================================================================ 
 Q.) How do you use tags in Cucumber?
-Ans.
-     Tags categorize and filter scenarios. You can run tests with specific tags using the @CucumberOptions configuration. Example:
-     @smoke
-     Scenario: Valid login
-       Given the user is on the login page
-       When the user enters valid credentials
-       Then the user should be redirected
-================================================================================ 
-Q.) How do you integrate Cucumber with TestNG?
-Ans.
-     Cucumber integrates with TestNG using the @CucumberOptions annotation to configure the test runner and manage execution, reporting, and parallel execution. Example:
-     @CucumberOptions(
-       features = "src/test/resources/features",
-       glue = "com.stepdefinitions",
-       plugin = {"pretty", "html:target/cucumber-report"}
-     )
-     @RunWith(Cucumber.class)
-     public class TestNGCucumberRunner {}
-================================================================================ 
-Q.) What is the role of the @Given, @When, and @Then annotations in Cucumber?
-Ans.
-     These annotations link the steps in Gherkin to Java methods. @Given sets up the initial context, @When describes the action, and @Then defines the expected outcome.
+Ans.) Tags in Cucumber are labels you add to scenarios or feature files to organize and selectively run tests. You define tags by prefixing words with @ (e.g., @smoke, @regression) above scenarios or features. During test execution, you can specify which tagged tests to include or exclude.
 ================================================================================ 
 Q.) What is a Feature file?
-Ans.) 
-    In Cucumber, a feature file contains scenarios written in Gherkin language that describe the behavior of the application in plain English.
+Ans.) In Cucumber, a feature file contains scenarios written in Gherkin language that describe the behavior of the application in plain English.
 =================================================================================
 Q.) What is Glue?
-Ans.)
-    Glue is the path in the Cucumber runner class that links feature files to step definition classes.
+Ans.) Glue is the path in the Cucumber runner class that links feature files to step definition classes.
 =================================================================================
 Q.) What are the differences between Hook and Background?
-Ans.)
-     `Background` is used to define common steps that run before each scenario in a feature file. `Hooks` (`@Before`, `@After`) are defined in step definition classes and apply to all feature files.
-=================================================================================
-Q.) What is Scenario Outline?
 Ans.) 
-    It allows parameterization of a scenario using Examples table. It runs the same scenario multiple times with different data.
+Background defines common steps that run before each scenario within a single feature file, helping avoid repetition inside that file.
+
+Hooks (like @Before and @After) are code blocks in step definition files that run before or after each scenario across all feature files, used for setup or cleanup tasks globally.
 =================================================================================
 Q.)How do you pass parameters from a feature file to step definition file?
-Ans.)
-    Using regular expressions in the step definition.
+Ans.) You pass parameters from a feature file to step definitions by using placeholders in the Gherkin steps and capturing them with regular expressions in the step definition method.
 
-```gherkin
 Given I enter "username" and "password"
-```
 
-```java
 @Given("^I enter \"([^\"])\" and \"([^\"])\"$")
 public void enterCredentials(String user, String pass) { }
-```
-=================================================================================
-Q.) What is a Listener?
-Ans.) Listeners in TestNG or Cucumber allow custom code execution based on test events like test start, success, failure, etc. TestNG uses `ITestListener`, and Cucumber uses `@Before`, `@After`, and plugins.
 =================================================================================
 
 --- Maven ---
@@ -419,32 +289,29 @@ Ans.) `pom.xml` (Project Object Model) is the core configuration file in Maven. 
 =================================================================================
 Q.) What are Maven plugins? Name a few used in test automation.
 Ans.) Plugins in Maven extend its capabilities and help perform tasks like compiling code, running tests, and packaging. Common plugins in test automation:
-
- maven-surefire-plugin – Runs unit and test automation scripts
- maven-compiler-plugin – Compiles Java source code
- maven-jar-plugin – Packages code into a JAR
+    maven-surefire-plugin – Runs unit and test automation scripts
+    maven-compiler-plugin – Compiles Java source code
+    maven-jar-plugin – Packages code into a JAR
 ================================================================================
 Q.) What is a Maven repository?
 Ans.) A Maven repository is a storage location for project artifacts (JARs, libraries, etc.).
-
- Local Repository: Located on the developer’s machine (.m2 folder).
- Central Repository: Public online repository provided by Maven.
- Remote Repository: Custom or private repositories (e.g., company repositories).
+    Local Repository: Located on the developer’s machine (.m2 folder).
+    Central Repository: Public online repository provided by Maven.
+    Remote Repository: Custom or private repositories (e.g., company repositories).
 ================================================================================
 Q.) How does Maven help with version control of dependencies?
 Ans.) Maven allows you to define specific versions of dependencies in pom.xml, ensuring consistency across builds and environments. This avoids version conflicts and ensures predictable behavior.
 ================================================================================
 Q.) How can you run TestNG tests using Maven?
 Ans.)
-
 1. Add the TestNG dependency to pom.xml.
 2. Configure the maven-surefire-plugin to detect and run TestNG tests.
 3. Run the tests using the command:
-
-bash
-    mvn test
+        mvn test
 ================================================================================
 Q.) Can Maven be integrated with CI/CD tools like Jenkins?
 Ans.) Yes. Jenkins can execute Maven commands like mvn clean install in its pipeline or job configurations to build, test, and deploy automation projects as part of a CI/CD workflow.
 ================================================================================
+
+
 

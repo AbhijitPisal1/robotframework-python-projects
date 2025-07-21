@@ -22,13 +22,13 @@ Ans.) A feasibility study evaluates the practicality and value of developing a s
 =================================================================================
 Q) What are the key phases of the SDLC?
 Ans.) The SDLC typically includes:
-    Planning (Feasibility Study): Define goals, assess feasibility and outlining an overall project plan
-    Requirements Gathering and Analysis: Collect and document user needs.
-    Design: Create architecture and system specifications.
-    Development (Coding): Write and build the software.
-    Testing: Identify and fix software defects.
-    Deployment: Release software for user access.
-    Maintenance: Provide updates and ongoing support.
+    - Planning (Feasibility Study): Define goals, assess feasibility and outlining an overall project plan
+    - Requirements Gathering and Analysis: Collect and document user needs.
+    - Design: Create architecture and system specifications.
+    - Development (Coding): Write and build the software.
+    - Testing: Identify and fix software defects.
+    - Deployment: Release software for user access.
+    - Maintenance: Provide updates and ongoing support.
 =================================================================================
 Q) How do you ensure quality throughout the SDLC?
 Ans.) Quality assurance involves engaging stakeholders during requirements gathering, conducting design reviews, adhering to coding standards, and performing automated testing, ensuring continual quality monitoring during the project lifecycle.
@@ -90,35 +90,17 @@ Ans.) A Burn-Down Chart is a graphical representation of work completed versus w
 Q) What is a Sprint Goal?
 Ans.) A Sprint Goal is a concise statement that describes the purpose and expected outcome of the Sprint, guiding the team’s efforts.
 =================================================================================
-Q) What is a Sprint?
-Ans.) A Sprint is a time-boxed iteration in Scrum, typically lasting 1 to 4 weeks, where a specific set of work is completed.
-=================================================================================
-Q) What happens during Sprint Planning?
-Ans.) During Sprint Planning, the Scrum team defines the Sprint Goal and selects items from the Product Backlog to include in the current Sprint.
-=================================================================================
-Q) What is a Sprint Backlog?
-Ans.) The Sprint Backlog is a subset of the Product Backlog, representing the tasks the development team commits to completing during the Sprint.
-=================================================================================
-Q) What is a Daily Stand-Up?
-Ans.) A Daily Stand-Up is a short, time-boxed meeting where team members share their progress, plans for the day, and any obstacles they face.
-=================================================================================
 Q) What is Time-Boxing in Sprint?
 Ans.) Time-Boxing is the practice of setting fixed durations (like for Sprints and meetings) to encourage focus and efficiency.
 =================================================================================
-Q) What is “Done” in a Sprint context?
-Ans.) "Done" in a Sprint context refers to a mutually agreed-upon definition that specifies the completion criteria for delivered items.
-=================================================================================
-Q) How is Sprint Progress monitored?
-Ans.)Sprint Progress is monitored through tools like Burn-Down Charts and Daily Stand-Ups, which track progress against the Sprint Goal.
-=================================================================================
 Q) What are the different methodologies of SDLC?
 Ans.)
-1. Waterfall Model: A linear and sequential approach where each phase must be completed before the next begins, often used for projects with well-defined requirements.
-2. Agile Model: An iterative and incremental approach that emphasizes flexibility, collaboration, and customer feedback, allowing for rapid adjustments throughout the development process.
-3. Spiral Model: Combines iterative development with the systematic risk analysis of each cycle, focusing on gradual refinement through repeated iterations.
-4. V-Model (Verification and Validation Model): An extension of the Waterfall model that emphasizes testing at each development stage, ensuring quality through validation and verification processes.
-5. Big Bang Model: A less structured approach where development starts without much planning or requirements, often leading to unpredictable outcomes and high risk.
-6. Iterative Model: Focuses on repeating development cycles to refine and enhance the product with evolving requirements and continuous feedback from stakeholders.
+1. Waterfall Model: Linear, sequential phases with strict order, suited for well-defined requirements.
+2. Agile Model: Iterative and flexible, promotes collaboration and customer feedback.
+3. Spiral Model: Combines iteration with risk analysis in cycles for gradual refinement.
+4. V-Model: Waterfall extension with testing at every development stage.
+5. Big Bang Model: Minimal planning, development starts immediately; high risk.
+6. Iterative Model: Repeats development cycles with continuous feedback and evolving requirements.
 ================================================================================
 Q) What is the estimation in a sprint?
 Ans.) Estimation in a sprint refers to the process of evaluating the effort or time required to complete tasks or user stories, typically using methods like story points or hours, to help plan and allocate work effectively within the sprint.

@@ -26,26 +26,16 @@ Ans.)
     - typically includes information such as defect ID, description, severity, steps to reproduce, screenshots, environment details, and status.
     - Defect logging provides a clear, standardized way to document issues, helping testers and developers communicate effectively.
     - It enables prioritization based on severity, tracks defect status, creates accountability, and provides historical data to improve product quality and testing strategies.
-
 ===============================================================================================================
 Q)  Give one example of each bug type based on priority and severity:
 Ans.) 
-
-High Priority & Low Severity:
-Example: A typo in the company logo’s alt text on the homepage.
-Reason: Does not break functionality (low severity) but affects the company’s image, so must be fixed quickly (high priority).
-
-High Priority & High Severity:
-Example: The login page crashes and users cannot access their accounts.
-Reason: Critical functionality broken (high severity) and requires immediate fix (high priority).
-
-Low Priority & Low Severity:
-Example: Slight misalignment of a rarely used icon on a settings page.
-Reason: No functional impact (low severity) and not urgent (low priority).
-
-Low Priority & High Severity:
-Example: The system fails to generate PDF previews for archived engineering documents older than 10 years.
-Reason: The issue is severe (PDF preview functionality is completely broken for those documents), but it’s low priority because those documents are rarely accessed, mostly for legacy reference, and don't impact current workflows.
+Priority\Severity | High Severity                                        | Low Severity
+------------------|------------------------------------------------------|--------------------------------------------------------
+High Priority     | Login page crashes, users can't access accounts      | A typo in the company logo’s alt text on the homepage 
+                  | (critical feature broken, requires immediate fix)    | (Does not break functionality, affects brand image so urgent fix needed)  
+------------------|------------------------------------------------------|--------------------------------------------------------
+Low Priority      | PDF preview fails for 10+ yr old rarely used docs    | Slight icon misalignment on settings page  
+                  | (critical feature broken but , not urgent)           | (minor visual issue, not urgent)  
 ===============================================================================================================
 Q) Explain the Deferred State in Defect cycle.
 Ans.)
@@ -94,17 +84,10 @@ Bug Leakage:
     Bug leakage refers to defects that are not detected during the testing phase and are discovered by end users after the software has been released.
     This indicates a failure in the testing process to identify critical issues before the product launch.
 ===============================================================================================================
-Q) How to approach Test Planning for a defect.
-Ans.)
-    - To approach test planning for a defect, start by understanding the defect through its description and reproduction steps.
-    - Identify the affected areas and define clear test objectives, like verifying the fix and ensuring no new issues arise.
-    - Develop detailed test cases covering verification, relevant scenarios, and regression tests.
-    - Choose between manual or automated testing, then schedule testing timelines and assign responsibilities to team members.
-    - After reviewing the plan with stakeholders, execute the tests, document results, and report findings.
-   Finally, perform retesting and regression tests, and formally close the defect once validated.
-===============================================================================================================
 Q) Explain the Difference in Bug-Error-Defect-Failure
 Ans.)
+"A human error or mistake during development or testing leads to a defect, which is the difference between actual and expected behaviour/results. If the defect is detected during testing, it's called a bug and gets fixed; but if it goes unnoticed and causes a malfunction during real use, it's called a failure."
+
 Bug:    A bug is a generic term used to describe any flaw or issue in the software that may cause it to produce incorrect or unexpected results. It is often used interchangeably with defect.
 
 Error:  An error refers to a human mistake made during software development, coding, or testing that can lead to defects. It is the actual incorrect action or oversight made by a developer or tester.
@@ -124,11 +107,10 @@ Defect Report
 Q) What is the difference between an exception and an error?
 Ans.)
 Exception:
-    An exception is an event that occurs during the execution of a program that disrupts the normal flow of instructions.
-    Exceptions are typically anticipated and can be handled using error-handling mechanisms such as try-catch blocks.
-    They represent conditions that a program can potentially recover from (e.g., file not found, invalid input).
+An exception is a problem that occurs during program execution but can usually be handled and recovered from using error-handling code (like try-catch). Examples include invalid input or a missing file.
+
 Error:
-    An error is a serious issue that arises from the environment in which the program is executed or from the program's logic that usually cannot be handled or recovered.
-    Errors often indicate fundamental problems (e.g., memory overflow, syntax errors) that may cause the program to terminate unexpectedly.
-    Errors are generally not meant to be caught or handled by the program.
+An error is a serious issue that usually cannot be handled by the program and often causes it to crash. Examples include out-of-memory or syntax errors.
+
+In short:    Exceptions are recoverable problems, while errors are typically fatal and unmanageable by the program.
 ===============================================================================================================

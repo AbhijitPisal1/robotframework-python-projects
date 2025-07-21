@@ -14,7 +14,7 @@ Q) How do you handle test cases when requirements are not clearly defined?
 Ans)
     Collaborate with Stakeholders: Engage with product owners and users to clarify requirements.
     Use Exploratory Testing: Conduct exploratory testing to uncover application behavior.
-    Create Test Cases Based on Assumptions: Develop test cases from reasonable assumptions, clearly labeled as so.
+    Create Test Cases Based on Assumptions: Develop test cases from reasonable assumptions with clear labels.
     Prioritize Robustness: Focus on critical functionalities and high-risk areas.
     Iterate: Be ready to revise test cases as requirements clarify.
     Document Everything: Keep detailed records of discussions and assumptions for future reference.
@@ -40,14 +40,8 @@ Ans.) I would automate the button click action using Selenium, confirm the file 
 Q) How would you automate a scenario where you need to verify a specific color, font, and position of an element on a webpage?
 Ans.) I would use Selenium with Python to locate the element and retrieve its CSS properties using `element.valueofcssproperty()`. I would then assert these properties to confirm they match the expected values for color, font, and position, ensuring the validation is thorough.
 =================================================================================
-Q) How would you handle pop-up windows or alert boxes in your automation script?
-Ans.) I would implement code to switch the context to the pop-up or alert and perform necessary actions using Selenium. For alerts, I would use the `switchto.alert` method to accept or dismiss it. For handling pop-up windows, I would switch to the new window using `driver.switchto.window()`.
-=================================================================================
 Q) How would you automate a scenario where you need to verify if a user can scroll down a webpage until the footer section is visible?
 Ans.) I would simulate scrolling actions using JavaScript with `driver.executescript("window.scrollTo(0, document.body.scrollHeight);")` to scroll the page. Then, I would check if the footer element is present in the viewport using assertions, such as `element.isdisplayed()`, to confirm its visibility on the page.
-=================================================================================
-Q) If there is a scenario that takes a long time to execute, would you prefer Manual TestNG or Automation Testing?
-Ans.) I would prefer Automation Testing, as it allows for quicker execution over multiple iterations, and I can run the tests in parallel, thereby saving time and resources in the long run.
 =================================================================================
 Q) You've been asked to automate a legacy application. What is your approach?
 Ans.) I would first assess the existing application architecture and identify the testing requirements. Then, I would design automation strategies that integrate with legacy systems, possibly using tools compatible with older technologies and ensuring thorough documentation is maintained.
@@ -96,12 +90,6 @@ Ans.) Yes, I’ve written custom utility libraries for reusable functions like w
 =================================================================================
 Q) How do you balance between automating a test case vs. keeping it manual?
 Ans.) I consider factors like test case stability, repeatability, criticality, and ROI. High-impact, frequently executed tests are prioritized for automation, while one-time or highly subjective exploratory tests are kept manual. If automation would require extensive maintenance for a rarely-used feature, I’d opt for manual testing.
-=================================================================================
-Q) How would you test a chatbot or voice assistant application?
-Ans.) I’d define various user intents and utterances to validate the NLP processing and dialog flow. For chatbots, tools like Botium or custom scripts using APIs can simulate user inputs and validate responses. For voice assistants, I’d use speech-to-text mock inputs and validate text-based outputs against expected responses, also including edge cases like slang, noise, and accents.
-=================================================================================
-Q) What kind of logging and reporting mechanisms do you use in your automation?
-Ans.) I use structured logging with tools like Log4j or built-in test framework loggers to capture execution details. For reporting, I use tools like Allure, Extent Reports, or TestNG reports to visualize pass/fail trends and screenshots for failures. Reports are integrated with CI/CD tools for visibility across teams.
 =================================================================================
 Q) How do you handle test environment instability or downtime while running automated tests?
 Ans.) I include environment health checks before test execution and implement retry logic for transient failures. Test cases are designed to fail gracefully and provide detailed failure logs. If instability is common, I raise the issue with DevOps and push for better monitoring and alerting.

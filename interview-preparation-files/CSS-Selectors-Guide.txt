@@ -34,7 +34,4 @@
 6. Selects an element that’s element value ends with the attribute value
 	Syntax	: 	css=tag[attribute$=value]
 	example : 	css=input[href$=’.docx]
-7. Selects an element with the exact match of the attribute value
-	Syntax	: 	css=tag[attribute=value]
-	example : 	css=input[alt=’abc’]
 ======================================================
