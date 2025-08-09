@@ -165,3 +165,35 @@ Ans.) Error seeding involves deliberately inserting known defects into the syste
 Q. What is risk mitigation in testing?  
 Ans.) Risk mitigation identifies potential risks and applies controls to reduce their impact. This ensures testing efforts are focused and resources are efficiently utilized.
 ================================================================================
+Q. What are key terms in software testing?  
+Ans.) 
+1. Test Scenario – High-level condition to be tested
+2. Test Case – Step-by-step instructions to verify functionality
+3. Test Suite – Group of test cases for a module
+4. Test Data – Input values used during testing
+5. Test Plan – Strategy, scope, and schedule of testing
+6. RTM – Mapping of requirements to test cases
+7. Functional Testing – Validates expected functionality
+8. Non-Functional Testing – Checks performance, security, usability
+9. Exploratory Testing – Learning + testing without scripts
+10. Smoke Testing – Basic build verification
+11. Sanity Testing – Quick checks for specific areas
+12. Regression Testing – Ensure new code doesn’t break existing features
+13. Retesting – Testing failed test cases after bug fix
+14. Defect Life Cycle – Bug journey from open to close
+15. Severity – Impact of a defect on the system
+16. Priority – Urgency of fixing the defect
+17. BVA – Testing at input boundaries
+18. EP – Grouping inputs into valid/invalid sets
+19. UAT – End-user validation of requirements
+20. QA – Process to prevent defects
+21. QC – Finding defects in the product
+22. Bug Leakage – Bugs missed in testing, found later
+23. Bug Release – Known bugs released intentionally
+24. Automation Testing – Using tools to auto-execute tests
+25. CI/CD – Automated integration and deployment
+26. Assertions – Validating expected vs actual result
+27. API Testing – Testing backend using tools like Postman
+28. Load Testing – Testing under expected user load
+29. Integration Testing – Checking interaction between modules
+30. E2E Testing – Verifying complete user flow.

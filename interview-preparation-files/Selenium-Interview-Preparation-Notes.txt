@@ -391,3 +391,29 @@ Answer:
     }
 Links returning HTTP 4xx or 5xx status codes are considered broken.
 ----------------------------------------------------------------------
+Q: How can you implement retry logic in TestNG to handle flaky tests caused by temporary issues like network delays or browser glitches?
+Answer:
+we can implement retry logic in TestNG using a Retry Analyzer, which automatically re-executes failed tests without manual intervention. Here's how:
+
+Step 1: Create a Retry Class
+public class RetryAnalyzer implements IRetryAnalyzer {
+    int count = 0;
+    int maxTry = 2;
+
+    public boolean retry(ITestResult result) {
+        if (count < maxTry) {
+            count++;
+            return true;
+        }
+        return false;
+    }
+}
+
+Step 2: Attach the Retry Analyzer to Your Test
+@Test(retryAnalyzer = RetryAnalyzer.class)
+public void flakyTest() {
+    // flaky logic here
+}
+
+For global retry logic, integrate this with ITestListener in your base test class or listener class. Instead of rerunning the whole suite, handle flaky tests smartly with TestNG’s built-in retry mechanism.
+----------------------------------------------------------------------
