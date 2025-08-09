@@ -11,7 +11,7 @@ A tuple is a built-in collection data type in Python used to store **ordered**, 
 """
 
 # ========== CREATING A TUPLE ==========
-new_tuple = (1, 10, "hundred", 1000)
+new_tuple = (1, 10, "hundred", 1000, 1)
 print("New tuple:", new_tuple)
 
 # ========== ACCESSING ELEMENTS ==========
@@ -43,7 +43,7 @@ index_of_hundred = new_tuple.index("hundred")
 print("Index of 'hundred':", index_of_hundred)
 
 # ========== LENGTH OF TUPLE ==========
-length = len(new_tuple)
+length = len(new_tuple) # Number of elements /entries in a tuple
 print("Length of new_tuple:", length)
 
 # ========== REVERSING A TUPLE ==========

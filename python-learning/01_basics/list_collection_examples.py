@@ -37,7 +37,7 @@ print("After updating index 2:", custom)
 del custom[0]
 print("After deleting element at index 0:", custom)
 
-# Popping (removing and returning) the last element
+# Popping (removing and returning) the last element or element at the given index
 popped_item = custom.pop()
 print("Popped item:", popped_item)
 print("After pop():", custom)

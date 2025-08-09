@@ -26,7 +26,7 @@ def second_largest_digit(s):
 # Example usage
 input_string = "hi279364s9"
 result = second_largest_digit(input_string)
-print(result)  # This should output 2
+print(result)  # This should output 7
 
 
 

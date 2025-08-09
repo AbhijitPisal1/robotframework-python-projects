@@ -43,7 +43,7 @@ Ans.)
 @ Reasons for Deferral: Low priority, resource constraints, business decisions, low impact, pending investigation.
 @ Process: Document reasons, review in future sprints, communicate with stakeholders.
 @ Lifecycle: Remains deferred until criteria change, then may move to "Open" or "In Progress."
-@ Impact: Can focus team on critical issues but may lead to technical debt if too many defects are deferred.
+@ Impact: Can help team focus on critical issues but may lead to technical debt if too many defects are deferred.
 ===============================================================================================================
 Q) Define Hotfix & Patches
 Ans.)

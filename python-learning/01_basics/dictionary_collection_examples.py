@@ -40,11 +40,11 @@ print("Removed value using pop():", removed_value)
 print("After popping 'third_key':", dict1)
 
 # ========== LOOPING THROUGH DICTIONARY ==========
-print("Looping through keys:")
+print("Looping through keys:")      # this is default operation to loop in a dictionary
 for key in dict1:
     print(key)
 
-print("Looping through values:")
+print("Looping through values:")    # for values explicit mention .values()
 for value in dict1.values():
     print(value)
 

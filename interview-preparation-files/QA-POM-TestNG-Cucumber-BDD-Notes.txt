@@ -51,7 +51,8 @@ Ans.)
     - Use explicit waits (e.g., WebDriverWait) to ensure elements are visible or clickable before interacting with them.
     - Create custom methods in the Page Class that generate dynamic locators based on input parameters.
     - Use relative XPath or flexible CSS selectors to handle changing attributes.
-    - Avoid hardcoding dynamic values—make locators data-driven where possible.
+    - Avoid hardcoding dynamic values
+    — make locators data-driven where possible.
 ================================================================================ 
 
 -------------------- Behavior-Driven Development (BDD) --------------------

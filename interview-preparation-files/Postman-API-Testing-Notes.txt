@@ -42,9 +42,9 @@ Headers help the server understand how to process the request correctly and secu
 ================================================================================
 Q) What is the purpose of authentication in API testing?
 Ans) Authentication in API testing ensures that only authorized users can access the API. It verifies the identity of the requester before allowing access to protected resources. Common methods include:
-    - Basic Auth : Username and password in headers
-    - Bearer Token : Token passed in headers (e.g., $Authorization: Bearer your_token$)
-    - API Key : Key sent in headers or query params
+    - Basic Auth : Username and password in headers, Basic Auth sends your username and password every request
+    - Bearer Token : Token passed in headers (e.g., $Authorization: Bearer your_token$), Bearer Token is like a session token after login—you don’t send credentials every time
+    - API Key : Key sent in headers or query params,API Key is a permanent key tied to an app or server for accessing APIs.
 ================================================================================
 Q) What is the purpose of HTTP status codes in API testing?
 Ans) HTTP status codes indicate whether a specific request successfully completed or not. These are embedded in the HTTP header of a page to tell the browser the result of its request.

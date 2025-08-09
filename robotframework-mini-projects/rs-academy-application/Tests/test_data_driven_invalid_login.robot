@@ -16,6 +16,6 @@ special character        shu&1    hsy@1*!
 *** Keywords ***
 Validate successful login
     [Arguments]     ${username}     ${password}
-    LandingPage.User filled the login form    ${username}     ${password}
-    LandingPage.wait until it checks and display error message
-    LandingPage.verify if error message is correct
+    landing_page_keywords.User filled the login form    ${username}     ${password}
+    landing_page_keywords.wait until it checks and display error message
+    landing_page_keywords.verify if error message is correct

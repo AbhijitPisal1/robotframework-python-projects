@@ -14,6 +14,8 @@ A set is a built-in collection data type in Python used to store **unique**, **u
 values = {1, 2, "mark", 4, 5, "mark"}  # Duplicate "mark" will be removed automatically
 print("Initial set (duplicates removed):", values)
 
+for val in values:
+    print(val)  # Each item, no order guaranteed
 # ========== ADDING ELEMENTS ==========
 values.add("new Object")  # Adds a new item to the set
 print("After adding 'new Object':", values)
@@ -45,3 +47,4 @@ print("Intersection of values and other_set:", intersection_set)
 # DIFFERENCE - elements in `values` but not in `other_set`
 difference_set = values.difference(other_set)
 print("Difference of values - other_set:", difference_set)
+

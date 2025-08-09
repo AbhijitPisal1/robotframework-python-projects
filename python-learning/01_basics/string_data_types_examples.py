@@ -56,7 +56,7 @@ var1 = str5.split(".")      # creates a list after splitting string
 print(var1)
 print(var1[0])      # should print google
 
-str6= "greet "
+str6= "  greet "
 print(str6.strip())     # removes all whitespaces
 
 str7 = "   leftStrip   "
