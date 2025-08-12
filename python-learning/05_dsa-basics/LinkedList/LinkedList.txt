@@ -1,0 +1,79 @@
+# What is a Linked List?
+
+- A linked list is a sequence of elements called nodes.
+- Each node contains:
+  - The data
+  - A pointer (reference) to the next node (and optionally to the previous node).
+- Unlike arrays, linked lists do not store elements next to each other in memory.
+- Memory is allocated dynamically as nodes are created.
+
+---
+
+# Where is it used?
+
+- Linked lists make it easy to insert or delete elements anywhere without shifting other elements.
+- Useful when you don’t know the number of items upfront or size changes frequently.
+- Good for implementing queues, stacks, and other dynamic structures.
+
+---
+
+# Types of Linked Lists
+
+| Type                 | Description                         | Can Traverse | Notes                         |
+|----------------------|-----------------------------------|--------------|-------------------------------|
+| Singly Linked List    | Each node points to the next node | Forward only | Simple, uses less memory       |
+| Doubly Linked List    | Nodes point both ways (next & prev) | Forward & Backward | Can traverse backwards         |
+| Circular Linked List  | Last node points back to the first | Loops around | Useful for round-robin tasks   |
+| Doubly Circular List  | Doubly linked + circular           | Loops both ways | Most flexible, a bit more complex |
+
+---
+
+# Time Complexity (Approximate)
+
+| Operation           | Singly Linked List | Doubly Linked List | Notes                             |
+|---------------------|--------------------|--------------------|----------------------------------|
+| Insert at head      | O(1)               | O(1)               | Fast, just update pointers       |
+| Insert at tail      | O(n)               | O(n)               | O(1) if tail pointer maintained  |
+| Delete at head      | O(1)               | O(1)               | Just move head pointer           |
+| Delete at tail      | O(n)               | O(n)               | O(1) if tail pointer maintained  |
+| Search by value     | O(n)               | O(n)               | Need to check each node          |
+| Access by index     | O(n)               | O(n)               | No direct indexing               |
+
+---
+
+# When to Use Linked Lists
+
+- When your data size changes frequently.
+- When you want fast insertions/deletions without shifting elements.
+- When you want a dynamic data structure without predefining size.
+
+---
+
+# When Not to Use Linked Lists
+
+- When you need fast random access → arrays/lists are better.
+- When data size is small and mostly fixed.
+- When memory overhead matters — pointers take extra space.
+- When you want cache-friendly performance (arrays are better).
+
+---
+
+# Simple Python Node Example
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None     # for singly linked list
+        self.prev = None     # for doubly linked list (optional)
+
+# Circular Linked Lists
+	The last node’s next points back to the first node.
+	Good for applications like:
+		Round-robin schedulers
+		Multiplayer game turns
+		Circular buffers
+# Summary
+	Linked lists store data in nodes linked by pointers.
+	Great for frequent insert/delete operations.
+	Different types depending on how nodes are linked (single, double, circular).
+	Less suitable for fast random access or memory-sensitive cases.
