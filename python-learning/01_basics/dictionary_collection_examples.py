@@ -7,67 +7,172 @@ A dictionary is a built-in data type in Python used to store key-value pairs.
 - Mutable: Can add, modify, or delete items
 - Key-based Access: Values accessed using keys, not indexes
 - Heterogeneous: Keys and values can be of different types
-- Similar to hash tables in other languages
+- How Dictionaries Work Internally:
+    - Python dictionaries use a hash function to convert keys into a number.
+    - This number determines the index in an internal array where the key-value pair is stored.
+    - When you access the key, Python hashes it again to find the value quickly.
 """
 
-# ========== INITIALIZING A DICTIONARY ==========
+# ========== CREATING DICTIONARIES ==========
+
+# Empty dictionaries
+my_dict = dict()
+print("Empty dict using dict():", my_dict)
+
+my_dict2 = {}
+print("Empty dict using {}:", my_dict2)
+
+# Using keyword arguments
+eng_sp = dict(one='uno', two='dos', three='tres')
+print("English to Spanish dict:", eng_sp)
+
+# Using curly braces
+sp_eng = {'uno': 'one', 'dos': 'two', 'tres': 'three'}
+print("Spanish to English dict:", sp_eng)
+
+# Using list of tuples
+sp_eng2 = dict([('uno', 'one'), ('dos', 'two'), ('tres', 'three')])
+print("Dict from list of tuples:", sp_eng2)
+
+# Another example
 dict1 = {1: "first value", "two": 2, "third_key": "This is a dictionary"}
-print("Initial dictionary:", dict1)
+print("Initial dict1:", dict1)
 
 # ========== ACCESSING VALUES ==========
-print("Access using key 1:", dict1[1])  # Output: first value
-print("Access using key 'third_key':", dict1["third_key"])  # Output: This is a dictionary
+
+print("Access using key 1:", dict1[1])
+print("Access using key 'third_key':", dict1["third_key"])
+
+# Using get (safe access with default)
+print("Access using get():", dict1.get("two", "Key not found"))
 
 # ========== DISPLAYING KEYS, VALUES, ITEMS ==========
-print("Keys:", dict1.keys())      # Returns a view object of keys
-print("Values:", dict1.values())  # Returns a view object of values
-print("Items:", dict1.items())    # Returns a view object of key-value pairs
 
-# ========== ADDING NEW KEY-VALUE PAIR ==========
-dict1["fourth"] = "new value"
-print("After adding a new key-value pair:", dict1)
+print("Keys:", dict1.keys())
+print("Values:", dict1.values())
+print("Items:", dict1.items())
 
-# ========== MODIFYING EXISTING VALUE ==========
-dict1[1] = "updated first value"
+# ========== ADDING & MODIFYING VALUES ==========
+
+dict1["fourth"] = "new value"  # Add
+print("After adding 'fourth':", dict1)
+
+dict1[1] = "updated first value"  # Modify
 print("After updating key 1:", dict1)
 
+# Another example
+user = {'name': 'john', 'age': 26}
+print("User dict:", user)
+user['age'] = 23
+print("Updated age:", user)
+user['address'] = 'London'
+print("Added address:", user)
+
 # ========== DELETING ITEMS ==========
-del dict1["two"]  # Deletes key "two"
-print("After deleting key 'two':", dict1)
 
-removed_value = dict1.pop("third_key")  # Removes and returns value of "third_key"
-print("Removed value using pop():", removed_value)
-print("After popping 'third_key':", dict1)
+# Delete using del
+del user['age']
+print("After del on 'age':", user)
 
-# ========== LOOPING THROUGH DICTIONARY ==========
-print("Looping through keys:")      # this is default operation to loop in a dictionary
-for key in dict1:
+# Delete using pop
+removed_value = dict1.pop("third_key", "Not found")
+print("Removed using pop():", removed_value)
+print("After pop on 'third_key':", dict1)
+
+# Remove last inserted item
+removed_item = user.popitem()
+print("Removed item using popitem():", removed_item)
+print("After popitem:", user)
+
+# Clear dictionary
+dict1.clear()
+print("After clearing dict1:", dict1)
+
+# ========== LOOPING THROUGH DICTIONARIES ==========
+
+print("Looping through keys:")
+for key in sp_eng:
     print(key)
 
-print("Looping through values:")    # for values explicit mention .values()
-for value in dict1.values():
+print("Looping through values:")
+for value in sp_eng.values():
     print(value)
 
 print("Looping through items:")
-for key, value in dict1.items():
+for key, value in sp_eng.items():
     print(f"{key}: {value}")
 
-# ========== CLEARING A DICTIONARY ==========
-dict1.clear()
-print("After clearing dict1:", dict1)  # Output: {}
+# Function to traverse dictionary
+def traverse_dict(d):
+    for key in d:
+        print(f"{key}: {d[key]}")
+
+print("Traversing user dict:")
+traverse_dict(user)
+
+# Function to search dictionary by value
+def search_dict(d, value):
+    for key in d:
+        if d[key] == value:
+            return key, value
+    return 'The value does not exist'
+
+print("Searching for value 23:", search_dict(user, 23))
+
+# ========== DICTIONARY METHODS ==========
+
+dict2 = {1: 'one', 2: 'two', 3: 'three'}
+print("Original dict2:", dict2)
+
+# copy()
+dict3 = dict2.copy()
+print("Copied dict3:", dict3)
+
+# fromkeys()
+dict4 = {}.fromkeys([1, 2, 3], 0)
+print("Fromkeys dict4:", dict4)
+
+# get()
+print("Get key 1 from dict4:", dict4.get(1))
+
+# items()
+print("Items in dict4:", dict4.items())
+
+# keys()
+print("Keys in dict4:", dict4.keys())
+
+# setdefault()
+print("Using setdefault on 4:", dict4.setdefault(4, 0))
+print("After setdefault:", dict4)
+
+# values()
+print("Values in dict4:", dict4.values())
+
+# Membership checks
+rank = {1: 'one', 3: 'three', 2: 'two', 5: 'five', 4: 'four'}
+print("Is key 1 in rank?", 1 in rank)
+print("Is value 'two' in rank?", 'two' in rank.values())
+print("Length of rank:", len(rank))
+print("Sorted keys in rank:", sorted(rank))
+
+# ========== DICTIONARY COMPREHENSIONS ==========
+
+import random
+
+city_names = ['Paris', 'London', 'Rome', 'Berlin', 'Madrid']
+city_temps = {city: random.randint(20, 30) for city in city_names}
+print("City temperatures:", city_temps)
+
+# Filtering with comprehension
+above_25 = {city: temp for city, temp in city_temps.items() if temp > 25}
+print("Cities with temp > 25:", above_25)
 
 # ========== MERGING DICTIONARIES ==========
-# Create a new dictionary and merge into dict1
-dict2 = {3: "third value", "five": 5}
-dict1.update(dict2)
-print("After merging dict2 into dict1:", dict1)
 
-# ========== MORE DICTIONARY EXAMPLES ==========
-# Another example to reinforce concepts
-dict3 = {}  # Empty dictionary
+dict_a = {'Country': 'India', 'Capital': 'Delhi'}
+dict_b = {3: "third value", "five": 5}
 
-dict3["Country"] = "India"
-dict3["Capital"] = "Delhi"
+dict_a.update(dict_b)
+print("After merging dict_b into dict_a:", dict_a)
 
-print("New dictionary dict3:", dict3)
-print("Accessing 'Capital' from dict3:", dict3["Capital"])
+# End of merged dictionary demo
