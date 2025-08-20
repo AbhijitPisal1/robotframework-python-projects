@@ -89,7 +89,7 @@ Q) Have you written custom utilities or libraries in your automation codebase? W
 Ans.) Yes, I’ve written custom utility libraries for reusable functions like waiting mechanisms, API calls, dynamic test data generation, and custom logging. These utilities helped reduce code duplication, improved maintainability, and enabled faster onboarding of new team members.
 =================================================================================
 Q) How do you balance between automating a test case vs. keeping it manual?
-Ans.) I consider factors like test case stability, repeatability, criticality, and ROI. High-impact, frequently executed tests are prioritized for automation, while one-time or highly subjective exploratory tests are kept manual. If automation would require extensive maintenance for a rarely-used feature, I’d opt for manual testing.
+Ans.) I consider factors like test case stability, repeatability, criticality, and ROI. High-impact, frequently executed tests are prioritized for automation, while one-time or highly subjective exploratory tests are kept manual. If automation required extensive maintenance for a rarely-used feature, I’d opt for manual testing.
 =================================================================================
 Q) How do you handle test environment instability or downtime while running automated tests?
 Ans.) I include environment health checks before test execution and implement retry logic for transient failures. Test cases are designed to fail gracefully and provide detailed failure logs. If instability is common, I raise the issue with DevOps and push for better monitoring and alerting.

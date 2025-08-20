@@ -1,0 +1,58 @@
+# What is a Queue?
+
+- A Queue is a data structure that follows "FIFO": First In, First Out.
+  - Think of a line at a checkout counter — the first person to enter is the first served.
+- Key operations:
+  - `enqueue`: Add item to rear
+  - `dequeue`: Remove item from front
+  - `peek`: Look at front item without removing.
+
+#Example:
+1. Enqueue 10 → [10]  
+2. Enqueue 20 → [10, 20]  
+3. Dequeue → removes 10 → [20]
+
+---------------------------------------------
+# Where is it used?
+
+You might use queues in automation or testing scenarios like:
+- Task queues (e.g. running test cases in order)
+- Buffered inputs/outputs (e.g. stream processing)
+- Level-order traversal in trees (BFS)
+- Producer-consumer problems (test event pipelines)
+
+---------------------------------------------
+# How to Use a Queue in Python
+
+1. Using `collections.deque` (Recommended)
+
+    from collections import deque
+    queue = deque()
+    queue.append("TestLogin")     # Enqueue
+    queue.append("TestSignup")
+    print(queue.popleft())        # Dequeue → "TestLogin"
+    print(queue[0])               # Peek → "TestSignup"
+
+## Avoid using list for queues (slow for dequeue)
+    q = []
+    q.append(10)
+    q.append(20)
+    print(q.pop(0))  # ⚠️ Slower – avoid in large queues
+
+---------------------------------------------
+# When to Use a Queue
+	- You want to process things in order (test cases, steps, jobs).
+	- You're writing level-order logic (e.g. BFS in test grids).
+	- You’re dealing with asynchronous test tasks or buffers.
+
+---------------------------------------------
+# When Not to Use a Queue
+	- You need random access → use a list or array.
+	- Task order doesn’t matter → use a set or dict.
+	- You’re using list.pop(0) for dequeuing → prefer deque instead (much faster).
+
+---------------------------------------------
+# Summary
+	Queue = First In, First Out
+	Use collections.deque for queue behavior in Python.
+	Ideal for task scheduling, buffering, and traversal logic.

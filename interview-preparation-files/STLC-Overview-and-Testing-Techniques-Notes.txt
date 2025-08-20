@@ -39,7 +39,7 @@ Q. What is exploratory testing?
 Ans.) Exploratory testing combines learning, test design, and execution simultaneously. It relies on the tester's experience and creativity to find unexpected issues.
 ================================================================================
 Q. What is error guessing?  
-Ans.) Error guessing is a technique where testers anticipate potential defects based on past experience. It involves creating test cases around common or historically problematic areas in the application.
+Ans.) Error guessing is a technique where testers anticipate potential defects based on experience. It involves creating test cases around common or historically problematic areas in the application.
 ================================================================================
 Q. What is the difference between blackbox and whitebox testing?  
 Ans.) Blackbox testing checks application functionality without knowing its internal code. Whitebox testing is based on code structure and logic, ensuring internal components behave correctly.
@@ -106,7 +106,7 @@ Ans.) Retesting involves executing failed test cases after defects are fixed to 
 Q. What is integration testing?  
 Ans.) Integration testing checks if different parts (or modules) of the software work properly when combined. It makes sure they talk to each other correctly and share data the right way. It helps find problems in how the modules connect and interact.
 ================================================================================
-Q. What is topdown vs bottomup testing?  
+Q. What is Top-Down vs Bottom-Up testing?
 Ans.)
 Top-Down Integration Testing:
     - Testing starts from the top (main modules) and moves downward to smaller parts.
@@ -147,8 +147,8 @@ Ans.)  Monkey Testing: Random testing without predefined inputs or logic.
 --- Advanced Concepts ---
 
 ================================================================================
-Q. What is shiftleft testing?  
-Ans.) Shiftleft testing means involving testing activities earlier in the development process. It leads to early bug detection, better collaboration, and reduced cost of fixes.
+Q. What is shift-left testing?
+Ans.) Shift-left testing means involving testing activities earlier in the development process. It leads to early bug detection, better collaboration, and reduced cost of fixes.
 ================================================================================
 Q. What are challenges in STLC?  
 Ans.) Challenges include unclear requirements, communication gaps, resource constraints, and tool compatibility issues. They can affect test coverage, execution speed, and overall product quality.

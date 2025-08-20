@@ -1,1 +1,31 @@
-/libspecs/
+# Eclipse project files
+.project
+.classpath
+.settings/
+
+# Python cache and virtual env
+__pycache__/
+*.pyc
+.venv/
+env/
+.venv/
+.env/
+
+# Robot Framework & test automation outputs
+output.xml
+report.html
+log.html
+*.libspec
+
+# Ignore test screenshots or other images
+*.png
+
+# Log files
+*.log
+
+# PyCharm/IDEA files (in case you switch IDEs)
+.idea/
+
+# OS-generated files
+.DS_Store
+Thumbs.db

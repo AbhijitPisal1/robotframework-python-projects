@@ -30,11 +30,11 @@ Selenium consists of the following components:
 ----------------------------------------------------------------------
 Q: What are the advantages of using Selenium?
 Answer:
-•	Open Source: Free to use, with strong community support.
-•	Cross-Browser Compatibility: Supports all major browsers.
-•	Multiple Language Support: Java, Python, C#, and others.
-•	Integration: Works with frameworks like TestNG, JUnit, etc.
-•	Parallel Testing: Selenium Grid allows tests to run concurrently across different browsers and machines.
+    • Open Source: Free to use, with strong community support.
+    • Cross-Browser Compatibility: Supports all major browsers.
+    • Multiple Language Support: Java, Python, C#, and others.
+    • Integration: Works with frameworks like TestNG, JUnit, etc.
+    • Parallel Testing: Selenium Grid allows tests to run concurrently across different browsers and machines.
 ----------------------------------------------------------------------
 Q: What are the different types of locators in Selenium?
 Answer:
@@ -88,11 +88,11 @@ Answer:
 ----------------------------------------------------------------------
 Q: How do you handle alerts and pop-up windows in Selenium?
 Answer:
-•	Switch to alert: driver.switchTo().alert()
-•	Accept alert: alert.accept()
-•	Dismiss alert: alert.dismiss()
-•	Get alert text: alert.getText()
-•	Prompt alert: Use alert.sendKeys() to input text into prompt dialogs.
+    •	Switch to alert: driver.switchTo().alert()
+    •	Accept alert: alert.accept()
+    •	Dismiss alert: alert.dismiss()
+    •	Get alert text: alert.getText()
+    •	Prompt alert: Use alert.sendKeys() to input text into prompt dialogs.
 ----------------------------------------------------------------------
 Q: How do you perform mouse actions in Selenium?
 Answer:
@@ -143,7 +143,8 @@ Answer:
 Relative locators help Locate elements based on their position relative to others using methods like above(), below(), toLeftOf(), toRightOf(), near().
 ----------------------------------------------------------------------
 Q: What is a TimeoutException in Selenium and how do you handle it?
-Answer:TimeoutException happens when Selenium waits too long for a condition (like element clickable) but it doesn’t happen in time.
+Answer:
+TimeoutException happens when Selenium waits too long for a condition (like element clickable) but it doesn’t happen in given time.
 Solution: Use Explicit Wait with a timeout and catch the exception to handle it gracefully.
 
 try {
@@ -155,7 +156,8 @@ try {
 }
 ----------------------------------------------------------------------
 Q: What is ElementClickInterceptedException and how can you fix it?
-Answer:This occurs when something (like a popup or overlay) blocks the element you want to click.
+Answer:
+This occurs when something (like a popup or overlay) blocks the element you want to click.
 Solution: Wait for the element to be clickable, scroll it into view, close any overlays, or use JavaScript click.
 
 try {
@@ -169,7 +171,8 @@ try {
 }
 ----------------------------------------------------------------------
 Q: What is NoSuchElementException and how do you handle it?
-Answer: Thrown when Selenium can’t find an element using the locator provided.
+Answer:
+Thrown when Selenium can’t find an element using the locator provided.
 Solution: Use waits or verify locator correctness; catch the exception to retry or log
 
 try {
@@ -180,7 +183,8 @@ try {
 }
 ----------------------------------------------------------------------
 Q: What causes StaleElementReferenceException and how do you fix it?
-Answer: Happens when the referenced element is no longer attached to the current DOM (e.g., page refreshed).
+Answer:
+Happens when the referenced element is no longer attached to the current DOM (e.g., page refreshed).
 Solution: Re-locate the element before interacting with it again.
 
 try {
@@ -192,7 +196,8 @@ try {
 }
 ----------------------------------------------------------------------
 Q: What is ElementNotInteractableException and how can you handle it?
-Answer: Occurs when an element is present but can’t be interacted with (hidden, disabled).
+Answer:
+Occurs when an element is present but can’t be interacted with (hidden, disabled).
 Solution: Use JavaScript click as a fallback.
 
 try {
@@ -205,8 +210,8 @@ try {
 ----------------------------------------------------------------------
 Q: What is JavaScriptExecutor? How do you use it?  
 Answer:
-JavaScriptExecutor is used to execute JavaScript in the context of the current browser. Example usage:
-    
+JavaScriptExecutor is used to execute JavaScript in the context of the current browser.
+Example usage:
     JavascriptExecutor js = (JavascriptExecutor) driver;
     js.executeScript("window.scrollBy(0,500)");
 ----------------------------------------------------------------------
@@ -400,7 +405,7 @@ public class RetryAnalyzer implements IRetryAnalyzer {
     int count = 0;
     int maxTry = 2;
 
-    public boolean retry(ITestResult result) {
+    public boolean  (ITestResult result) {
         if (count < maxTry) {
             count++;
             return true;

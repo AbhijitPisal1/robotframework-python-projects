@@ -3,36 +3,36 @@
 
 ================================================================================
 Q.) What is Robot Framework, and what are its primary features?
-Ans.) Robot Framework is an open-source, keyword-driven test automation framework primarily used for acceptance testing, functional testing, and acceptance test-driven development (ATDD). It uses a simple tabular syntax to write test cases, making tests easy to read and maintain.
+Ans.) Robot Framework is an open-source test automation framework primarily used for acceptance testing, functional testing, and acceptance test-driven development (ATDD). It uses a simple tabular syntax to write test cases, making tests easy to read and maintain.
 Key features include:
-    Support for keyword-driven, behavior-driven, and data-driven testing.
-    Extensible with libraries implemented in Python, Java, or other languages.
-    Rich ecosystem of built-in and external libraries for web, API, database, and more.
-    Easy integration with CI/CD pipelines and other tools.
-    Support for writing custom test libraries and keywords in Python or Java.
+    - Support for keyword-driven, behavior-driven, and data-driven testing.
+    - Extensible with libraries implemented in Python, Java, or other languages.
+    - Rich ecosystem of built-in and external libraries for web, API, database, and more.
+    - Easy integration with CI/CD pipelines and other tools.
+    - Support for writing custom test libraries and keywords in Python or Java.
 ================================================================================
 Q.) What are the benefits of using Robot Framework for test automation?
 Ans.) Some of the benefits of using Robot Framework for test automation include:
-  Test cases with a tabular syntax that are simple to read and manage
-  Support for data and keyword driven testing
-  Support for a variety of test libraries and frameworks, such as Selenium, Appium, and REST APIs
-  The ability to integrate with various tools and platforms
-  Detailed and customizable test reports
+  - Test cases with a tabular syntax that are simple to read and manage
+  - Support for data and keyword driven testing
+  - Support for a variety of test libraries and frameworks, such as Selenium, Appium, and REST APIs
+  - The ability to integrate with various tools and platforms
+  - Detailed and customizable test reports
 ================================================================================
 Q.) What are the different types of test libraries in Robot Framework?
 Ans.) There are three types of test libraries in Robot Framework:
-  1. Builtin libraries: These are preconfigured libraries that are a part of the Robot Framework and offer keywords for typical activities like file manipulation, text manipulation, and HTTP requests.
-  2. Standard libraries: These thirdparty libraries are integrated with the Robot Framework and provide significant keywords for activities like database testing, GUI testing, and network testing.
+  1. Builtin libraries: These are pre-configured libraries that are a part of the Robot Framework and offer keywords for typical activities like file manipulation, text manipulation, and HTTP requests.
+  2. Standard libraries: These third party libraries are integrated with the Robot Framework and provide significant keywords for activities like database testing, GUI testing, and network testing.
   3. Custom libraries: These are created by the user and offer keywords for specific tasks or APIs.
 ================================================================================
 Q.) What are the different test execution modes supported by Robot Framework?
 Ans.) Robot Framework supports three methods to execute tests:
-    Test Case Level: Run an individual test case inside a test suite. 
-        robot --test "Test Case Name" path/to/tests.robot
-    Test Suite Level: Run all test cases inside a single test suite (a .robot file or a folder with tests).
-        robot path/to/testsuite.robot
-    Test Run Level: Run multiple test suites in one command and get a combined report and log.
-        robot path/to/suite1.robot path/to/suite2.robot
+    1. Test Case Level: Run an individual test case inside a test suite/file.
+            robot --test "Test Case Name" path/to/tests.robot
+    2. Test Suite Level: Run all test cases inside a single test suite (a .robot file or a folder with tests).
+            robot path/to/testsuite.robot
+    3. Test Run Level: Run multiple test suites in one command and get a combined report and log.
+            robot path/to/suite1.robot path/to/suite2.robot
 ================================================================================
 Q.) Explain the overall architecture of Robot Framework.
 Ans.) The Robot Framework is made up of four essential components:
@@ -40,6 +40,7 @@ Ans.) The Robot Framework is made up of four essential components:
     - Test Libraries: Provide the functionality to interact with the system, implemented in Python, Java, or any language supporting the Remote Library Interface. They supply keywords used in test cases.
     - Robot Framework Interpreter: Parses and executes the test cases, calling the relevant keywords from the test libraries.
     - Test Execution Environment: The platform where tests run, which can be a local machine or a remote server, providing the necessary resources for test execution.
+The test data is presented in a simple, editable tabular format. Robot Framework processes data, conduct test cases, and generates logs and reports when it is started. The core framework has no knowledge of the target under test, and libraries manage all interactions with it. Libraries can leverage lower-level test tools as drivers or directly employ application interfaces.
 ================================================================================
 Q.) How does Robot Framework integrate with external test libraries?
 Ans.) Robot Framework integrates with external test libraries via its Remote Library Interface or by directly importing libraries written in Python, Java, or other supported languages. These libraries provide keywords that can be used in test cases to extend Robot Framework’s capabilities beyond its built-in keywords.
@@ -49,9 +50,9 @@ Ans.) The Robot Framework Listener is a mechanism that monitors and responds to 
 ================================================================================
 Q.) What are the different configuration files used by Robot Framework?
 Ans.) Following are the configuration files that Robot Framework uses:
-    Settings file: Defines test execution settings like log level, output directory, and other environment configurations.
-    Variable file: Contains variables that can be used across test cases and suites to avoid hardcoding values.
-    Resource file: Includes reusable keywords, variables, and imports of external libraries or other resource files, helping to share code between tests.
+    - Settings file: Defines test execution settings like log level, output directory, and other environment configurations.
+    - Variable file: Contains variables that can be used across test cases and suites to avoid hardcoding values.
+    - Resource file: Includes reusable keywords, variables, and imports of external libraries or other resource files, helping to share code between tests.
 ================================================================================
 Q.) What is the syntax for creating a test case in Robot Framework?
 Ans.) Robot Framework uses a tabular syntax to build test cases.
@@ -64,17 +65,20 @@ Ans.) Robot Framework uses a tabular syntax to build test cases.
 ================================================================================
 Q.) How do you create a datadriven test case in Robot Framework?
 Ans.) In Robot Framework, data-driven testing is commonly done using the Test Template feature. You define a test case template keyword that contains the test logic, then create multiple test cases that use this template with different input data.
-Alternatively, you can also use loops with keywords like FOR loops or Run Keyword For Each to iterate over data sets inside a single test case. For larger or dynamic data sets, external data files (CSV, TSV, Excel) can be read and used to drive tests dynamically. 
+Alternatively, you can also use loops with keywords like "FOR" loops or "Run Keyword For Each" to iterate over data sets inside a single test case. For larger or dynamic data sets, external data files (CSV, TSV, Excel) can be read and used to drive tests dynamically.
 ================================================================================
 Q.) What are the different types of variables in Robot Framework?
-Ans.) Robot Framework supports three different types of variables. Each type is identified by a unique symbol used during declaration and reference:
-1. Scalar Variables: Store a single value such as a string, number, or boolean.
-    Example: ${username} = user1
-2. List Variables: Store an ordered list of values.
-    Example: @{users} = user1 user2 user3
-3. Dictionary Variables: Store key-value pairs, similar to Python dictionaries.
-    Example: &{user_info} = username=user1 password=pass1
-================================================================================
+Ans.) Robot Framework supports different types of variables. Each type is identified by a unique symbol used during declaration and reference:
+    1. Scalar Variables: Store a single value such as a string, number, or boolean.
+        Example: ${username} = user1
+    2. List Variables: Store an ordered list of values.
+        Example: @{users} = user1 user2 user3
+    3. Dictionary Variables: Store key-value pairs, similar to Python dictionaries.
+        Example: &{user_info} = username=user1 password=pass1
+    4. Environment Variables : Allow access to environment variables from the operating system. Only string values are supported
+        %{ENV_VAR_NAME=default_value}
+        Environment variables are global, so values set in one test case can be reused in others. However, changes to environment variables are not persistent after the test run ends
+ ================================================================================
 Q.) How do you use conditional statements in Robot Framework test cases?
 Ans.) In Robot Framework test cases, the builtin keywords "Run Keyword If" and "Run Keyword Unless" can be used to insert conditional statements. If a given condition is true, the "Run Keyword If" keyword runs the specified keyword; if the condition is false, the "Run Keyword Unless" keyword does the same.
 The "BuiltIn.Should Be True" and "BuiltIn.Should Be False" keywords can also be used to check conditions and take particular actions based on the outcomes. In the Robot Framework, you can create adaptable and dynamic test cases using these conditional statements.
@@ -84,14 +88,14 @@ Ans.) When using Robot Framework, you can define a function in a Java or Python 
 ================================================================================
 Q.) How do you handle errors and exceptions in Robot Framework test cases?
 Ans.) Robot Framework provides several built-in keywords to handle errors and exceptions effectively during test execution:
-1. Run Keyword And Ignore Error: Executes a keyword and continues test execution even if it fails. The output is a two-item list containing the status (PASS or FAIL) and the return value or error message.
-    - Useful when failure is acceptable or expected in some scenarios.
+    1. Run Keyword And Ignore Error: Executes a keyword and continues test execution even if it fails. The output is a two-item list containing the status (PASS or FAIL) and the return value or error message.
+        - Useful when failure is acceptable or expected in some scenarios.
 
-2. Run Keyword And Expect Error: Used when a keyword is expected to fail. If the specified error does not occur, the test case fails.
-    - Useful for validating negative test cases or ensuring error conditions are handled correctly.
+    2. Run Keyword And Expect Error: Used when a keyword is expected to fail. If the specified error does not occur, the test case fails.
+        - Useful for validating negative test cases or ensuring error conditions are handled correctly.
 
-3. Run Keyword If Test Failed and Run Keyword If Test Passed: Allow conditional execution based on the result of the test or a previous keyword.
-    - These can be used to implement custom exception handling or recovery actions.
+    3. Run Keyword If Test Failed and Run Keyword If Test Passed: Allow conditional execution based on the result of the test or a previous keyword.
+        - These can be used to implement custom exception handling or recovery actions.
 These techniques help build robust and fault-tolerant test cases, enabling testers to better identify, isolate, and handle issues without prematurely stopping the test execution.
 ================================================================================
 Q.) How do you integrate Robot Framework with Jenkins?
@@ -127,9 +131,9 @@ Ans.) You can debug Robot Framework test cases by:
     - Checking the log.html file for step-by-step execution details
 ================================================================================
 Q.) How do you create dynamic test cases in Robot Framework?
-Ans.) In Robot Framework, you can create dynamic test cases by using FOR loops to iterate over data sets and execute keywords multiple times with different arguments. Additionally, keywords like Run Keyword and Run Keyword If allow dynamic calling of keywords based on conditions or test results.
+Ans.) In Robot Framework, you can create dynamic test cases by using "FOR" loops to iterate over data sets and execute keywords multiple times with different arguments. Additionally, keywords like "Run Keyword" and "Run Keyword If" allow dynamic calling of keywords based on conditions or test results.
 ================================================================================
-Q) Best Practices and Tips for Robot Framework
+Q) List some of the Best Practices and Tips for Robot Framework
 Ans.) 
     - Use clear and descriptive test case names and keywords to improve readability.
     - Modularize tests by creating reusable keywords and resource files.
@@ -140,7 +144,111 @@ Ans.)
     - Maintain consistent naming conventions for files, variables, and keywords.
     - Integrate with CI/CD tools like Jenkins for automated test runs and reporting.
 ================================================================================
-Q) Future Scope of Robot Framework and Testing Industry
+Q) What is the future scope of Robot Framework and Testing Industry ?
 Ans.) Robot Framework has a strong future due to rising test automation needs, AI/ML integration, focus on performance and security testing, and its fit in DevOps CI/CD pipelines.
 ================================================================================
+Q_ What are the different test case styles in Robot Framework?
+Ans.) Robot Framework supports three main test case styles:
+1. Keyword-Driven Style
+    What: Test cases are built as a sequence of keywords representing actions and checks.
+    How: Each step is a keyword that performs a task, like opening a page or inputting data.
+   Ex:
+        Open Login Page
+        Input Username    user1
+        Input Password    pass123
+        Submit Credentials
+        Welcome Page Should Be Open
 
+2. Data-Driven Style
+    What: Uses one main keyword to represent the whole test workflow, running it multiple times with different input data sets.
+    How: The workflow is hidden inside the keyword, making it easy to test variations without rewriting steps. Helps reduce code duplication and improves test coverage.
+    Ex:
+    *** Test Cases ***
+    Valid Login With Different Users
+        [Template]    Login With Credentials
+        user1    pass123
+        user2    pass456
+
+    *** Keywords ***
+    Login With Credentials
+        [Arguments]    ${username}    ${password}
+        Open Login Page
+        Input Username    ${username}
+        Input Password    ${password}
+        Submit Credentials
+        Welcome Page Should Be Open
+
+3. Behavior-Driven Style (BDD)
+    What: Tests are written as clear, human-readable behavior descriptions that anyone—including non-technical stakeholders—can understand.
+    How: Uses a structured format with keywords like Given (initial state), When (actions), and Then (expected results) to describe the scenario.
+    Ex:
+        Given Login Page is open
+        When I enter username "user1" and password "pass123"
+        Then Welcome Page should be displayed
+================================================================================
+Q.) What is Pabot in Robot Framework, and why is it used?
+Ans.) `pabot` is a parallel test execution tool for Robot Framework that allows test cases to be run simultaneously across multiple processes or CPUs. This significantly reduces overall test execution time, especially for large test suites.
+
+Key benefits:
+    Speeds up test execution by running tests in parallel.
+    Distributes tests intelligently across available CPU cores.
+    Maintains isolation of test cases by running them in separate processes.
+================================================================================
+Q.) How do you run Robot Framework scripts using pabot?
+Ans.)
+Use the `pabot` command instead of `robot`.
+    Basic usage:
+        pabot path/to/test_suite.robot
+    To run with multiple processes (e.g., 4):
+        pabot --processes 4 path/to/tests/
+    Other useful options:
+        `--outputdir`: Specify custom output directory.
+        `--testlevelsplit`: Runs each test case in a separate process.
+        `--argumentfile`: Read arguments from a file.
+Example:
+    pabot --processes 4 --outputdir results --testlevelsplit tests/
+================================================================================
+Q.) What are some useful options and variations of using pabot?
+Ans.)
+Here are some common options used with `pabot`:
+| Option                               | Description                                                  |
+| ------------------------------------ | ------------------------------------------------------------ |
+| `--processes N`                      | Number of parallel processes to use.                         |
+| `--testlevelsplit`                   | Runs each test case individually instead of per suite.       |
+| `--outputdir`                        | Sets the output directory for logs, reports.                 |
+| `--argumentfile1`, `--argumentfile2` | Pass different arguments to separate parallel processes.     |
+| `--resourcefile`                     | Helps manage resource locks when tests use shared resources. |
+================================================================================
+Q.) What is Rebot in Robot Framework?
+Ans.)
+`rebot` is a result post-processor tool included with Robot Framework.
+It is used to:
+    Merge multiple output files (`output.xml`) from different test runs (e.g., when using `pabot`).
+    Generate reports (`report.html`) and logs (`log.html`) from the output file(s).
+    Filter or modify results using tags, metadata, etc.
+`rebot` helps finalize and standardize test results after execution.
+================================================================================
+Q.) How do you use Rebot to generate reports in Robot Framework?
+Ans.)
+    Basic usage:
+        rebot output.xml
+    This will create `log.html`, `report.html`, and `output.xml` if not already generated.
+
+    Merging multiple outputs (e.g., from parallel `pabot` runs):
+        rebot output1.xml output2.xml
+
+    Specifying custom report/log names:
+        rebot --log custom_log.html --report custom_report.html output.xml
+
+    Adding metadata to the report:
+        rebot --metadata "Tested By: QA Team" --metadata "Build Version: 1.2.3" output.xml
+================================================================================
+Q.) When should you use Rebot in test automation with Robot Framework?
+Ans.)
+You should use `rebot` when:
+    You have multiple output XML files and need a combined report.
+    You want to customize report/log names or add metadata.
+    You want to filter results based on tags for different reports.
+    You need to post-process or archive test results independently of test execution.
+It is especially useful in CI/CD environments where test results from distributed runs need consolidation.
+================================================================================

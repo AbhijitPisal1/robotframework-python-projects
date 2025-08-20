@@ -70,16 +70,16 @@ One common approach is to mark flaky tests using tags like @Flaky and then confi
         }
     }
 ```    
-This setup ensures that flaky tests don’t block the main pipeline, while still being monitored in a controlled way..
+This setup ensures that flaky tests don’t block the main pipeline, while still being monitored in a controlled way.
 =================================================================================
 Q) What are best practices for writing test automation for CI/CD?
 Ans.)
 - Tests in a CI/CD pipeline should be fast, reliable, and independent.
 - Tests should not rely on external systems — instead, use mocks or stubs to simulate dependencies.
 - It’s also a good practice to categorize tests:
-    Unit tests run on every commit to catch issues early.
-    Integration tests can run nightly to verify components working together.
-    End-to-End (E2E) tests should run in staging to simulate real user flows.
+    * Unit tests run on every commit to catch issues early.
+    * Integration tests can run nightly to verify components working together.
+    * End-to-End (E2E) tests should run in staging to simulate real user flows.
 - Also, make sure test data is cleaned up after each run to avoid conflicts or false failures.
 =================================================================================
 Q) What challenges can be faced while implementing CI/CD? How to overcome them?
@@ -161,11 +161,11 @@ Features:
 ``` Why Use Both Together? ``` 
 
 Docker is excellent for:
-   Local development.
-   Single-container apps.
+   - Local development.
+   - Single-container apps.
 Kubernetes is essential for:
-   Production-grade systems.
-   Managing, scaling, and automating large numbers of containers.
+   - Production-grade systems.
+   - Managing, scaling, and automating large numbers of containers.
 Together: They form the foundation for modern cloud-native, distributed applications.
 =================================================================================
 Q) What is Docker and why is it used in QA automation?
@@ -223,7 +223,7 @@ Q) What Jenkins plugins are useful for QA automation?
 Ans.) Pipeline (for workflows), JUnit (test reports), HTML Publisher (view reports), Docker Pipeline (run containers), and Kubernetes plugins.
 =================================================================================
 Q) How do you trigger automation scripts in Jenkins?
-Ans.) Define stages in a Jenkinsfile to checkout code, build images, run tests, and publish reports. Triggers can be code commits, webhooks, or scheduled jobs.
+Ans.) Define stages in a Jenkins file to check out code, build images, run tests, and publish reports. Triggers can be code commits, webhooks, or scheduled jobs.
 =================================================================================
 Q. explain Docker to Kubernetes Flow (Simplified)
 ans.)

@@ -8,10 +8,10 @@
 ================================================================================
 Q.) Explain Page Object Model
 Ans.) The Page Object Model (POM) is a design pattern used in Selenium automation testing.
-It creates separate classes (page objects) for each page in the application.
-Each page class contains locators and methods related to that page’s elements and actions.
-This helps organize the code, making it easier to maintain and reuse.
-When a page changes, you only update its page class, not all test scripts.
+    It creates separate classes (page objects) for each page in the application.
+    Each page class contains locators and methods related to that page’s elements and actions.
+    This helps organize the code, making it easier to maintain and reuse.
+    When a page changes, you only update its page class, not all test scripts.
 In short: POM improves test maintenance and reduces code duplication by separating page-specific code into reusable objects.
 ================================================================================
 Q.) Explain the flow in POM when using BaseClass, TestClass, PageClass
@@ -103,7 +103,7 @@ public void beforeFirstScenario() {
 
 ================================================================================
 Q.) How do you group test methods in TestNG?
-Ans.) In TestNG, you group test methods by using the groups attribute in the @Test annotation inside your test class. This categorizes tests, for example as “smoke” or “regression.” You then specify which groups to run in the TestNG XML configuration file, allowing selective execution of test sets.
+Ans.) In TestNG, you group test methods by using the "groups" attribute in the @Test annotation inside your test class. This categorizes tests, for example as “smoke” or “regression.” You then specify which groups to run in the TestNG XML configuration file, allowing selective execution of test sets.
 
 Example syntax in the test class:
     @Test(groups = {"smoke"})
@@ -146,7 +146,7 @@ Ans.)These annotations define setup methods that run at different points in the 
 Each helps prepare the environment at different scopes — suite-wide, test-group, or per test method.
 ================================================================================
 Q.) How do you handle dependencies between test methods in TestNG?
-Ans.) In TestNG, you manage test method dependencies using the dependsOnMethods or dependsOnGroups attributes in the @Test annotation. This ensures that a test runs only after its dependent tests have passed.
+Ans.) In TestNG, you manage test method dependencies using the "dependsOnMethods" or "dependsOnGroups" attributes in the @Test annotation. This ensures that a test runs only after its dependent tests have passed.
 ================================================================================
 Q.) What happens if you use SoftAssert in TestNG but forget to call assertAll()?
 Ans.) If you use SoftAssert but don’t call assertAll(), TestNG will not report any assertion failures, even if some assertions fail. This means your test may incorrectly pass because the collected assertion results are never checked and reported. Calling assertAll() triggers the evaluation of all soft assertions and throws any accumulated failures.
@@ -163,7 +163,7 @@ Common TestNG listeners used:
     IAnnotationTransformer: For modifying test annotations at runtime (e.g., enabling/disabling tests).
 ================================================================================     
 Q.) How do you integrate Cucumber with TestNG and POM?
-Ans.) Cucumber is integrated with TestNG by using the @CucumberOptions annotation in a TestNG runner class.
+Ans.) Cucumber is integrated with TestNG by using the "@CucumberOptions" annotation in a TestNG runner class.
 ================================================================================
 Q.) What is DataProvider in TestNG?
 Ans.) DataProvider is a TestNG feature that allows you to run the same test method with multiple sets of data. It supports parameterized testing.
@@ -208,7 +208,8 @@ Q.) What is Cucumber, and how is it used in automation testing?
 Ans.) Cucumber is a Behavior-Driven Development (BDD) framework that allows writing tests in plain English using Gherkin syntax. It helps teams collaborate by writing tests that non-technical stakeholders can understand. It maps Gherkin steps to automation code for execution.
 ================================================================================ 
 Q.) What is Gherkin syntax in Cucumber?
-Ans.) Gherkin is a simple, structured language used to write Cucumber tests. It follows the Given-When-Then format to describe app behavior. Example:
+Ans.) Gherkin is a simple, structured language used to write Cucumber tests. It follows the Given-When-Then format to describe app behavior.
+Example:
      Given the user is on the login page
      When the user enters valid credentials
      Then the user should be redirected to the homepage
@@ -217,14 +218,16 @@ Q.) How do you write scenarios in Cucumber?
 Ans.) Scenarios are written in a feature file using Gherkin syntax. A feature describes a part of the application, and each scenario defines a test case.
 ================================================================================ 
 Q.) How does Cucumber map Gherkin steps to Java code?
-Ans.) Cucumber maps Gherkin steps to Java methods using step definitions. Each Gherkin step is linked to a method in the Java code. Example:
-     @Given("^the user is on the login page$")
+Ans.) Cucumber maps Gherkin steps to Java methods using step definitions. Each Gherkin step is linked to a method in the Java code.
+Example:
+     @Given("the user is on the login page")
      public void userIsOnLoginPage() {
        // Code to open the login page
      }
 ================================================================================ 
 Q.) How do you perform data-driven testing in Cucumber?
-Ans.) Data-driven testing is done using Scenario Outline with an Examples table. This allows running the same scenario with different inputs. Example:
+Ans.) Data-driven testing is done using Scenario Outline with an Examples table. This allows running the same scenario with different inputs.
+Example:
   Scenario Outline: User login with different credentials
        Given the user is on the login page
        When the user enters "<username>" and "<password>"
@@ -243,9 +246,6 @@ Ans.)
 Q.) How do you implement Cucumber step definitions in Java?
 Ans.) In Java, step definitions are written using annotations like @Given, @When, and @Then. These methods contain the code for the corresponding steps in the Gherkin scenario. 
 ================================================================================ 
-Q.) How do you organize step definitions in a large Cucumber project?
-Ans.) In large projects, organize step definitions by feature (e.g., LoginSteps.java, SearchSteps.java). Keep reusable code in utility classes to maintain clarity.
-================================================================================
 Q.) How do you organize step definitions in a large Cucumber project?
 Ans.) In large projects, organize step definitions by feature (e.g., LoginSteps.java, SearchSteps.java). Keep reusable code in utility classes to maintain clarity.
 ================================================================================
