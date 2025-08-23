@@ -422,3 +422,18 @@ public void flakyTest() {
 
 For global retry logic, integrate this with ITestListener in your base test class or listener class. Instead of rerunning the whole suite, handle flaky tests smartly with TestNG’s built-in retry mechanism.
 ----------------------------------------------------------------------
+Q) what is difference between Static and Dynamic dropdowns?
+Ans.)
+    Static Dropdown: Predefined options are available in the HTML source. Selected using Select class in Selenium.
+    Dynamic Dropdown: Options load based on user input or external events (AJAX). Require custom logic like waiting for options to load and selecting via XPath or CSS.
+----------------------------------------------------------------------
+Q) What is difference between Verify vs Assert in Selenium
+Ans.)
+    Assert: Stops test execution if the condition fails. Used for critical checks.
+    Verify: Logs the failure but continues execution. In TestNG, this can be achieved using soft assertions.
+----------------------------------------------------------------------
+Q) Suppose there are 100 links in a webpage. How do you check which links are not clickable?
+Ans.) I’d collect all anchor elements using a locator like `driver.findElements(By.tagName("a"))`, then iterate through each link and check if it’s displayed and enabled. For better accuracy, I’d use JavaScript or the Actions class to attempt a click and catch exceptions to identify unclickable links.
+----------------------------------------------------------------------
+Q) Suppose there are 20 windows opened. How do you switch to the 10th window?
+Ans.) I’d get all window handles using `driver.getWindowHandles()` and store them in a list. Then, I’d switch using `driver.switchTo().window(list.get(9))` since the list is 0-based indexed.

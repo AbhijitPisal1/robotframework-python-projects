@@ -192,9 +192,9 @@ Ans.) Order of Execution of TestNG Annotations:
 @AfterSuite : Runs once after all tests in the suite have finished. Used for final cleanup like closing database connections or generating summary reports.
 ================================================================================
 Q. ) In TestNG, how do you prioritize test methods?
-Ans.) Use the `priority` attribute in `@Test`. Lower values run first.
-
-@Test(priority = 1)
+Ans.) Priority in TestNG defines the order in which test methods should be executed. It is set using @Test(priority = x). Lower values run first.
+    @Test(priority = 1)
+If two methods have the same priority, TestNG executes them in lexicographical (alphabetical) order of method names.
 =================================================================================
 Q. ) What is Grouping in TestNG?
 Ans.) Grouping allows running a subset of tests together using `groups` attribute.

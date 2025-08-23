@@ -115,6 +115,14 @@ Ans.) Robot Framework integrates with REST APIs using libraries like RequestsLib
 Q.) How do you integrate Robot Framework with other test automation tools?
 Ans.) The Remote Library Interface or the Process Library Interface are two options for integrating Robot Framework with other test automation systems. These interfaces enable the usage of external processes or libraries as keywords in your test cases by allowing you to call their functions.
 ================================================================================
+Q) What all types of reports are used in Robot Framework?
+Ans.)
+Robot Framework generates the following built-in reports:
+    - Report.html – A high-level overview of test results.
+    - Log.html – Detailed step-by-step execution logs.
+    - Output.xml – Used for internal processing or integration with other tools.
+Additionally, plugins like Allure, ReportPortal, or Jenkins plugins can be used for advanced reporting.
+================================================================================
 Q.) How do you customize the Robot Framework test report?
 Ans.) You can customize the Robot Framework test report by:
     - Using Log, Set Test Message, and Set Suite Message to add custom messages
@@ -252,3 +260,14 @@ You should use `rebot` when:
     You need to post-process or archive test results independently of test execution.
 It is especially useful in CI/CD environments where test results from distributed runs need consolidation.
 ================================================================================
+Q) How do you manage test data in your framework - Robot Framework?
+Ans.)
+In Robot Framework, test data can be managed in various ways:
+    - Using variable files (Python or resource files).    
+    - Storing test data in Excel, CSV, or JSON files and reading them using libraries like DataDriver, PandasLibrary, or JSONLibrary.
+    - Using fixtures or setup/teardown to initialize or clean up data.
+    - For dynamic data, custom Python keywords can be used to fetch or generate data at runtime
+================================================================================
+Q) How do you perform Cross-browser testing in Robot Framework?
+Ans.)
+Cross-browser testing is done using the SeleniumLibrary in Robot Framework. The browser type can be parameterized using variables or command-line arguments to run tests on Chrome, Firefox, Edge, etc. Tools like BrowserStack, Selenium Grid, or Docker can be integrated for parallel and cross-browser execution.

@@ -9,7 +9,7 @@
 	ex. python -m robot -d results tests/testdemo1.robot
 
 3. If setting up chromedriver please ensure to give entire path with chromedriver exe file name
-	ex. Create Webdriver    Chrome    executable_path=C:/Users/APisal/chromedriver-win64/chromedriver.exe
+	ex. Create Webdriver    Chrome    executable_path=C:/Users/ABC/chromedriver-win64/chromedriver.exe
 
 	OR ELSE add chromedriver path in system variables path and use the "Open Broswer" keyword
 
@@ -72,4 +72,48 @@ Automatic variables
         ${ReturnedInfo}= A keyword that returns
         [Return] Something you want to return
 
+================================================================================
+Additional Commands for CMD (windows)
+    ### PYTHON ###
+Python Version Information
+    python --version
 
+Check PYTHONHOME Environment Variable
+    echo %PYTHONHOME%
+
+Set PYTHONHOME Environment Variable
+    set PYTHONHOME=C:\Python39
+
+Check Python Installation Path
+    where python
+
+Check Python Package Manager (pip) Version
+    pip --version
+
+List Installed Python Packages
+    pip list
+
+Open Python Interactive Shell
+    python
+    
+    ### JAVA ###
+Java Version Information
+    java -version
+
+ 
+Check JAVA_HOME Environment Variable
+    echo %JAVA_HOME%
+
+Set JAVA_HOME Environment Variable
+    set JAVA_HOME=C:\Program Files\Semeru\jdk-8.0.452.9-openj9\bin
+
+Check Java Compiler Version
+    javac -version
+
+List Installed Java JRE
+    where java
+
+Check Java Installation Path
+    java -XshowSettings:properties -version
+
+ 

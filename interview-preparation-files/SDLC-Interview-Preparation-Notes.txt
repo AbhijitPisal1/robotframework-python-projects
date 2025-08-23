@@ -64,7 +64,12 @@ Ans.) Scrum Artifacts are tangible outputs from the Scrum process. Scrum artifac
 - Increment: The completed work at the end of a Sprint that is usable i.e. the sum of all completed Product Backlog items during a Sprint, representing a potentially shippable product.
 =================================================================================
 Q) What is a Sprint Planning meeting, and what are its main outcomes?
-Ans.) A Sprint Planning meeting establishes the Sprint Goal and selects items from the Product Backlog, resulting in a defined Sprint Backlog for the upcoming Sprint.
+Ans.) In sprint planning, the team:
+    Reviews the product backlog.
+    Selects user stories for the sprint.
+    Breaks stories into tasks and estimates effort.
+    Assigns responsibilities.
+Test planning involves defining test scope, identifying dependencies, and preparing test data and environments.
 =================================================================================
 Q) How is Sprint velocity measured and utilized?
 Ans.) Sprint velocity is a measure of work completed during a Sprint (often in story points) , helping teams predict future workloads and set realistic commitments in future Sprint planning.

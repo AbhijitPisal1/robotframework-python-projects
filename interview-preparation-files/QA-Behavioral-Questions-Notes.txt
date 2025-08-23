@@ -94,9 +94,18 @@ Ans.) I consider factors like test case stability, repeatability, criticality, a
 Q) How do you handle test environment instability or downtime while running automated tests?
 Ans.) I include environment health checks before test execution and implement retry logic for transient failures. Test cases are designed to fail gracefully and provide detailed failure logs. If instability is common, I raise the issue with DevOps and push for better monitoring and alerting.
 =================================================================================
-Q) Suppose there are 100 links in a webpage. How do you check which links are not clickable?
-Ans.) I’d collect all anchor elements using a locator like `driver.findElements(By.tagName("a"))`, then iterate through each link and check if it’s displayed and enabled. For better accuracy, I’d use JavaScript or the Actions class to attempt a click and catch exceptions to identify unclickable links.
-=================================================================================
-Q) Suppose there are 20 windows opened. How do you switch to the 10th window?
-Ans.) I’d get all window handles using `driver.getWindowHandles()` and store them in a list. Then, I’d switch using `driver.switchTo().window(list.get(9))` since the list is 0-based indexed.
-=================================================================================
+Q) What actions to perform if you ever faced a regression issue in production?
+Ans.) If a regression issue occurs in production:
+    - First, reproduce and analyze the issue.
+    - Raise a defect with high severity.
+    - Perform root cause analysis.
+    - Add missing test coverage.
+    - Create or update regression test cases.
+    - Coordinate with dev team for quick fix and redeploy.
+=================================================================================    
+Q) What happens after a build comes to test? What will you test first?
+Ans.) Once a build is available:
+    - Perform Smoke Testing to ensure the build is stable.
+    - If smoke passes, proceed with Functional, Regression, and Integration Testing.
+    - Validate critical and high-priority features first.
+    - Check logs, configurations, and environment setup before detailed testing.

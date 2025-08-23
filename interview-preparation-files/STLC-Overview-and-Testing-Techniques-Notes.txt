@@ -74,6 +74,9 @@ Ans.) It summarizes all testing activities, results, defects, and quality metric
 Q. What reports are used in testing?  
 Ans.) Common reports include Test Summary, Bug Reports, Execution Reports, Coverage Reports, and RTM. These documents help track testing progress, defect status, and overall product quality.
 ================================================================================
+Q) How do you manage your test case?
+Ans.) Test cases are managed using tools like Jira, TestRail, or Xray. They are linked to user stories and defects. Version control and tagging help with organizing and executing test suites as per sprint or release needs.
+================================================================================
 
 --- Defects & Prioritization ---
 
@@ -143,6 +146,11 @@ Ans.)  Monkey Testing: Random testing without predefined inputs or logic.
      Gorilla Testing: Repeatedly testing one functionality heavily to check its robustness.  
      Adhoc Testing: Unstructured testing to explore and find defects intuitively.
 ================================================================================
+Q) What is Alpha and Beta testing?
+Ans.)
+    Alpha Testing: Performed by internal teams (developers or QA) before releasing to external users. It is done in a controlled environment.
+    Beta Testing: Conducted by a selected group of real users in the production-like environment to gather feedback and identify any remaining issues before full release.
+================================================================================
 
 --- Advanced Concepts ---
 
@@ -167,8 +175,8 @@ Ans.) Risk mitigation identifies potential risks and applies controls to reduce 
 ================================================================================
 Q. What are key terms in software testing?  
 Ans.) 
-1. Test Scenario – High-level condition to be tested
-2. Test Case – Step-by-step instructions to verify functionality
+1. Test Scenario – A high-level idea of what needs to be tested, typically a user story or feature flow.
+2. Test Case – A detailed document with steps, input data, expected results, and actual results for validating a specific functionality.
 3. Test Suite – Group of test cases for a module
 4. Test Data – Input values used during testing
 5. Test Plan – Strategy, scope, and schedule of testing

@@ -1,0 +1,4 @@
+*** Test Cases ***;${username};${password};[Documentation]
+valid login;standard_user;secret_sauce;This will test successful login
+invalid username;wrongUser;secret_sauce;This will test invalid username scenario
+invalid password;standard_user;Wrong password;This will test invalid password scenario
