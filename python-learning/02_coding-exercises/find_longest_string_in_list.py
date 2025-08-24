@@ -1,5 +1,4 @@
-# Problem:
-# 14. Longest string in a given list without using max(lst, key=len)
+# Question: Longest string in a given list without using max(lst, key=len)
 # Given a list of strings, return the longest string without using the built-in max() function with key=len.
 # Input example: ["apple", "banana", "cherry", "date"]
 # Output: "banana"

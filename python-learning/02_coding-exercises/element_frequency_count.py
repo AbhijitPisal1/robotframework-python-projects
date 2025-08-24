@@ -1,5 +1,4 @@
-# Problem:
-# 24. Find frequency of each element in array
+# Question: Find frequency of each element in array
 # Given an array, return a dictionary with elements as keys and their frequencies as values.
 # Example: [2, 3, 2, 4, 3, 2] → {2: 3, 3: 2, 4: 1}
 

@@ -1,5 +1,4 @@
-# Problem:
-# Convert list of tuples to dict
+# Question: Convert list of tuples to dict
 #
 # Given a list of tuples where each tuple contains exactly two elements,
 # convert this list into a dictionary such that the first element of

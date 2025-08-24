@@ -1,4 +1,4 @@
-# Converts a total number of seconds into hours, minutes, and remaining seconds.
+# Question: Converts a total number of seconds into hours, minutes, and remaining seconds.
 def convert_seconds(seconds):
     hours = seconds // 3600  # Calculate hours by dividing total seconds by 3600
     minutes = (seconds - hours * 3600) // 60  # Calculate remaining minutes

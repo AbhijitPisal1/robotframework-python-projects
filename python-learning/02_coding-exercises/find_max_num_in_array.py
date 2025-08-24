@@ -1,5 +1,4 @@
-# Problem:
-# 12. Find the biggest number in a given array without using max(arr)
+# Question: Find the biggest number in a given array without using max(arr)
 # Given an array of integers, return the largest number without using the built-in max() function.
 # Input example: [3, 10, 6, 2, 8]
 # Output: 10

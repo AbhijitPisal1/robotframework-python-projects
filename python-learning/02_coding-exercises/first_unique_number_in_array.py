@@ -1,6 +1,4 @@
-
-# Problem:
-# 19. First unique number in a given array
+# Question: First unique number in a given array
 # Given an array, find the first number that appears only once.
 # Example: [2, 5, 1, 2, 3, 5] → 1
 

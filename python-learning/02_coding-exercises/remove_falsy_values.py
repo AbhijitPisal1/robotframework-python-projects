@@ -1,4 +1,4 @@
-# Problem: Remove all falsy values from a list
+# Question: Remove all falsy values from a list
 # Input: [0, 1, False, 2, '', 3, None, 4]
 # Output: [1, 2, 3, 4]
 

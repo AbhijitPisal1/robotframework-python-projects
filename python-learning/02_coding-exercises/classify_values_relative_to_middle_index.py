@@ -1,4 +1,4 @@
-# Problem: Classify values in an array as greater than, less than, or equal to the middle index value
+# Question: Classify values in an array as greater than, less than, or equal to the middle index value
 # Given an array, return three lists containing elements that are greater than,
 # less than, and equal to the element at the middle index.
 # Example: arr = [10, 20, 30, 40, 50, 30, 10, 60]

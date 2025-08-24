@@ -1,5 +1,4 @@
-# Problem:
-# 34. Merge two sorted lists into one sorted list
+# Question: Merge two sorted lists into one sorted list
 # Without using sorted() on final result
 # list1 = [1, 4, 2]
 # list2 = [6, 3, 5]

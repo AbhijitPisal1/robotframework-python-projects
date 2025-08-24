@@ -1,5 +1,4 @@
-# Problem:
-# 27. Group words that are anagrams
+# Question: Group words that are anagrams
 # Given a list of words, group them so that each group contains words that are anagrams of each other.
 # Example: ["eat", "tea", "tan", "ate", "nat", "bat"]
 # Output: [["eat", "tea", "ate"], ["tan", "nat"], ["bat"]]

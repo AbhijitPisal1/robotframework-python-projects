@@ -1,5 +1,4 @@
-# Problem:
-# 17. Values greater, equal, and lesser than average from int array
+# Question: find Values greater, equal, and lesser than average from int array
 # Given an integer array, find the average and return three lists containing values greater than,
 # equal to, and lesser than the average respectively.
 # Input: [10, 20, 30, 40, 50] → avg = 30

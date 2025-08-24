@@ -1,5 +1,4 @@
-# Problem:
-# 7. Sort integers in descending order
+# Question: Sort integers in descending order
 # Input: [10, 14, 29, 23, 24, 15, 13]
 # Output: [29, 24, 23, 15, 14, 13, 10]
 

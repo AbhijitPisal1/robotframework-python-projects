@@ -1,4 +1,4 @@
-# Problem: Convert list of strings to integers (handle errors)
+# Question: Convert list of strings to integers (handle errors)
 # Given a list of strings, convert each string to an integer if possible.
 # If a string cannot be converted to an integer, handle the error gracefully (e.g., skip it).
 # Example: ["10", "20", "abc", "30"] → [10, 20, 30]

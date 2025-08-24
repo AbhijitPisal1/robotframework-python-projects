@@ -1,4 +1,4 @@
-# Problem: Flatten a nested list
+# Question: Flatten a nested list
 # Given a list of lists, flatten it into a single list containing all the elements in order.
 # Input: [[1, 2], [3, 4], [5]]
 # Output: [1, 2, 3, 4, 5]

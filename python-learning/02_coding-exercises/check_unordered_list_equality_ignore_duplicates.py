@@ -1,5 +1,4 @@
-# Problem:
-# 26. Check if two lists are equal (unordered, duplicates not allowed)
+# Question: Check if two lists are equal (unordered, duplicates not allowed)
 # Given two lists, determine if they contain the same unique elements regardless of order.
 # Duplicates should be ignored.
 # Example: [1, 2, 2, 3] and [3, 2, 1, 1] → True (unique sets are {1,2,3} for both)

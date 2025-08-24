@@ -1,5 +1,4 @@
-# Problem:
-# 35. Find second largest/smallest number in a list
+# Question: Find second largest/smallest number in a list
 # Avoid using sort() directly
 
 """

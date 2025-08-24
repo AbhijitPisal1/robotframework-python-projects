@@ -1,5 +1,4 @@
-# Problem:
-# 8. Sort strings in descending lexicographical order
+# Question: Sort strings in descending lexicographical order
 # Input: ["0000", "2919", "53", "4341", "786"]
 # Output: ["786", "53", "4341", "2919", "0000"]
 

@@ -1,5 +1,4 @@
-# Problem:
-# 18. First repeating number in a given array
+# Question: First repeating number in a given array
 # Given an array, find the first number that repeats (appears more than once).
 # Example: [2, 5, 1, 2, 3, 5] → 2
 

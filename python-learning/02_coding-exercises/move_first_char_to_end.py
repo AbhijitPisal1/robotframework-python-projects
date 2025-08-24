@@ -1,4 +1,4 @@
-# This function splits a string into a list, modifies each element by moving
+# Question: Split a string into a list, modifies each element by moving
 # its first character to the end, and adds a dash before the moved character. 
 # For example, "2two" becomes "two-2". Finally, it converts the list back 
 # to a string and returns it.

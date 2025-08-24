@@ -1,5 +1,5 @@
 """
-Problem:
+Question: 
 1. Sort a list of names alphabetically (lexicographically).
 2. Sort a list of names based on the length of each name in ascending order.
 

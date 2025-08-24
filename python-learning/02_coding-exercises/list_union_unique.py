@@ -1,5 +1,4 @@
-# Problem:
-# Find union of two lists without duplicates
+# Question: Find union of two lists without duplicates
 #
 # Given two lists of integers, return a new list containing all unique elements
 # from both lists combined. The result should preserve the order in which

@@ -1,4 +1,4 @@
-# Problem: Reverse an array/list without arr[::-1] or reversed(arr)
+# Question: Reverse an array/list without arr[::-1] or reversed(arr)
 # Given an array/list, reverse its elements in place without using slicing or the built-in reversed() function.
 # Example: [1, 2, 3, 4] → [4, 3, 2, 1]
 

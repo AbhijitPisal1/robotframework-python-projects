@@ -1,5 +1,4 @@
-# Problem:
-# 22. Remove duplicates from a list (preserve order)
+# Question: Remove duplicates from a list (preserve order)
 # Given a list, remove all duplicate elements while preserving the original order of first occurrences.
 # Example: [3, 5, 3, 2, 5, 1] → [3, 5, 2, 1]
 

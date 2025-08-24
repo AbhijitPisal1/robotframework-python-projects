@@ -1,5 +1,4 @@
-# Problem:
-# 25. Check if two lists are equal (unordered, duplicates allowed)
+# Question: Check if two lists are equal (unordered, duplicates allowed)
 # Given two lists, determine if they contain the same elements with the same frequencies,
 # regardless of order.
 # Example: [1, 2, 2, 3] and [3, 2, 1, 2] → True

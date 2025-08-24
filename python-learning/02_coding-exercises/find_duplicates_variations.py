@@ -1,4 +1,4 @@
-# Q. Find duplicate characters in a given string
+# Question: Find duplicate characters in a given string
 
 def find_duplicate_characters(input_string):
     # Step 1: Initialize a set to track seen characters and a list for duplicates.

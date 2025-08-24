@@ -1,5 +1,4 @@
-# Problem:
-# Remove duplicates from list using set (but preserve order)
+# Question: Remove duplicates from list using set (but preserve order)
 #
 # Given a list of elements, remove duplicates while preserving
 # the original order of the elements.

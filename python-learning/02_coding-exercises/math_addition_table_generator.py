@@ -1,4 +1,4 @@
-
+# Question: Write code for an addition table up-to 5 lines
 def addition_table(given_number):
     """
     This function generates an addition table for a given number, 

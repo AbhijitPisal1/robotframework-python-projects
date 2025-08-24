@@ -1,6 +1,5 @@
 # Problem:
 # 37. Write a basic class with __init__, and add a method - to test Python OOP — e.g., class Employee
-
 """
 Explanation:
 We will create a class Employee with an __init__ method to initialize employee attributes like name and salary.

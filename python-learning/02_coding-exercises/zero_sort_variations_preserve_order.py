@@ -1,5 +1,4 @@
-# Problem:
-# Handle different scenarios where zeroes must be moved while preserving the order of non-zero elements.
+# Question: Handle different scenarios where zeroes must be moved while preserving the order of non-zero elements.
 #
 # Variants:
 # 1. Move all zero digits to the front in a number → e.g., 10230405 → "00012345"

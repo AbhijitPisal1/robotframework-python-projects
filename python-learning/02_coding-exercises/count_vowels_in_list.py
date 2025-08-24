@@ -1,4 +1,4 @@
-# 29. Count vowels in each string in a list
+# Question: Count vowels in each string in a list
 # Given a list of strings, count the number of vowels (a, e, i, o, u) in each string.
 # Return a list of counts corresponding to each string.
 # Example: ["apple", "banana", "grape"] → [2, 3, 2]

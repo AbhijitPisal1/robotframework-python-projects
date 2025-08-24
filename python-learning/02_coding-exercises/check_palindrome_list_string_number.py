@@ -1,4 +1,4 @@
-# Problem: Check if a list is a palindrome
+# Question: Check if a list is a palindrome
 # Given a list, determine if it reads the same forwards and backwards.
 # Input example: [1, 2, 3, 2, 1]
 # Output: True

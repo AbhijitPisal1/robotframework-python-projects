@@ -1,3 +1,4 @@
+# Question: Calculate sum of areas of two triangles
 # This code calculates the areas of two triangles using their base and height,
 # sums the areas, and prints the total area of the two triangles.
 def area_triangle(base,height):

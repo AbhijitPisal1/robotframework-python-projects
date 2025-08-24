@@ -1,5 +1,4 @@
-# Problem:
-# Given a number, move all zero digits to the front,
+# Question: Given a number, move all zero digits to the front,
 # while maintaining the relative order of the non-zero digits.
 #
 # Input: A number (e.g., 10230405)

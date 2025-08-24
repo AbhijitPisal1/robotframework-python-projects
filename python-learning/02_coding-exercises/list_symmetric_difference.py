@@ -1,5 +1,4 @@
-# Problem:
-# Find unique elements between two lists (symmetric difference)
+# Question: Find unique elements between two lists (symmetric difference)
 #
 # Given two lists of integers, return a new list containing elements
 # that appear in only one of the lists (i.e., not in both).
