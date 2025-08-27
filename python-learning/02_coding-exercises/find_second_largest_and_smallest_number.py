@@ -3,7 +3,7 @@
 
 """
 Explanation:
-To find the second largest and second smallest numbers without sorting the list,
+To find the second largest and second-smallest numbers without sorting the list,
 we can traverse the list once to find the largest and smallest values,
 then traverse again to find the second largest and second smallest by ignoring the previously found values.
 This approach avoids sorting and uses simple comparisons to track needed values.

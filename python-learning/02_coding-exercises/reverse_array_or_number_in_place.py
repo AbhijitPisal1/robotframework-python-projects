@@ -46,7 +46,10 @@ def reverse_digits(num):
     right = len(num_list) - 1
 
     while left < right:
-        num_list[left], num_list[right] = num_list[right], num_list[left]
+        # num_list[left], num_list[right] = num_list[right], num_list[left]
+        tmp = num_list[left]
+        num_list[left] = num_list[right]
+        num_list[right] = tmp
         left += 1
         right -= 1
 

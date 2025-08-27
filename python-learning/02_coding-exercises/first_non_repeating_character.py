@@ -6,14 +6,15 @@ def first_non_repeating_character(s):
 
     # Count the frequency of each character in the string
     for char in s:
-        frequency[char] = frequency.get(char, 0) + 1        
-        #--> if char present in dict then gets that char count from dict and add 1 for current char instance in loop
+        if char in frequency:
+            frequency[char] += 1
+        else:
+            frequency[char] = 1
 
     # Find the first character with a frequency of 1
     for char in s:
         if frequency[char] == 1:
             return char
-
     return None  # Return None if there are no non-repeating characters
 
 

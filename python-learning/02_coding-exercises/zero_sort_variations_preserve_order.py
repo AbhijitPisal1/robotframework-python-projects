@@ -43,7 +43,7 @@ def move_zeros_to_front_in_number(number):
 NOTES for VARIATION 2 Move zero digits to the back in a number:
 - To move zeros to the back instead of front:
     Change final return to:
-        return ''.join(['0'] * zero_count + non_zeros)
+        return ''.join(non_zeros+ ['0'] * zero_count)
 """
 
 # 3. Move zero elements to the front in a list

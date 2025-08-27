@@ -19,3 +19,19 @@ def reverse_each_word(sentence):
 input_sentence = "abc de f"
 result = reverse_each_word(input_sentence)
 print(result)  # This should output "fed cb a"
+
+
+"""
+def reverse_each_word(sentence):
+    reversed_words = []
+    words = sentence.split(' ')
+    for word in words:
+        reversed_word = ""
+        index = len(word) - 1
+        while index >= 0:
+            reversed_word += word[index]
+            index -= 1
+        reversed_words.append(reversed_word)
+
+    return reversed_words
+"""

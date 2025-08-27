@@ -23,6 +23,10 @@ def convert_strings_to_ints(str_list):
             continue
     return result
 
+# Test cases:
+test_str_list = ["10", "20", "abc", "30"]
+print("Strings to ints:", convert_strings_to_ints(test_str_list))  # [10, 20, 30]
+
 """
 Note on variations:
 - If the input list contains float strings or floats, convert each element to float first,
@@ -34,11 +38,6 @@ Note on variations:
       except (ValueError, TypeError):
           continue
 """
-# Test cases:
-test_str_list = ["10", "20", "abc", "30"]
-
-print("Strings to ints:", convert_strings_to_ints(test_str_list))  # [10, 20, 30]
-
 """
 To convert to float: use float(item)
 To convert to string: use str(item)

@@ -22,7 +22,7 @@ Robot Framework is an **open-source, keyword-driven test automation framework** 
 Run a specific test file:
 
 ```bash
-robot -d results parallelTest/test1.robot
+robot -d results parallelTest/test1.robot 
 ```
 
 - `-d results`: Sets the output directory to store reports and logs.

@@ -49,9 +49,5 @@ def find_max_digit(num):
             max_digit = digit
     return max_digit
 
-# Test cases
-test_arr = [3, 10, 6, 2, 8]
-print("Max number in array:", find_biggest_number(test_arr))  # Output: 10
-
 test_num = 826052479263
 print("Max digit in number:", find_max_digit(test_num))      # Output: 9

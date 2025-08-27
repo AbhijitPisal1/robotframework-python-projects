@@ -22,7 +22,7 @@ print("for loop demo completed")
 sum1 = 0
 for i in range(1,6):    # range (i,j) -> i to j-1   with default increment of 1
     print(i)
-    sum1 = sum1+i
+    sum1 += i
 print("{} {}".format("sum of numbers is", sum1))
 ######################## DEMO 3 ##############################
 # This demo calculates the sum of the first five odd natural numbers starting from 1:
@@ -31,5 +31,5 @@ print("{} {}".format("sum of numbers is", sum1))
 sum2 = 0
 for k in range(1, 10 , 2):    # range (i,j) -> i to j-1
     print(k)
-    sum2 = sum2+k
+    sum2 += k
 print("{} {}".format("sum of numbers is", sum2))

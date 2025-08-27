@@ -1,4 +1,4 @@
-# Question: Find the Second Largest Digit in a String
+# Question: Find the Second-Largest Digit in a String
 # For example, if the input is "str1025rts", the output should be 2.
 
 def second_largest_digit(s):
@@ -19,7 +19,7 @@ def second_largest_digit(s):
     if len(sorted_digits) < 2:
         return None  # Not enough digits to find a second largest.
 
-    # Step 7: Return the second largest digit.
+    # Step 7: Return the second-largest digit.
     return sorted_digits[-2]
 
 

@@ -48,7 +48,7 @@ def username(last_name, birth_year):
     # The .format() method uses the first 3 letters from the
     # "last_name" variable for the first {} placeholder, 
     # and concatenates the "birth_year" for the second placeholder.
-    return ("{}{}".format(last_name[0:3], birth_year))
+    return "{}{}".format(last_name[0:3], birth_year)
 
 
 print(username("Ivanov", "1985"))

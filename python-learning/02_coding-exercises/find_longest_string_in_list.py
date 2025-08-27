@@ -1,7 +1,7 @@
 # Question: Longest string in a given list without using max(lst, key=len)
 # Given a list of strings, return the longest string without using the built-in max() function with key=len.
-# Input example: ["apple", "banana", "cherry", "date"]
-# Output: "banana"
+# Input example: ["apple", "banana", "pineapple", "date"]
+# Output: "pineapple"
 
 """
 Approach:
@@ -20,9 +20,9 @@ def find_longest_string(strings):
         raise ValueError("List cannot be empty")
 
     longest = strings[0]
-    for s in strings:
-        if len(s) > len(longest):
-            longest = s
+    for str1 in strings:
+        if len(str1) > len(longest):
+            longest = str1
     return longest
 
 """
@@ -35,5 +35,5 @@ See the next function for a full example.
 """
 
 # Test case
-test_strings = ["apple", "banana", "cherry", "date"]
-print("Output:", find_longest_string(test_strings))  # Output: "banana"
+test_strings = ["apple", "banana", "pineapple", "date"]
+print("Output:", find_longest_string(test_strings))  # Output: "pineapple"

@@ -19,7 +19,7 @@ print(a[1])     # t
 print("Using comma to concatenate:", a, "concatenated with", b)
 
 # Using '+' to concatenate the two strings
-print("Using plus to concatenate:", a + " concatenated with " + b)
+print("Using plus to concatenate:"+ a + " concatenated with " + b)
 
 # Accessing characters in a string by index
 print("First character of string A:", a[0])  # Output: 's'
@@ -49,7 +49,7 @@ str2 = "testing"
 str3 = "test"
 str4 =  "TEST"
 print(str3 in str2)
-print(str4 in str2)     # case sensitive hence False
+print(str4 in str2)     # case-sensitive hence False
 
 str5= "google.com"
 var1 = str5.split(".")      # creates a list after splitting string
