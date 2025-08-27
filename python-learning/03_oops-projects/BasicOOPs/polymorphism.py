@@ -1,20 +1,35 @@
-# Polymorphism:
-# Enables objects of different classes to be treated through a common interface,
-# with methods having the same name behaving differently based on the object.
+class PaymentMethod:
+    def pay(self, amount):
+        raise NotImplementedError("Subclass must implement this method")
 
-class Bird:
-    def fly(self):
-        print("Bird is flying")
+class CreditCard(PaymentMethod):
+    def pay(self, amount):
+        print(f"Paying {amount} using Credit Card.")
 
-class Airplane:
-    def fly(self):
-        print("Airplane is flying")
+class PayPal(PaymentMethod):
+    def pay(self, amount):
+        print(f"Paying {amount} using PayPal.")
 
-def lets_fly(obj):
-    obj.fly()
+class UPI(PaymentMethod):
+    def pay(self, amount):
+        print(f"Paying {amount} using UPI.")
 
-b = Bird()
-a = Airplane()
+# Unified payment function
+def make_payment(payment_method, amount):
+    payment_method.pay(amount)
 
-lets_fly(b)  # Bird is flying
-lets_fly(a)  # Airplane is flying
+
+# Usage
+make_payment(CreditCard(), 1000)
+make_payment(PayPal(), 500)
+make_payment(UPI(), 300)
+
+"""
+Polymorphism – "Same interface, different behavior"
+
+Polymorphism allows different objects to use the same method name, but each object performs its version of the action. For instance, all payment methods (Credit Card, PayPal, UPI) implement a pay() method, but the actual implementation differs.
+
+This is powerful in systems where you want to process many types of objects with a common interface. You can write flexible code that doesn’t need to know the exact type of object it's working with — just that it knows how to behave.
+
+Use polymorphism when you want to write generalized code that works with many different classes
+"""

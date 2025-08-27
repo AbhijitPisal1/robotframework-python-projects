@@ -29,3 +29,4 @@ log.html
 # OS-generated files
 .DS_Store
 Thumbs.db
+/libspecs/
