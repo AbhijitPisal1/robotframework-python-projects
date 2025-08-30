@@ -19,18 +19,18 @@
 
 # Types of Linked Lists
 
-| Type                 | Description                         | Can Traverse | Notes                         |
-|----------------------|-----------------------------------|--------------|-------------------------------|
-| Singly Linked List    | Each node points to the next node | Forward only | Simple, uses less memory       |
-| Doubly Linked List    | Nodes point both ways (next & prev) | Forward & Backward | Can traverse backwards         |
-| Circular Linked List  | Last node points back to the first | Loops around | Useful for round-robin tasks   |
-| Doubly Circular List  | Doubly linked + circular           | Loops both ways | Most flexible, a bit more complex |
+| Type                  | Description                         | Can Traverse       | Notes                             |
+|-----------------------|-------------------------------------|--------------------|-----------------------------------|
+| Singly Linked List    | Each node points to the next node   | Forward only       | Simple, uses less memory          |
+| Doubly Linked List    | Nodes point both ways (next & prev) | Forward & Backward | Can traverse backwards            |
+| Circular Linked List  | Last node points back to the first  | Loops around       | Useful for round-robin tasks      |
+| Doubly Circular List  | Doubly linked + circular            | Loops both ways    | Most flexible, a bit more complex |
 
 ---
 
 # Time Complexity (Approximate)
 
-| Operation           | Singly Linked List | Doubly Linked List | Notes                             |
+| Operation           | Singly Linked List | Doubly Linked List | Notes                            |
 |---------------------|--------------------|--------------------|----------------------------------|
 | Insert at head      | O(1)               | O(1)               | Fast, just update pointers       |
 | Insert at tail      | O(n)               | O(n)               | O(1) if tail pointer maintained  |
