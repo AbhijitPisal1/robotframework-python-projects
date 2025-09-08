@@ -1,0 +1,275 @@
+
+````Unix and Linux Command Reference Guide````
+
+======================================
+1. File and Directory Management
+-------------------------------
+# ls - List directory contents
+    - Basic:  ls
+    - List all files, including hidden:  ls -a
+    - Long format listing:  ls -l
+    - Human-readable sizes:  ls -lh
+
+# cd - Change directory
+    - To directory:  cd /path/to/directory
+    - Go to home directory:  cd ~
+    - Move up one directory:  cd ..
+
+# pwd - Print current directory
+    - Usage:  pwd
+
+# mkdir - Create new directory
+    - Basic:  mkdir new_directory
+    - With parents (create parent directories as needed):  mkdir -p parent_dir/child_dir
+
+# rmdir - Remove empty directory
+    - Usage:  rmdir directory_name
+
+# rm - Remove files or directories
+    - Remove file:  rm file.txt
+    - Remove directory and contents:  rm -r directory_name
+    - Force removal without prompts:  rm -rf directory_name
+
+# cp - Copy files and directories
+    - Copy file:  cp source.txt destination.txt
+    - Recursive copy of directory:  cp -r src_dir dest_dir
+
+# mv - Move or rename files and directories
+    - Usage:  mv old_name.txt new_name.txt
+    - Move file to directory:  mv file.txt /other/directory/
+
+2. File Viewing and Text Processing
+----------------------------------
+# cat - Concatenate and display file contents
+    - Basic:  cat filename
+
+# less - View file one screen at a time
+    - Usage:  less filename
+
+# more - Similar to less but less powerful
+    - Usage:  more filename
+
+# head - Show first few lines
+    - Default 10 lines:  head filename
+    - Specify lines:  head -n 20 filename
+
+# tail - Show last few lines
+    - Default 10 lines:  tail filename
+    - Specify lines:  tail -n 20 filename
+
+# grep - Search for patterns in files
+    - Basic:  grep "pattern" filename
+    - Case-insensitive:  grep -i "pattern" filename
+    - Recursive search in directory:  grep -r "pattern" directory/
+    - Count matches:  grep -c "pattern" filename
+
+# find - Search files and directories
+    - Find by name:  find /path -name "file.txt"
+    - Find by type:  find /path -type f (files), find /path -type d (directories)
+    - Find and execute command:  find /path -name "*.log" -exec rm {} \;
+
+# diff - Compare files line by line
+    - Usage:  diff file1.txt file2.txt
+
+# cmp - Byte-wise comparison
+    - Usage:  cmp file1.bin file2.bin
+
+# sort - Sort lines in files
+    - Usage:  sort filename
+
+# uniq - Remove duplicate lines
+    - Usage:  sort filename | uniq
+
+# wc - Word count, lines, characters
+    - Lines:  wc -l filename
+    - Words:  wc -w filename
+    - Characters:  wc -c filename
+
+3. File Permissions and Ownership
+--------------------------------
+# chmod - Change file permissions
+    - Numeric mode:  chmod 755 filename
+    - Symbolic mode:  chmod u+x filename
+
+# chown - Change file owner
+    - Usage:  chown user:group filename
+
+# chgrp - Change group ownership
+    - Usage:  chgrp groupname filename
+
+4. Process Management
+--------------------
+# ps - List processes
+    - All processes:  ps -e
+    - Filter by name:  ps -ef | grep process_name
+
+# top - Real-time process monitoring
+    - Usage:  top
+
+# htop - Interactive process viewer (if installed)
+    - Usage:  htop
+
+# kill - Terminate process by PID
+    - Usage:  kill PID
+
+# killall - Kill processes by name
+    - Usage:  killall process_name
+
+# pkill - Send signals to processes based on name
+    - Usage:  pkill process_name
+
+# free - Show memory usage
+    - Usage:  free -h
+
+5. Disk Usage and Filesystem
+---------------------------
+# df - Show disk space usage
+    - Usage:  df -h
+
+# du - Show directory size
+    - Usage:  du -sh /path/to/directory
+
+# mount - Mount a filesystem
+    - Usage:  mount /dev/sdX1 /mnt/mount_point
+
+# umount - Unmount filesystem
+    - Usage:  umount /mnt/mount_point
+
+# mkfs - Format a filesystem
+    - Usage:  mkfs.ext4 /dev/sdX
+
+# fsck - Filesystem check and repair
+    - Usage:  fsck /dev/sdX
+
+6. Archiving and Compression
+---------------------------
+# tar - Archive files
+    - Create archive:  tar -cvf archive.tar directory/
+    - Extract archive:  tar -xvf archive.tar
+    - Create gzip compressed archive:  tar -czvf archive.tar.gz directory/
+    - Extract gzip archive:  tar -xzvf archive.tar.gz
+
+# gzip - Compress files
+    - Usage:  gzip filename
+
+# gunzip - Decompress gzip files
+    - Usage:  gunzip filename.gz
+
+# zip - Compress files into a zip archive
+    - Usage:  zip archive.zip files
+
+# unzip - Extract zip archive
+    - Usage:  unzip archive.zip
+
+7. Networking Commands
+---------------------
+# ping - Test network connectivity
+    - Usage:  ping google.com
+
+# ifconfig - Configure network interfaces (deprecated, use ip)
+    - Usage:  ifconfig
+
+# ip - Show/manipulate IP addresses
+    - Show IP addresses:  ip addr show
+    - Bring interface up/down:  ip link set eth0 up/down
+
+# traceroute - Trace route to a host
+    - Usage:  traceroute google.com
+
+# netstat - Display network connections
+    - Usage:  netstat -tuln
+
+# ss - Display socket statistics (more modern alternative to netstat)
+    - Usage:  ss -tuln
+
+# nslookup - Query Internet name servers
+    - Usage:  nslookup google.com
+
+# wget - Download files from the web
+    - Usage:  wget http://example.com/file.txt
+
+# curl - Transfer data from or to server
+    - Basic GET:  curl http://example.com
+    - Download file:  curl -O http://example.com/file.txt
+    - Send POST data:  curl -d "param=value" http://example.com
+
+8. User Management
+------------------
+# whoami - Show current logged-in user
+    - Usage:  whoami
+
+# id - Show user ID and group ID
+    - Usage:  id
+
+# users - List logged-in users
+    - Usage:  users
+
+# groups - Show groups for user
+    - Usage:  groups
+
+# passwd - Change user password
+    - Usage:  passwd
+
+# useradd - Add new user
+    - Usage:  sudo useradd username
+
+# userdel - Delete user
+    - Usage:  sudo userdel username
+
+# groupadd - Add group
+    - Usage:  sudo groupadd groupname
+
+# groupdel - Remove group
+    - Usage:  sudo groupdel groupname
+
+# usermod - Modify user account
+    - Usage:  sudo usermod -aG groupname username
+
+9. Package Management (Debian/Ubuntu)
+-------------------------------------
+# apt-get update - Update package lists
+    - Usage:  sudo apt-get update
+
+# apt-get install - Install packages
+    - Usage:  sudo apt-get install package_name
+
+# apt-get upgrade - Upgrade all packages
+    - Usage:  sudo apt-get upgrade
+
+# apt-get remove - Remove packages
+    - Usage:  sudo apt-get remove package_name
+
+# apt-get autoremove - Remove unused dependencies
+    - Usage:  sudo apt-get autoremove
+
+# dpkg - Debian package manager
+    - Install:  sudo dpkg -i package.deb
+    - Remove:  sudo dpkg -r package_name
+
+10. Service Management
+---------------------
+# systemctl - Control systemd services
+    - Start service:  sudo systemctl start service_name
+    - Stop service:  sudo systemctl stop service_name
+    - Enable service at boot:  sudo systemctl enable service_name
+    - Disable service:  sudo systemctl disable service_name
+    - Status of service:  sudo systemctl status service_name
+
+# service - Legacy service command (may be deprecated)
+    - Usage:  sudo service service_name start|stop|restart|status
+
+11. User-Friendly Shortcuts
+--------------------------
+# alias - Create command shortcuts
+    - Example:  alias ll='ls -la'
+
+# unalias - Remove command shortcut
+    - Usage:  unalias ll
+
+# echo - Display message or variable value
+    - Usage:  echo "Hello World"
+
+# clear - Clear terminal screen
+    - Usage:  clear
+
+

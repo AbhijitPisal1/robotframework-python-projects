@@ -1,0 +1,143 @@
+
+````Performance Testing & JMeter Notes````
+
+================================================================================
+Q) What is Performance Testing?
+Ans) Performance Testing is a type of non-functional testing used to determine the speed, responsiveness, scalability, and stability of a software application under a specific workload.
+It helps identify performance bottlenecks before the system goes live.
+======================================================================
+Q) What are the types of Performance Testing?
+Ans) Common types include:
+1. Load Testing – Tests system under expected user load.
+2. Stress Testing – Tests beyond maximum capacity.
+3. Spike Testing – Tests sudden spikes in traffic.
+4. Endurance (Soak) Testing – Tests system over extended time.
+5. Scalability Testing – Tests system’s ability to scale with load.
+================================================================================
+Q) What is Apache JMeter?
+Ans) Apache JMeter is an open-source tool used for performance and load testing of web applications, APIs, and other services.
+	- Written in Java
+	- Simulates multiple users by sending requests to the target server
+	- Supports protocols like HTTP, FTP, JDBC, SOAP, REST, etc.
+================================================================================
+Q) What are the core elements of a JMeter Test Plan?
+Ans) A JMeter Test Plan may include:
+    1. Thread Group – Defines users, ramp-up, and loops
+    2. Samplers – Define the requests (e.g., HTTP, JDBC)
+    3. Listeners – Display results (Summary, Graphs, Tree)
+    4. Assertions – Validate server responses
+    5. Timers – Add think time or delays
+    6. Config Elements – Set default values (e.g., base URL)
+    7. Pre/Post Processors – Modify requests or extract data
+================================================================================
+Q) What is a Thread Group in JMeter?
+Ans) A Thread Group simulates a group of virtual users performing a set of actions.
+   It includes:
+       Number of Threads (Users)
+       Ramp-Up Period (in seconds)
+       Loop Count (how many times users repeat the test)
+Example: 10 users, 10-second ramp-up, loop count = 2 → 10 users start over 10 seconds and repeat test twice.
+================================================================================
+Q) What is an HTTP Request Sampler in JMeter?
+Ans) This is used to send HTTP/HTTPS requests to a web server.You can configure - Method (GET, POST, PUT, DELETE, etc.), Path/URL, Headers, Parameters, and Body data
+================================================================================
+Q) What are Listeners in JMeter?
+Ans) Listeners collect and visualize performance test results.
+  Common Listeners:
+ View Results Tree – Shows request/response details
+ Summary Report – Provides metrics like Avg, Min, Max, Throughput
+ Aggregate Report – Consolidated performance stats
+ Graph Results – Visual charts of response time/load
+  Note: Avoid using too many listeners in large tests.
+================================================================================
+Q) What key metrics are analyzed in performance tests?
+Ans)
+ Response Time – Time to receive full response
+ Latency – Time until first byte is received
+ Throughput – Requests processed per second/minute
+ Error % – Failed requests percentage
+ Standard Deviation – Variation in response times
+================================================================================
+Q) What is an Assertion in JMeter?
+Ans) Assertions are used to validate that the response from the server is correct.
+  Types of Assertions:
+1. Response Code Assertion – Check HTTP status code
+2. Response Text Assertion – Check if response contains expected text
+3. JSON/XML Assertion – Validate structured data
+4. Size/Duration Assertion – Check length or response time
+================================================================================
+Q) What is Ramp-Up Period in JMeter?
+Ans) Ramp-Up Period is the time JMeter will take to start all user threads.
+   Example: If 10 users and a 10-second ramp-up are set, then 1 user starts per second.
+   This avoids all users hitting the server at once.
+================================================================================
+Q) What is Think Time in performance testing?
+Ans) Think Time is the delay between user actions.
+   It mimics real user behavior (e.g., time spent reading a page).
+   In JMeter, it’s implemented using:
+    Constant Timer
+    Gaussian Random Timer
+    Uniform Random Timer
+================================================================================
+Q) Can JMeter be used for API Testing?
+Ans) Yes, JMeter supports API testing by simulating HTTP/HTTPS requests and validating responses.It can add headers, send JSON/XML payload, handle dynamic data using variables or CSV files, and Validate with Assertions
+================================================================================
+Q) What is the difference between Response Time and Latency?
+Ans)
+    Response Time – Total time taken to receive the complete response
+    Latency – Time until the first byte is received
+    Latency is a part of total response time.
+================================================================================
+Q) How to run JMeter in Non-GUI mode?
+Ans) Use this command:
+    jmeter -n -t testplan.jmx -l results.jtl -e -o /report-folder  
+ -n → Non-GUI mode
+ -t → Path to test plan
+ -l → Log file to store results
+ -e -o → Generate HTML dashboard
+================================================================================
+Q) What is CSV Data Set Config in JMeter?
+Ans) It allows data-driven testing using a CSV file.
+Steps:
+1. Add CSV Data Set Config to your Test Plan
+2. Set file path, variable names, delimiter
+3. Use variables like ${username} in your samplers
+================================================================================
+Q) What is Distributed Testing in JMeter?
+Ans) Distributed Testing allows running a test from multiple machines to simulate higher load.
+ Components:
+   Master – Controls test
+   Slaves – Execute test plan
+ Command:
+    jmeter -n -t testplan.jmx -R slave1IP,slave2IP  
+================================================================================
+Q) How can you integrate JMeter into CI/CD?
+Ans)
+1. Use Non-GUI command-line execution
+2. Integrate into Jenkins/GitLab/GitHub Actions pipelines
+3. Use Newman, Allure, or HTML reports for visibility
+4. Export results as .jtl or HTML
+   Example (in Jenkins):
+        jmeter -n -t testplan.jmx -l result.jtl -e -o output-folder  
+================================================================================
+Q) What are some alternatives to JMeter?
+Ans)
+ Gatling – Scala-based, developer-friendly
+ k6 – JavaScript-based, CLI-first, good for CI
+ Locust – Python-based, scriptable
+ BlazeMeter – Cloud-based platform compatible with JMeter
+ LoadRunner – Enterprise-level tool
+================================================================================
+Q) What is the use of jmeter.properties file?
+Ans) This file contains global settings for JMeter, such as: Timeout settings, Logging options, Thread limits. You can modify this to customize JMeter behavior for specific environments.
+================================================================================
+Q) What is Throughput in JMeter?
+Ans) Throughput is the number of requests processed by the server per unit of time (typically seconds or minutes). Higher throughput = better performance under load.
+================================================================================
+Q) What are the limitations of JMeter?
+Ans)
+ - High memory usage in GUI mode
+ - Not a real browser – cannot test JavaScript-heavy UIs
+ - Limited support for modern web protocols (e.g., WebSockets, gRPC without plugins)
+ - Requires scripting for complex scenarios
+================================================================================

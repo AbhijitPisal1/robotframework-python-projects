@@ -1,0 +1,278 @@
+
+````Linux & Unix Commands Guide````
+
+===========================================================
+Q) What is Linux/Unix?
+Ans) Linux and Unix are powerful, multitasking operating systems primarily used in servers, desktops, and embedded systems. They provide user interface tools, file management, hardware management, and security features suited for both personal and enterprise environments.
+===========================================================
+Q) What is a shell?
+Ans) A shell is a command-line interface (CLI) that allows users to interact with the operating system. Popular shells include Bash, Zsh, and Fish, which interpret user commands and execute tasks.
+===========================================================
+Q) What is a Linux distribution?
+Ans) A Linux distribution is a version of Linux that comes with a collection of open-source software, tools, and system management programs bundled together in one package. It runs on top of the Linux kernel (like Unix). Examples are Ubuntu, Fedora, and CentOS. Think of it as different flavors or styles of Linux to suit different needs. It also includes documentation and repositories to help install and update software easily.
+===========================================================
+Q) What is VirtualBox and how is it used?
+Ans) VirtualBox is a program that allows you to run another operating system inside your existing one. It creates a virtual environment (like a computer inside your computer).
+	- Host OS: Your real computer where VirtualBox is installed.
+	- Guest OS: The OS running inside VirtualBox (like Windows or Linux).
+	- Virtual Machine: The virtual computer inside VirtualBox created for guest OS
+	- Guest Additions: Extra software to make the virtual machine work better (like shared folders).
+It’s useful for testing different OSes, trying out software, or recovering from problems without affecting your main system.
+===========================================================
+Q) What is the difference between Linux and Unix?
+Ans) 
+- Linux:
+  - Open-source operating system based on the Linux kernel.
+  - Freely available, customizable, and widely used.
+  - Supports a broad range of hardware and software.
+  - Examples include Ubuntu, CentOS, Debian, Fedora.
+  - Popular in cloud, web servers, and development environments.
+
+- Unix:
+  - Proprietary operating system originally developed at Bell Labs.
+  - Known for stability, scalability, and security.
+  - Variants include AIX (IBM), Solaris (Oracle), HP-UX (HPE).
+  - Typically used in large enterprise systems and mainframes.
+  - Less flexible for customization compared to Linux.
+===========================================================
+Q) How are Linux and Unix used in modern web application practice?
+Ans)
+- Web servers often run Linux due to cost-effectiveness, ease of deployment, and rich ecosystem (Apache, Nginx).
+- Unix systems (like Solaris or AIX) are used in enterprise environments requiring high stability and security.
+- Development, testing, deployment, and automation setups tend to prefer Linux for its flexibility.
+- Cloud platforms (AWS, Google Cloud, Azure) predominantly feature Linux-based VM images.
+- Many containerization tools (Docker, Kubernetes) are Linux-based, facilitating scalable microservices.
+===========================================================
+Q) Can Linux and Unix systems be used together in a single infrastructure?
+Ans) Yes, organizations often operate a hybrid environment. Linux servers handle most web and application hosting, while Unix systems are used for legacy applications or high-security enterprise workloads.
+===========================================================
+Q) How do you list files and directories?
+Ans) Use ls to list contents of a directory.
+- ls : displays names of files.
+- ls -l : shows detailed listing with permissions, size, and modification time.
+- ls -a : shows hidden files.
+===========================================================
+Q) How do you change directories?
+Ans) Use cd to change directories.
+- cd /path/to/directory : moves to specified directory.
+- cd .. : moves up to parent directory.
+- cd ~ or cd : moves to user home directory.
+===========================================================
+Q) How do you create and delete files?
+Ans) Creating Files:
+- touch filename : creates an empty file or updates timestamp.
+Deleting Files:
+- rm filename : removes a file.
+- rm -r directory : removes directory and its contents recursively.
+===========================================================
+Q) How do you copy and move files?
+Ans) Copy:
+- cp source destination : copies files or directories.
+Move:
+- mv source destination : moves or renames files/directories.
+===========================================================
+Q) How do you display file contents?
+Ans) Common commands:
+- cat filename : displays entire file.
+- less filename or more filename : paginated view.
+- head filename : first 10 lines.
+- tail filename : last 10 lines.
+===========================================================
+Q) How do you search for text within files?
+Ans) Use grep:
+- grep 'pattern' filename : searches for pattern.
+- grep -r 'pattern' /directory : recursive search.
+- grep -i : case insensitive.
+===========================================================
+Q) How do you display current working directory?
+Ans) Use pwd.
+===========================================================
+Q) How do you manage permissions?
+Ans) Use chmod, chown, and chgrp.
+- chmod 755 filename : sets permissions.
+- chown user:group filename : changes ownership.
+- ls -l : shows permissions and ownership.
+===========================================================
+Q) How do you modify permissions?
+Ans) Use chmod:
+- Numeric mode (chmod 644 filename).
+- Symbolic mode (chmod u+x filename).
+===========================================================
+Q) How do you handle processes?
+Ans) Commands:
+- ps aux : lists all processes.
+- kill pid : terminates process by process ID.
+- top or htop : interactive process viewer.
+===========================================================
+Q) How do you manage services?
+Ans) On systemd-based systems:
+- systemctl start service : start service.
+- systemctl stop service : stop service.
+- systemctl enable service : enable on boot.
+- systemctl status service : check status.
+===========================================================
+Q) How do you redirect output?
+Ans) Use > and >>:
+- command > file : redirects output to file, overwriting.
+- command >> file : appends output.
+- To redirect errors: command 2> errorfile.
+===========================================================
+Q) How do you archive and compress files?
+Ans) Using tar and gzip:
+- tar -cvf archive.tar files : creates archive.
+- tar -xvf archive.tar : extracts archive.
+- gzip filename : compresses file.
+- gunzip filename.gz : decompresses.
+===========================================================
+Q) How do you find files?
+Ans) Use find:
+- find /path -name 'filename' : searches by name.
+- find /path -type f -size +10M : finds files larger than 10MB.
+===========================================================
+Q) How do you check disk usage?
+Ans) Use df and du:
+- df -h : shows disk space usage of filesystems.
+- du -sh /path : shows size of directory.
+===========================================================
+Q) How do you monitor system logs?
+Ans) Log files are in /var/log/.
+- Use tail -f /var/log/syslog or journalctl for live logs.
+===========================================================
+Q) How do you schedule tasks?
+Ans) Use cron:
+- crontab -e : edit user cron jobs.
+- Syntax: * * * * * command (minute, hour, day, month, weekday).
+===========================================================
+Q) How do you connect to remote systems?
+Ans) Use SSH:
+- ssh user@host : connect to remote host.
+- scp source user@host:/path : copy files securely.
+===========================================================
+Q) How do you compress files for transfer?
+Ans) Use zip and unzip:
+- zip archive.zip file1 file2 : compress files.
+- unzip archive.zip : decompress.
+===========================================================
+Q) How do you get system information?
+Ans) Commands:
+- uname -a : kernel info.
+- lsb_release -a : distribution info.
+- uptime : system uptime.
+- free -h : memory usage.
+===========================================================
+Q) How do you safely shutdown or restart?
+Ans) Use:
+- shutdown -h now : shutdown immediately.
+- reboot : restart system.
+- shutdown -r now : reboot now.
+===========================================================
+Q) How do you edit files?
+Ans) Use text editors:
+- nano filename : simple editor.
+- vim filename or vi filename : advanced editors.
+===========================================================
+Q) How do you check network status?
+Ans) Commands:
+- ifconfig (deprecated) or ip addr : network interfaces.
+- ping host : test connectivity.
+- netstat -tuln or ss -tuln : open ports and connections.
+- traceroute host : route path.
+===========================================================
+Q) How do you secure user accounts?
+Ans) Use passwd to change passwords, adduser or useradd to create users, and usermod or deluser for modifications.
+===========================================================
+Q) How do you update the system?
+Ans) Commands:
+- apt update && apt upgrade (Debian/Ubuntu).
+- yum update (CentOS/Fedora).
+- dnf update (Fedora newer versions).
+===========================================================
+Q) What is the purpose of sudo?
+Ans) sudo allows a permitted user to execute commands as the superuser or another user, providing administrative privileges securely.
+===========================================================
+Q) How do you automate server setups or deployments on Linux/Unix systems?
+Ans) Using shell scripts, configuration management tools like Ansible, Chef, Puppet, or scripting languages like Bash or Python.
+===========================================================
+Q) How do you monitor disk space and system performance?
+Ans) Using commands like df -h, du -sh /path, top, htop, vmstat, and iostat.
+===========================================================
+Q) How can you manage multiple processes in Linux/Unix?
+Ans) Commands like ps, kill, pkill, killall, and process managers like systemctl for services.
+===========================================================
+Q) How do you schedule automated tasks?
+Ans) Using cron jobs with crontab -e to run scripts or commands at specified intervals.
+===========================================================
+Q) Describe how you handle log management and analysis.
+Ans) Rotating logs with logrotate, analyzing logs with tail, grep, awk, or centralized logging tools (ELK Stack).
+===========================================================
+Q) How do you perform system updates and patches?
+Ans) Using package managers like apt, yum, or dnf, often scripted for automation.
+===========================================================
+Q) How do you troubleshoot network issues?
+Ans) Using commands like ping, traceroute, netstat, ss, ifconfig/ip, tcpdump.
+===========================================================
+Q) How do you handle user and permission management?
+Ans) Using adduser, usermod, groupadd, chmod, chown, and passwd.
+===========================================================
+Q) How would you secure a Linux/Unix system?
+Ans) Applying firewall rules with iptables or firewalld, secure SSH (sshd_config), user access controls, and regular patching.
+===========================================================
+Q) Describe a scenario where you would use shell scripting for test automation.
+Ans) Automating environment setup, cleanup scripts, or running regression suites, capturing logs, and sending notifications.
+===========================================================
+Q) How do you verify the health of a web application deployed on Linux servers?
+Ans) Checking server logs, monitoring CPU/memory, inspecting network ports (netstat), and running automated health check scripts.
+===========================================================
+Q) What tools do you use for automation testing on Linux/Unix?
+Ans) Selenium, JUnit, TestNG, Jenkins, in combination with shell or Python scripts.
+===========================================================
+Q) How do you recover a system or data in case of failure?
+Ans) Using backups, rsync, snapshots, or recovery tools specific to the filesystem or database.
+===========================================================
+Q) What are file permissions in Linux/Unix?  
+Ans) File permissions determine who can read, write, or execute a file. They are represented by symbols (r, w, x) and stored numerically for easy setting.
+===========================================================
+Q) How are permissions represented symbolically?  
+Ans) Permissions are shown as a string of 9 characters like rwxr-xr-x, divided into three groups of three:  
+- Owner permissions (rwx)  
+- Group permissions (r-x)  
+- Others permissions (r-x)
+===========================================================
+Q) What do the symbols r, w, and x mean?  
+Ans)  
+- r (read): View the contents of the file.  
+- w (write): Modify or delete the file.  
+- x (execute): Run the file as a program.
+===========================================================
+Q) How are these permissions converted into numbers?  
+Ans) Each permission has a value:  
+- Read = 4  
+- Write = 2  
+- Execute = 1  
+
+Permissions for each user class are summed based on what permissions are granted.  
+For example, read+write+execute = 4+2+1 = 7.
+===========================================================
+Q) How does chmod 755 filename set permissions?  
+Ans)  
+- 7 for owner → read, write, execute (rwx)  
+- 5 for group → read, execute (r-x)  
+- 5 for others → read, execute (r-x)  
+
+It results in permission string: rwxr-xr-x.
+===========================================================
+Q) What do common permission numbers mean?  
+Ans)   
+| Number | Permissions | Explanation                |
+|---------|--------------|----------------------------|
+| 777     | rwxrwxrwx    | All users can read/write/execute |
+| 755     | rwxr-xr-x    | Full for owner, read/execute for others |
+| 744     | rwxr--r--    | Full for owner, read-only for others |
+| 700     | rwx------    | Full for owner only         |
+===========================================================
+Q) How can I see current permissions?  
+Ans) 
+Use ls -l command, which displays permissions like:  
+
+-rw-r--r--  1 user group  size date filename
+

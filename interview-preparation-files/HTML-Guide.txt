@@ -1,0 +1,99 @@
+
+````HTML & CSS Basics for Test Automation & Interview Preparation````
+
+===========================================================
+Q) What is HTML?
+Ans) HTML (HyperText Markup Language) is the standard markup language used to create web pages. It structures content with elements like headings, paragraphs, links, tables, and images, forming the skeleton of every website.
+===========================================================
+Q) What are HTML tags?
+Ans) Tags are the building blocks in HTML that define elements. They are enclosed in angle brackets, e.g., <div>, <p>, <a>. Most tags have opening and closing versions, e.g., <h1>Content</h1>.
+===========================================================
+Q) What is the purpose of the <div> tag?
+Ans) The <div> tag defines a division or a section in an HTML document, used for grouping elements for styling with CSS or manipulating with JavaScript.
+===========================================================
+Q) What is CSS?
+Ans) CSS (Cascading Style Sheets) style sheet language used to describe the presentation (layout, colors, fonts) of a document written in HTML. It separates content from design, enabling responsive and attractive layouts.
+===========================================================
+Q) How do you include CSS in an HTML file?
+Ans) By using:
+- Inline styles: style attribute inside an element.
+- Internal stylesheet: <style> block inside <head>.
+- External stylesheet: <link rel="stylesheet" href="styles.css">.
+===========================================================
+Q) What are common CSS selectors?
+Ans) Selectors are patterns used to select elements for styling:
+- Type selector: div, p.
+- Class selector: .classname.
+- ID selector: #idname.
+- Attribute selector: [type="text"].
+- Pseudo-classes: :hover, :first-child.
+- Pseudo-elements: ::before, ::after.
+===========================================================
+Q) How do you differentiate between classes and IDs in CSS?
+Ans)
+- Classes (.): reusable, can be applied to multiple elements.
+- IDs (#): unique per page, used for single elements.
+Example:
+css
+.classname { ... }
+#idname { ... }
+===========================================================
+Q) What is the box model in CSS? Ans) The box model describes how elements are structured:
+
+Content: Actual text or image.
+Padding: Space around content.
+Border: Surrounds padding.
+Margin: Space outside the border. Understanding this is crucial for layout and spacing. 
+===========================================================
+Q) How do you create a responsive layout? 
+Ans) Using:
+Flexible units (%, vw, vh, rem).
+CSS Flexbox (display: flex) and Grid (display: grid).
+Media queries to adapt layout based on device size, e.g., @media (max-width: 768px) { ... }.
+=========================================================== 
+Q) How do you make an element hidden or visible? 
+Ans) Using CSS:
+display: none; (hides element and removes it from layout).
+visibility: hidden; (hides element but retains space).
+opacity: 0; (make transparent). For test automation, checking element visibility is frequently performed.
+=========================================================== 
+Q) How can you automate testing of UI elements with HTML/CSS? 
+Ans) Using tools like Selenium, Cypress, or Puppeteer:
+Locating elements via CSS selectors or XPath.
+Validating element presence, visibility, styles, and interactions.
+Automating form submissions, button clicks, and layout assertions. 
+=========================================================== 
+Q) How do you select elements in CSS for testing? 
+Ans) Common selector strategies:
+By ID: #submitBtn.
+By class: .btn-primary.
+By attributes: [type="submit"].
+By hierarchy: div > p, ul li.
+Pseudo-classes: a:hover. Automated scripts rely on consistent selectors to identify elements reliably.
+=========================================================== 
+Q) How do you handle dynamic content in automated tests? 
+Ans) Strategies include:
+Waiting for elements to load (explicit wait).
+Using stable selectors or data attributes (data-testid= or data-test=).
+Handling AJAX or SPA frameworks with retry mechanisms. 
+=========================================================== 
+Q) What is the importance of semantic HTML? 
+Ans) Semantic HTML improves accessibility, SEO, and easier testing. Tags like <header>, <article>, <nav>, <footer> describe content purpose, aiding screen readers and automated tools. 
+=========================================================== 
+Q) How do you verify layout and styles in automated tests? 
+Ans) Using:
+Visual testing tools like Percy or Applitools.
+CSS property assertions in Selenium or Cypress (e.g., assert.css()).
+Screenshot comparisons to detect visual regressions. 
+=========================================================== 
+Q) How are HTML and CSS related in web applications? 
+Ans) HTML provides the structure/content, while CSS styles and layouts it. Automated testing often involves verifying both element existence and style correctness, e.g., button color, font size, or layout integrity. 
+=========================================================== 
+Q) How do you test forms automation-wise? 
+Ans) Verify:
+	- Field presence.
+	- Validation messages.
+	- Required field handling.
+	- Submission success or failure. 
+Using tools like Selenium, scripts can fill forms, simulate invalid inputs, and verify responses. 
+==========================================================
