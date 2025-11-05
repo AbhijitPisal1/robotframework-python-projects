@@ -115,7 +115,7 @@ def fib(n):
         return n
     return fib(n-1) + fib(n-2)
 
-print("\n=== Example 5: Built-in Decorator (Fibonacci caching) ===")
+print("\n=== Example 5: Built-in Decora tor (Fibonacci caching) ===")
 print(fib.__doc__)
 print(f"fib(10) = {fib(10)}")
 
