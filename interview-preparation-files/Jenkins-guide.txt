@@ -1,0 +1,173 @@
+-----------------------------------------------------------------------------
+ JENKINS INTERVIEW PREPARATION SHEET 
+-----------------------------------------------------------------------------
+ 1. What is Jenkins?
+Jenkins is an open-source automation server used to implement CI/CD pipelines. It automates building, testing, and deploying software, improving development speed and reliability.
+
+-----------------------------------------------------------------------------
+ 2. What is CI/CD?
+CI (Continuous Integration) means every code commit is automatically built and tested.
+CD (Continuous Delivery/Deployment) means the verified build is automatically released to staging or production.
+
+-----------------------------------------------------------------------------
+ 3. Why is Jenkins used?
+It automates repetitive tasks like builds, tests, and deployments. It also integrates with almost every DevOps tool (Git, Maven, Docker, Kubernetes, etc.).
+
+-----------------------------------------------------------------------------
+ 4. What is a Jenkins Pipeline?
+A pipeline is an automated process that defines all stages of CI/CD using code. It allows consistent, repeatable builds and deployment workflows.
+
+-----------------------------------------------------------------------------
+ 5. What is a Jenkinsfile?
+A Jenkinsfile is a text file (usually stored in a Git repository) that defines a Jenkins Pipeline—the automated steps that Jenkins should perform such as building, testing, and deploying an application.
+
+It is written using Jenkins’ Pipeline DSL, either in:
+    Declarative Pipeline syntax, or
+    Scripted Pipeline syntax.
+
+Storing the Jenkinsfile in version control enables pipeline-as-code, making CI/CD processes reproducible, maintainable, and easy to track.
+
+@Why Jenkinsfile is useful:
+        Pipeline as code – configuration stored in Git
+        Version-controlled and reproducible pipelines
+        Reusable and easy to maintain
+        Clear visibility of build/test/deploy flow
+        Supports simple to complex CI/CD workflows
+        Automates the entire software delivery process
+
+@What a Jenkinsfile typically contains:
+     Stages (e.g., build, test, deploy)
+     Steps within each stage
+     Environment variables
+     Agent selection (where the pipeline runs)
+     Post conditions (cleanup, notifications)
+     Credential handling (secure secrets access)
+-----------------------------------------------------------------------------
+ 6. Types of Jenkins Pipelines
+1. Declarative Pipeline – Structured, easier to read, recommended.
+2. Scripted Pipeline – More flexible, Groovy-based.
+
+-----------------------------------------------------------------------------
+ 7. What is a Jenkins Job (Project)?
+A job is a unit of work Jenkins performs—like building code, running tests, or deploying artifacts. Jobs can be freestyle, pipeline, Maven, or multi-branch.
+
+-----------------------------------------------------------------------------
+ 8. What are Jenkins Agents (Nodes)?
+Agents are worker machines that run the tasks assigned by the Jenkins controller. This enables distributed, parallel, or OS-specific builds.
+
+-----------------------------------------------------------------------------
+ 9. What is Jenkins Master/Controller?
+The controller manages job scheduling, configuration, UI, and plugin management. It delegates workload execution to agents.
+
+-----------------------------------------------------------------------------
+ 10. What is Workspace in Jenkins?
+A workspace is a directory on an agent where Jenkins checks out code and runs build steps. Each job has its own workspace.
+
+-----------------------------------------------------------------------------
+ 11. How do builds get triggered?
+ Manual run
+ Git webhook (push/PR)
+ Scheduled cron triggers
+ After another job
+ API or script triggers
+
+-----------------------------------------------------------------------------
+ 12. What are Jenkins Plugins?
+Plugins extend Jenkins with additional capabilities—connecting it to Git, Docker, Kubernetes, SonarQube, Slack, etc. Jenkins relies heavily on plugins for ecosystem integration.
+
+-----------------------------------------------------------------------------
+ 13. What is Blue Ocean?
+Blue Ocean is a modern Jenkins UI for visualizing pipelines. It provides a cleaner, stage-based view of pipeline executions.
+
+-----------------------------------------------------------------------------
+ 14. What is a Multibranch Pipeline?
+It automatically creates a pipeline for each branch in a repository. This is commonly used in GitFlow or PR-based workflows.
+
+-----------------------------------------------------------------------------
+ 15. What is a Shared Library in Jenkins?
+A shared library allows you to store reusable pipeline code outside individual Jenkinsfiles. It improves maintainability and avoids duplication.
+
+-----------------------------------------------------------------------------
+ 16. How do you secure Jenkins?
+Enable user authentication, use role-based authorization, secure it with HTTPS, limit agent permissions, and keep plugins updated.
+
+-----------------------------------------------------------------------------
+ 17. What is the “Post” section in a pipeline?
+The `post` block runs after all stages—handling success, failure, always, cleanup, and notifications.
+
+-----------------------------------------------------------------------------
+ 18. How do you pass parameters to a job?
+Enable “This project is parameterized” and define parameters such as string, choice, boolean, or credentials. The parameters become available as environment variables.
+
+-----------------------------------------------------------------------------
+ 19. What is the difference between build and deploy?
+The build process compiles the code and runs tests. Deployment moves the final built artifacts to an environment such as dev, staging, or production.
+
+-----------------------------------------------------------------------------
+ 20. What is Jenkins Declarative Pipeline syntax example?
+```groovy
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building...'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing...'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying...'
+            }
+        }
+    }
+}
+```
+
+-----------------------------------------------------------------------------
+ 21. How does Jenkins integrate with Git?
+By using the Git plugin, Jenkins can pull code from GitHub, GitLab, or Bitbucket. Builds can also trigger automatically on commits using webhooks.
+
+-----------------------------------------------------------------------------
+ 22. What is Jenkins Artifacts?
+Artifacts are files generated during the build—like JARs, WARs, reports—which can be archived and downloaded from Jenkins.
+
+-----------------------------------------------------------------------------
+ 23. What is Jenkins Retry?
+`retry(n)` is used in pipelines to automatically retry a step multiple times if failures occur due to flaky issues.
+
+-----------------------------------------------------------------------------
+ 24. What is Jenkins Stash and Unstash?
+`stash` temporarily saves files during the pipeline, and `unstash` retrieves them in another stage or agent. It helps share files across stages.
+
+-----------------------------------------------------------------------------
+ 25. How do you integrate Jenkins with Docker?
+Jenkins can build Docker images, run containers for testing, or deploy images. This requires the Docker plugin or installing Docker on agents.
+
+-----------------------------------------------------------------------------
+ 26. What is Jenkins Matrix (Multi-Configuration) Job?
+It allows running the same job across multiple environments—like different JDK versions, OS types, or configurations.
+
+-----------------------------------------------------------------------------
+ 27. What is Jenkins Credentials Management?
+Jenkins securely stores passwords, SSH keys, tokens, and secrets. Pipelines can access them through the `credentials()` helper.
+
+-----------------------------------------------------------------------------
+ 28. What is Jenkins Distributed Build Architecture?
+The controller handles UI and job scheduling, while agents handle execution. This improves performance, scalability, and separation of environments.
+
+-----------------------------------------------------------------------------
+ 29. What is a Trigger in Jenkins?
+Triggers define when a job should run (poll SCM, cron, webhook, upstream job, etc.).
+
+-----------------------------------------------------------------------------
+ 30. What is SCM Polling?
+Jenkins periodically checks the repository for changes. If changes are found, a build starts.
+
+-----------------------------------------------------------------------------
+
